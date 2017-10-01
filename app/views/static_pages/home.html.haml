@@ -1,0 +1,34 @@
+.topimage
+  .topslider
+  .topcontent
+    %h2 掲載無料のスポーツイベント予約サイト
+    .row.topcontent-button
+      .col-md-6.col-xs-12
+        = link_to "カスタム検索", "#", class: "search-button"
+      .col-md-6.col-xs-12
+        = link_to "イベント投稿", new_event_path, class: "post-button"
+.container-fluid.home-search
+  %p 検索やでー
+.container-fluid.new-events
+  %h2 新着イベント
+  %p 最近投稿されたスポーツイベントです。
+.container-fluid.post-event
+  %h2 スポーツイベントを投稿する
+  %p イベントやレッスン、社会人サークル・ランニングなどの集客や仲間集めに活用してください。
+  = link_to "募集を開始する", new_event_path
+.container-fluid.about-bodymate
+  %h2 オトナの運動ハードルを下げる
+  %p Bodymateはどこよりも簡単にスポーツイベントを検索・予約できることにより、大人の運動ハードルを下げるためのサービスです。
+  .row
+    .col-md-4.col-sm-12
+      = image_tag("free.png", alt: "登録無料のイメージ", class: "free-image")
+      %h3 掲載無料・審査なし
+      %p イベント掲載の審査はなく、イベント投稿フォームより無料で誰でもできます。
+    .col-md-4.col-sm-12
+      = image_tag("search.png", alt: "検索のイメージ", class: "search-image")
+      %h3 条件検索で見つかる
+      %p スポーツジャンルや時間帯、特定の条件を合わせて検索することで自分に合ったスポーツイベントが簡単に見つかります。
+    .col-md-4.col-sm-12
+      = image_tag("booking.png", alt: "予約のイメージ", class: "booking-image")
+      %h3 予約はログイン不要
+      %p イベント参加予約はお名前とメールアドレスのみで会員登録なしで簡単にできます。

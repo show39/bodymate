@@ -1,0 +1,37 @@
+- provide(:title, "アカウント設定")
+.signup__wrapper
+  %h3 アカウント設定
+  .signup__form
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = devise_error_messages!
+      .form-group
+        .field
+          = f.email_field :email, placeholder: "メールアドレス", class: "form-control"
+      .form-group
+        .field
+          = f.password_field :password, minlength: "6", placeholder: "新しいパスワード（6文字以上）", autocomplete: "off", class: "form-control"
+      .form-group
+        .field
+          = f.password_field :password_confirmation, minlength: "6", placeholder: "新しいパスワード（確認）", autocomplete: "off", class: "form-control"
+      .form-group
+        .field
+          = f.password_field :current_password, placeholder: "現在のパスワード", autocomplete: "off", class: "form-control"
+      .form-group
+        .field
+          = f.text_field :name, placeholder: "ユーザー名（必須）", class: "form-control"
+      .form-group
+        .field
+          = f.label "アイコン画像", class: "thumbnail-label"
+          = f.file_field :icon
+      .form-group
+        .field
+          = f.text_field :title, placeholder: "肩書き", class: "form-control"
+      .form-group
+        .field
+          = f.text_area :profile, placeholder: "プロフィール", class: "form-control signup__form--textarea"
+      .form-group
+        .text-right
+          .actions
+            = f.submit "変更を保存する", class: "btn btn-primary"
+          .signup__form--cancel
+            = link_to "キャンセル", root_path

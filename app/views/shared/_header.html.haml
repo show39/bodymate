@@ -1,0 +1,20 @@
+%nav.navbar.navbar-fixed-top
+  .container-fluid
+    .navbar-header
+      %button{type: 'button', class: "navbar-toggle", data:{toggle: "collapse"}, href: "#navbar-main"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to image_tag("bodymatelogo.png", alt: "Bodymateロゴ"), root_path, class: 'navbar-brand'
+    .navbar-collapse.collapse#navbar-main
+      %ul.nav.navbar-nav.navbar-right
+        %li=link_to "Bodymateについて", about_path
+        %li=link_to "使い方", guide_path
+        - if user_signed_in?
+          %li= link_to 'イベント投稿', new_event_path
+          %li= link_to 'マイページ'
+          %li= link_to 'ログアウト', destroy_user_session_path, method: :delete
+        - else
+          %li= link_to '無料登録', new_user_registration_path
+          %li= link_to 'ログイン', new_user_session_path

@@ -1,0 +1,99 @@
+- provide(:title, "新規イベント作成")
+.signup__wrapper
+  %h3 新規イベント作成
+  .signup__form
+    = form_for @event do |f|
+      .form-group
+        .field
+          = f.label :イベント名（必須）
+          = f.text_field :name, placeholder: "例：皇居マラソン", class: "form-control"
+      .form-group
+        .field
+          = f.label :概要
+          = f.text_area :description, placeholder: "例：5km、10km、ハーフマラソンでの自動タイム計測できます", style: 'width: 100%;height: 90px;', class: "form-control"
+      .form-group
+        .field
+          = f.label :料金制度（必須）
+          = f.radio_button :price_type, 0, checked: true
+          = f.label :無料
+          = f.radio_button :price_type, 1
+          = f.label :有料
+      .form-group
+        .field
+          = f.label :開催日時（必須）
+          = f.datetime_select :event_start, use_month_number: true, minute_step: 10, default: Time.now
+          = f.datetime_select :event_end, use_month_number: true, minute_step: 10
+      .form-group
+        .field
+          = f.label :定員
+          = f.number_field :capacity, value: "1", maxlength: 10000
+      .form-group
+        .field
+          = f.label :募集期間
+          = f.datetime_select :recruit_start, use_month_number: true, minute_step: 10
+          = f.datetime_select :recruit_end, use_month_number: true, minute_step: 10
+      .form-group
+        .field
+          = f.label :イベント画像
+          = f.file_field :image
+      .form-group
+        .field
+          = f.label :イベント案内文
+          = f.text_area :article, cols: "39", rows: "10", placeholder: "例：すごいマラソンイベントです!!"
+      .form-group
+        .field
+          = f.label :会場名（必須）
+          = f.text_field :place, placeholder: "皇居", class: "form-control"
+      .form-group
+        .field
+          = f.label :会場のURL
+          = f.url_field :place_url, placeholder: "http://bodymate.jp/", class: "form-control"
+      .form-group
+        .field
+          = f.label :郵便番号番号（ハイフンなし7桁）
+          = f.text_field :postcode, placeholder: "1234567", class: "form-control"
+      .form-group
+        .field
+          = f.label :都道府県（必須）
+          = f.select :prefecture, [["北海道", "hokkaido"], ["東京都", "rtokyo"]]
+      .form-group
+        .field
+          = f.label :市区町村
+          = f.text_field :city, placeholder: "中央区", class: "form-control"
+      .form-group
+        .field
+          = f.label :住所
+          = f.text_field :address1, placeholder: "築地1-1-1", class: "form-control"
+      .form-group
+        .field
+          = f.label :ビル名・階数
+          = f.text_field :address2, placeholder: "マグロビル 3F", class: "form-control"
+      .form-group
+        .field
+          = f.label :GoogleマップのURL
+          = f.text_field :map, placeholder: "https://goo.gl/maps/vDTkCLevExG2", class: "form-control"
+      .form-group
+        .field
+          = f.label :主催者（必須）
+          = f.text_field :organizer, placeholder: "筋肉の伝道師とっぴー", class: "form-control"
+      .form-group
+        .field
+          = f.label :電話番号（必須）
+          = f.text_field :tel, placeholder: "03-0000-0000", class: "form-control"
+      .form-group
+        .field
+          = f.label :メールアドレス（必須）
+          = f.text_field :email, placeholder: "sample@gmail.com", class: "form-control"
+      .form-group
+        .field
+          = f.label :FacebookのURL
+          = f.text_field :facebook_url, placeholder: "https://www.facebook.com/bodymate.jp", class: "form-control"
+      .form-group
+        .field
+          = f.label :TwitterのURL
+          = f.text_field :twitter_url, placeholder: "https://twitter.com/bodymate_jp", class: "form-control"
+
+      .form-group
+        .text-right
+          .actions
+            = f.submit "新規イベントを作成", class: "btn btn-primary"

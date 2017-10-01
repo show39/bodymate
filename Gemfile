@@ -11,23 +11,27 @@ gem 'puma'
 gem 'turbolinks'
 
 # UI/UX
-gem 'sass-rails'
 gem 'uglifier'
-gem 'coffee-rails'
 gem 'jquery-rails'
+gem 'coffee-rails'
 gem 'jbuilder'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'sass-rails'
 gem 'haml-rails'
 gem 'erb2haml'
+gem 'wareki'
 
 # ユーザー機能
 gem 'devise'
 gem 'devise-i18n'
+# gem 'bcrypt' #パスワード暗号化機能を提供してくれる。本番に上げる際はコメントアウトを外す。
 
 # 日本語化
 gem 'rails-i18n'
+
+# 検索機能
+gem 'ransack'
 
 # テキストのURLをリンクにする
 gem 'rails_autolink'
@@ -39,7 +43,6 @@ gem 'kaminari'
 gem 'gretel'
 
 # gem 'redis'
-# gem 'bcrypt'
 
 # gem 'capistrano-rails', group: :development
 

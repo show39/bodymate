@@ -1,0 +1,108 @@
+.topimage {
+  position: relative;
+  .topslider {
+    height: 620px;
+    background-image: url(bodymateappheader.jpg);
+    -webkit-background-size: 4352px;
+    background-size: 4352px;
+    -webkit-animation: bgscroll 25s linear infinite;
+    animation: bgscroll 25s linear infinite;
+    -webkit-filter: brightness(0.4);
+    -moz-filter: brightness(0.4);
+    -o-filter: brightness(0.4);
+    -ms-filter: brightness(0.4);
+    filter: brightness(0.4);
+  }
+  .topcontent {
+    color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    .topcontent-button {
+      text-align: center;
+      .search-button {
+        font-size: 20px;
+        border: 1px solid white;
+        border-radius: 3px;
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 30px;
+      }
+      .post-button {
+        font-size: 20px;
+        border: 1px solid white;
+        border-radius: 3px;
+        display: inline-block;
+        padding: 10px 20px;
+        margin:30px 10px 0 10px;
+      }
+    }
+  }
+}
+
+@-webkit-keyframes bgscroll {
+  0% {background-position: 0 0;}
+  100% {background-position: -4352px　0;}
+}
+
+@keyframes bgscroll {
+  0% {background-position: 0 0;}
+  100% {background-position: -620px 0;}
+}
+
+.home-search {
+  background-color: blue;
+}
+
+.new-events {
+  background-color: green;
+}
+
+.post-event {
+  background-color: yellow;
+}
+
+.about-bodymate {
+  color: $font_black;
+  h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 30px;
+  }
+  p {
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0 40px;
+  }
+  h3 {
+    text-align: center;
+  }
+  .free-image {
+    width: 240px;
+    height: 240px;
+    border-radius: 240px;
+    display: block;
+    margin: 0 auto;
+  }
+  .search-image {
+    width: 240px;
+    height: 240px;
+    border-radius: 240px;
+    display: block;
+    margin: 0 auto;
+  }
+  .booking-image {
+    width: 240px;
+    height: 240px;
+    border-radius: 240px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.categories {
+  
+}

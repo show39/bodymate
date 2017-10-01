@@ -1,1 +1,12 @@
-@import “bootstrap/bootstrap.scss”;
+@import "./config/variable";
+@import "./config/reset";
+@import "./mixin/mixins";
+
+@import "footer";
+@import "home";
+@import "devise";
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
