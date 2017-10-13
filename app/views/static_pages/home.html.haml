@@ -7,6 +7,7 @@
         = link_to "条件検索", "#", class: "search-button"
       .col-md-6.col-xs-12
         = link_to "無料投稿", new_event_path, class: "post-button"
+
 .container-fluid.home-search
   .home-search-container.text-center
     %select.home-search-box{name: "prefecture"}
@@ -101,17 +102,19 @@
           .event-image
             .event-name= event.name
             .event-name-background= event.name
-            = image_tag("event-image.jpg", alt: "イベントイメージ", size: "600x400", class: "img-responsive")
+            = image_tag("event-image.jpg", alt: "イベントイメージ", size: "960x640", class: "img-responsive")
             = link_to "ジャンル1サンプル", "#", class: "sports-genre1"
             = link_to "ジャンル2サンプル", "#", class: "sports-genre2"
             %span.price ¥2,000
-          .event-description= event.description
-          %p.event-start= event.event_start
-          %p.event-address
-            = event.prefecture
-            = event.city
-            = event.address1
-            = event.address2
+          .event-description-area
+            .event-description= event.description
+          .event-information-area
+            %p.event-start= event.event_start
+            %p.event-address
+              %span.event-prefecture= event.prefecture
+              %span.event-city= event.city
+              %span.event-address1= event.address1
+              %span.event-address2= event.address2
 
 .container-fluid.post-event
   .post-event-content
@@ -120,6 +123,7 @@
       %p イベントやレッスン、社会人サークル・ランニングなどの集客や仲間集めに活用してください。
     .post-event-right
       = link_to "募集を開始する", new_event_path, class: "post-event-button"
+
 .container-fluid.about-bodymate
   %h2 オトナの運動ハードルを下げる
   %p Bodymateはどこよりも簡単にスポーツイベントを検索・予約できることにより、大人の運動ハードルを下げるためのサービスです。

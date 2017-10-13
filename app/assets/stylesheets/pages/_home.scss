@@ -99,10 +99,11 @@
   }
   .new-events-wraper {
     margin: 0;
+    padding: 5px 0 15px;
     .event-block {
       border: 1px solid $dark_gray;
       border-radius: 3px;
-      margin: 5px 5px;
+      margin: 8px 8px 8px;
       position: relative;
       box-shadow: 0 2px 4px $dark_gray;
       .event-image {

@@ -40,8 +40,15 @@ footer {
   }
   .footer-bottom {
     background-color: #2b3d52;
-    ul {
-      margin: 0;
+    padding: 15px 20px 10px;
+    .footer-bottom-link {
+      margin-bottom: 10px;
+      ul {
+        margin: 0;
+        li {
+          text-align: center;
+        }
+      }
     }
     .copyright {
       color: white;
