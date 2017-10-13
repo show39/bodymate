@@ -1,0 +1,55 @@
+footer {
+  .classify {
+    background-color: #3d618c;
+    padding: 20px 40px;
+    margin-bottom: 0;
+    .prefecture {
+      p {
+        text-align: center;
+        color: white;
+        font-size: 16px;
+      }
+      .prefecture-left {
+        float: left;
+      }
+      .prefecture-right {
+        float: left;
+      }
+    }
+    .genre {
+      p {
+        text-align: center;
+        color: white;
+        font-size: 16px;
+      }
+    }
+    .date {
+      p {
+        text-align: center;
+        color: white;
+        font-size: 16px;
+      }
+    }
+    .feature {
+      p {
+        text-align: center;
+        color: white;
+        font-size: 16px;
+      }
+    }
+  }
+  .footer-bottom {
+    background-color: #2b3d52;
+    ul {
+      margin: 0;
+    }
+    .copyright {
+      color: white;
+      text-align: center;
+      p {
+        padding: 20px 0 10px;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

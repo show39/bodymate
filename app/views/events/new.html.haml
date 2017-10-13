@@ -55,14 +55,14 @@
       .form-group
         .field
           = f.label :都道府県（必須）
-          = f.select :prefecture, [["北海道", "hokkaido"], ["東京都", "rtokyo"]]
+          = f.select :prefecture, [["北海道", "北海道"], ["青森県", "青森県"], ["東京都", "東京都"]]
       .form-group
         .field
-          = f.label :市区町村
+          = f.label :市区町村（必須）
           = f.text_field :city, placeholder: "中央区", class: "form-control"
       .form-group
         .field
-          = f.label :住所
+          = f.label :住所（必須）
           = f.text_field :address1, placeholder: "築地1-1-1", class: "form-control"
       .form-group
         .field

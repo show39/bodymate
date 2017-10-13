@@ -2,9 +2,12 @@
 @import "./config/reset";
 @import "./mixin/mixins";
 
-@import "footer";
-@import "home";
-@import "devise";
+@import "./common/header";
+@import "./common/footer";
+@import "./common/bootstrap";
+
+@import "./pages/home";
+@import "./pages/devise";
 
 @import "bootstrap-sprockets";
 @import "bootstrap";

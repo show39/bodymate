@@ -1,79 +1,82 @@
 %footer
-  .classify
-    .place
-      %p 都道府県から探す
-      %ul
-        %li= link_to "北海道", "", class: "prefecture"
-        %li= link_to "青森県", "", class: "prefecture"
-        %li= link_to "岩手県", "", class: "prefecture"
-        %li= link_to "宮城県", "", class: "prefecture"
-        %li= link_to "秋田県", "", class: "prefecture"
-        %li= link_to "山形県", "", class: "prefecture"
-        %li= link_to "福島県", "", class: "prefecture"
-        %li= link_to "茨城県", "", class: "prefecture"
-        %li= link_to "栃木県", "", class: "prefecture"
-        %li= link_to "群馬県", "", class: "prefecture"
-        %li= link_to "埼玉県", "", class: "prefecture"
-        %li= link_to "千葉県", "", class: "prefecture"
-        %li= link_to "東京都", "", class: "prefecture"
-        %li= link_to "神奈川県", "", class: "prefecture"
-        %li= link_to "新潟県", "", class: "prefecture"
-        %li= link_to "富山県", "", class: "prefecture"
-        %li= link_to "石川県", "", class: "prefecture"
-        %li= link_to "福井県", "", class: "prefecture"
-        %li= link_to "山梨県", "", class: "prefecture"
-        %li= link_to "長野県", "", class: "prefecture"
-        %li= link_to "岐阜県", "", class: "prefecture"
-        %li= link_to "静岡県", "", class: "prefecture"
-        %li= link_to "愛知県", "", class: "prefecture"
-        %li= link_to "三重県", "", class: "prefecture"
-        %li= link_to "滋賀県", "", class: "prefecture"
-        %li= link_to "京都府", "", class: "prefecture"
-        %li= link_to "大阪府", "", class: "prefecture"
-        %li= link_to "兵庫県", "", class: "prefecture"
-        %li= link_to "奈良県", "", class: "prefecture"
-        %li= link_to "和歌山県", "", class: "prefecture"
-        %li= link_to "鳥取県", "", class: "prefecture"
-        %li= link_to "島根県", "", class: "prefecture"
-        %li= link_to "岡山県", "", class: "prefecture"
-        %li= link_to "広島県", "", class: "prefecture"
-        %li= link_to "山口県", "", class: "prefecture"
-        %li= link_to "徳島県", "", class: "prefecture"
-        %li= link_to "香川県", "", class: "prefecture"
-        %li= link_to "愛媛県", "", class: "prefecture"
-        %li= link_to "高知県", "", class: "prefecture"
-        %li= link_to "福岡県", "", class: "prefecture"
-        %li= link_to "佐賀県", "", class: "prefecture"
-        %li= link_to "長崎県", "", class: "prefecture"
-        %li= link_to "熊本県", "", class: "prefecture"
-        %li= link_to "大分県", "", class: "prefecture"
-        %li= link_to "宮崎県", "", class: "prefecture"
-        %li= link_to "鹿児島県", "", class: "prefecture"
-        %li= link_to "沖縄県", "", class: "prefecture"
-    .genre
-      %p スポーツ種目から探す
-      %ul
-        %li= link_to "ヨガ", "", class: ""
-        %li= link_to "格闘技", "", class: ""
-        %li= link_to "フットサル", "", class: ""
-    .date
-      %p 開催日から探す
-      %ul
-        %li= link_to "今日のイベント", "", class: ""
-        %li= link_to "明日のイベント", "", class: ""
-        %li= link_to "今週のイベント", "", class: ""
-        %li= link_to "来週のイベント", "", class: ""
-        %li= link_to "今月のイベント", "", class: ""
-        %li= link_to "来月のイベント", "", class: ""
-        %li= link_to "土日(週末)のイベント", "", class: ""
-        %li= link_to "土曜日のイベント", "", class: ""
-        %li= link_to "日曜日のイベント", "", class: ""
-    .feature
-      %p 特徴から探す
-      %ul
-        %li= link_to "朝活", "", class: ""
-        %li= link_to "無料体験", "", class: ""
-  .footer-buttom
+  .container
+    .classify.row
+      .prefecture.col-md-3.col-xs-12
+        %p 都道府県から探す
+        %ul
+          .prefecture-left
+            %li= link_to "北海道", "", class: "prefecture"
+            %li= link_to "青森県", "", class: "prefecture"
+            %li= link_to "岩手県", "", class: "prefecture"
+            %li= link_to "宮城県", "", class: "prefecture"
+            %li= link_to "秋田県", "", class: "prefecture"
+            %li= link_to "山形県", "", class: "prefecture"
+            %li= link_to "福島県", "", class: "prefecture"
+            %li= link_to "茨城県", "", class: "prefecture"
+            %li= link_to "栃木県", "", class: "prefecture"
+            %li= link_to "群馬県", "", class: "prefecture"
+            %li= link_to "埼玉県", "", class: "prefecture"
+            %li= link_to "千葉県", "", class: "prefecture"
+            %li= link_to "東京都", "", class: "prefecture"
+            %li= link_to "神奈川県", "", class: "prefecture"
+            %li= link_to "新潟県", "", class: "prefecture"
+            %li= link_to "富山県", "", class: "prefecture"
+            %li= link_to "石川県", "", class: "prefecture"
+            %li= link_to "福井県", "", class: "prefecture"
+            %li= link_to "山梨県", "", class: "prefecture"
+            %li= link_to "長野県", "", class: "prefecture"
+            %li= link_to "岐阜県", "", class: "prefecture"
+            %li= link_to "静岡県", "", class: "prefecture"
+            %li= link_to "愛知県", "", class: "prefecture"
+            %li= link_to "三重県", "", class: "prefecture"
+          .prefecture-right
+            %li= link_to "滋賀県", "", class: "prefecture"
+            %li= link_to "京都府", "", class: "prefecture"
+            %li= link_to "大阪府", "", class: "prefecture"
+            %li= link_to "兵庫県", "", class: "prefecture"
+            %li= link_to "奈良県", "", class: "prefecture"
+            %li= link_to "和歌山県", "", class: "prefecture"
+            %li= link_to "鳥取県", "", class: "prefecture"
+            %li= link_to "島根県", "", class: "prefecture"
+            %li= link_to "岡山県", "", class: "prefecture"
+            %li= link_to "広島県", "", class: "prefecture"
+            %li= link_to "山口県", "", class: "prefecture"
+            %li= link_to "徳島県", "", class: "prefecture"
+            %li= link_to "香川県", "", class: "prefecture"
+            %li= link_to "愛媛県", "", class: "prefecture"
+            %li= link_to "高知県", "", class: "prefecture"
+            %li= link_to "福岡県", "", class: "prefecture"
+            %li= link_to "佐賀県", "", class: "prefecture"
+            %li= link_to "長崎県", "", class: "prefecture"
+            %li= link_to "熊本県", "", class: "prefecture"
+            %li= link_to "大分県", "", class: "prefecture"
+            %li= link_to "宮崎県", "", class: "prefecture"
+            %li= link_to "鹿児島県", "", class: "prefecture"
+            %li= link_to "沖縄県", "", class: "prefecture"
+      .genre.col-md-3.col-xs-12
+        %p スポーツ種目から探す
+        %ul
+          %li= link_to "ヨガ", "", class: ""
+          %li= link_to "格闘技", "", class: ""
+          %li= link_to "フットサル", "", class: ""
+      .date.col-md-3.col-xs-12
+        %p 開催日から探す
+        %ul
+          %li= link_to "今日のイベント", "", class: ""
+          %li= link_to "明日のイベント", "", class: ""
+          %li= link_to "今週のイベント", "", class: ""
+          %li= link_to "来週のイベント", "", class: ""
+          %li= link_to "今月のイベント", "", class: ""
+          %li= link_to "来月のイベント", "", class: ""
+          %li= link_to "土日(週末)のイベント", "", class: ""
+          %li= link_to "土曜日のイベント", "", class: ""
+          %li= link_to "日曜日のイベント", "", class: ""
+      .feature.col-md-3.col-xs-12
+        %p 特徴から探す
+        %ul
+          %li= link_to "朝活", "", class: ""
+          %li= link_to "無料体験", "", class: ""
+  .footer-bottom
     %ul
       %li= link_to "よくある質問", faq_path, class: "col-md-2 col-xs-12"
       %li= link_to "利用規約", terms_path, class: "col-md-2 col-xs-12"

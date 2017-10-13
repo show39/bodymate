@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: :new
 
   def new
+    @user = current_user
     @event = Event.new
   end
 
@@ -12,7 +13,7 @@ class EventsController < ApplicationController
     else
       flash.now[:alert] = @event.errors.full_messages.join(",")
       render template: "events/new"
-    end      
+    end
   end
 
   private
