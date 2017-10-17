@@ -1,6 +1,4 @@
 require "capistrano/setup"
-require "capistrano/scm/git"
-
 require "capistrano/deploy"
 
 require 'capistrano/rbenv'
