@@ -2,7 +2,7 @@
 lock "3.8.2"
 
 set :application, "bodymate"
-set :repo_url, "git@example.com:show39/bodymate.git"
+set :repo_url, "git@github.com:show39/bodymate.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
