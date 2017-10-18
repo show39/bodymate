@@ -3,6 +3,7 @@ lock "3.8.2"
 
 set :application, "bodymate"
 set :repo_url, "git@github.com:show39/bodymate.git"
+set :deploy_to, '/var/www/bodymate'
 
 set :ssh_options, :port => "1122"
 
