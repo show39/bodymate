@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock "3.8.2" test
+lock "3.8.2"
 
 set :application, "bodymate"
 set :repo_url, "git@github.com:show39/bodymate.git"
