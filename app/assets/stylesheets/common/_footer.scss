@@ -1,40 +1,45 @@
 footer {
+  h2 {
+    color: #ffffff;
+    font-size: 1.8em;
+  }
+  h3 {
+    color: #ffffff;
+    font-size: 1.6em;
+    line-height: 1.7;
+  }
+  a {
+    color: #ffffff;
+    font-size: 1.2em;
+    line-height: 1.7;
+  }
   .classify {
     background-color: #3d618c;
     padding: 20px 40px;
     margin-bottom: 0;
+    text-align: center;
     .prefecture {
-      p {
-        text-align: center;
-        color: white;
-        font-size: 16px;
-      }
-      .prefecture-left {
-        float: left;
-      }
-      .prefecture-right {
-        float: left;
+      a:hover {
+        color: $brand-primary;
+        text-decoration: none;
       }
     }
     .genre {
-      p {
-        text-align: center;
-        color: white;
-        font-size: 16px;
+      a:hover {
+        color: $brand-primary;
+        text-decoration: none;
       }
     }
     .date {
-      p {
-        text-align: center;
-        color: white;
-        font-size: 16px;
+      a:hover {
+        color: $brand-primary;
+        text-decoration: none;
       }
     }
     .feature {
-      p {
-        text-align: center;
-        color: white;
-        font-size: 16px;
+      a:hover {
+        color: $brand-primary;
+        text-decoration: none;
       }
     }
   }
@@ -42,11 +47,16 @@ footer {
     background-color: #2b3d52;
     padding: 15px 20px 10px;
     .footer-bottom-link {
-      margin-bottom: 10px;
+      a:hover {
+        color: $brand-primary;
+        text-decoration: none;
+      }
       ul {
         margin: 0;
+        text-align: center;
         li {
-          text-align: center;
+          display: inline-block;
+          padding: 5px 10px 0;
         }
       }
     }

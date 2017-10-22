@@ -21,23 +21,35 @@
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
+    h1 {
+      color: #ffffff;
+      font-size:2.5em;
+      margin:20px 0px;
+    }
+    p {
+      color: #ffffff;
+      font-size:1.5em;
+    }
     .topcontent-button {
-      text-align: center;
-      .search-button {
-        font-size: 20px;
-        border: 1px solid white;
-        border-radius: 3px;
+      .button {
+        position: relative;
         display: inline-block;
-        padding: 12px 30px;
-        margin-top: 30px;
+        font-weight: normal;
+        padding: 0.5em 1.7em 0.5em 1.3em;
+        text-decoration: none;
+        border: solid 2px #333333;
+        border-radius: 4px;
+        color: #333333;
+        transition: .3s;
+        background: $brand-primary;
+        font-size: 1.5em;
+        margin: 30px 0px;
       }
-      .post-button {
-        font-size: 20px;
-        border: 1px solid white;
-        border-radius: 3px;
-        display: inline-block;
-        padding: 12px 30px;
-        margin:30px 10px 0 10px;
+      .button:hover,
+      .button:active {
+        border: solid 1px $brand-primary;
+        background: #333333;
+        color: $brand-primary;
       }
     }
   }
@@ -186,38 +198,48 @@
 
 .post-event {
   background-color: #abbccc;
-  height: 160px;
+  min-height: 160px;
+  height: auto;
+  text-align: center;
+  color:#FFFFFF;
   .post-event-content {
-    margin-top: 20px;
+    height: auto;
+    margin: 20px 0;
+    padding: 25px 0px;
     .post-event-left {
-      float: left;
+      text-align: left;
+      display: inline-block;
+      text-align: center;
       h2 {
-        color: $font_black;
-        font-size: 28px;
+        margin-top: 0px;
+        font-size: 2em;
+        text-align: left;
       }
       p {
-        color: $font_black;
-        font-size: 18px;
+        font-size: 1.2em;
         margin-top: 15px;
+        margin-bottom: 0px;
+        text-align: left;
       }
     }
     .post-event-right {
-      float: right;
+      padding: 13px;
       .post-event-button {
         display: inline-block;
-        font-size: 20px;
-        color: $blue;
-        border: solid 1px $blue;
-        border-radius: 4px;
+        font-size: 1.5em;
         text-decoration: none;
-        background-color: white;
+        color: #333333;
+        border: solid 2px #333333;
+        border-radius: 4px;
+        background-color: $brand-primary;
         transition: .3s;
-        padding: 10px 15px;
-        margin-top: 32px;
+        padding: 8px 12px;
       }
-      .post-event-button:hover {
-        background: $blue;
-        color: white;
+      .post-event-button:hover,
+      .post-event-button:active {
+        border: solid 2px $brand-primary;
+        background: #333333;
+        color: $brand-primary;
       }
     }
   }
@@ -225,42 +247,40 @@
 
 .about-bodymate {
   color: $font_black;
-  h2 {
-    text-align: center;
-    font-size: 28px;
-    margin-top: 30px;
+  .about-bodymate-area {
+    margin: 8vh 0 3vh;
+    h2 {
+      text-align: center;
+      font-size: 2em;
+    }
+    p {
+      font-size: 1.2em;
+      text-align: center;
+      margin: 20px 0 40px;
+    }
+    h3 {
+      text-align: center;
+    }
+    .free-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 200px;
+      display: block;
+      margin: 0 auto;
+    }
+    .search-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 200px;
+      display: block;
+      margin: 0 auto;
+    }
+    .booking-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 200px;
+      display: block;
+      margin: 0 auto;
+    }
   }
-  p {
-    font-size: 18px;
-    text-align: center;
-    margin: 20px 0 40px;
-  }
-  h3 {
-    text-align: center;
-  }
-  .free-image {
-    width: 200px;
-    height: 200px;
-    border-radius: 200px;
-    display: block;
-    margin: 0 auto;
-  }
-  .search-image {
-    width: 200px;
-    height: 200px;
-    border-radius: 200px;
-    display: block;
-    margin: 0 auto;
-  }
-  .booking-image {
-    width: 200px;
-    height: 200px;
-    border-radius: 200px;
-    display: block;
-    margin: 0 auto;
-  }
-}
-
-.categories {
-
 }
