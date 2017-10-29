@@ -2,7 +2,7 @@
   position: relative;
   .topslider {
     height: 620px;
-    background-image: url(/assets/bodymateappheader.jpg);
+    background-image: url(image-path("bodymateappheader.jpg"));
     -webkit-background-size: 4352px;
     background-size: 4352px;
     -webkit-animation: bgscroll 25s linear infinite;
