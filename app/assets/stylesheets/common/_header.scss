@@ -1,20 +1,19 @@
+.navbar-header {
+  background: none;
+}
 // ロゴ
 .navbar-brand {
   float: none;
   padding: 15px 15px;
   font-size: 18px;
   line-height: 20px;
-  height: 50px;
 }
 .logo {
-  width: 100%;
   img {
     webkit-filter:brightness(300%)  drop-shadow(2px 0 2px #333333);
     -moz-filter:brightness(300%)  drop-shadow(2px 0 2px #333333);
     -ms-filter:brightness(300%) drop-shadow(2px 0 2px #333333);
     filter:brightness(300%)  drop-shadow(2px 0 2px #333333);
-    width: 100%;
-    max-width: 300px;
   }
 }
 
