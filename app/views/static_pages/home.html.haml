@@ -16,9 +16,9 @@
         %option{value: ''} 都道府県を選択
         %option{value: "北海道"} 北海道
         %option{value: "青森県"} 青森県
+        %option{value: "秋田県"} 秋田県
         %option{value: "岩手県"} 岩手県
         %option{value: "宮城県"} 宮城県
-        %option{value: "秋田県"} 秋田県
         %option{value: "山形県"} 山形県
         %option{value: "福島県"} 福島県
         %option{value: "茨城県"} 茨城県
@@ -93,30 +93,31 @@
         %option{value: "参加無料"} 参加無料
     .home-search-button-area.text-center
       %input{type: "submit", value: "検索する", class: "home-search-button"}
-// test
 .container-fluid.new-events
   %h2 新着イベント
   %p.new-events-description 最近投稿されたスポーツイベントです。
   .new-events-wraper.row
     - @events.each do |event|
-      .col-md-3.col-sm-12
-        .event-block
-          .event-image
-            .event-name= event.name
-            .event-name-background= event.name
-            = image_tag("event-image.jpg", alt: "イベントイメージ", size: "960x640", class: "img-responsive")
-            = link_to "ジャンル1サンプル", "#", class: "sports-genre1"
-            = link_to "ジャンル2サンプル", "#", class: "sports-genre2"
-            %span.price ¥2,000
-          .event-description-area
-            .event-description= event.description
-          .event-information-area
-            %p.event-start= event.event_start
-            %p.event-address
-              %span.event-prefecture= event.prefecture
-              %span.event-city= event.city
-              %span.event-address1= event.address1
-              %span.event-address2= event.address2
+      .col-md-3.col-sm-6.col-xs-12
+        = link_to event do
+          .event-block
+            .event-image
+              .event-name= event.name
+              .event-name-background= event.name
+              = image_tag("event-image.jpg", alt: "イベントイメージ", size: "960x640", class: "img-responsive")
+              = link_to "ジャンル1サンプル", "#", class: "sports-genre1"
+              = link_to "ジャンル2サンプル", "#", class: "sports-genre2"
+              %span.price ¥2,000
+            = link_to event do
+              .event-description-area
+                .event-description= event.description
+              .event-information-area
+                %p.event-start= event.event_start
+                %p.event-address
+                  %span.event-prefecture= event.prefecture
+                  %span.event-city= event.city
+                  %span.event-address1= event.address1
+                  %span.event-address2= event.address2
 
 .container-fluid.post-event
   .post-event-content.row

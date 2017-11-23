@@ -16,6 +16,11 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    @user = current_user
+    @event = Event.find(params[:id])
+  end
+
   private
     def event_params
       params.require(:event).permit(:name, :description, :price_type, :event_start, :event_end, :capacity, :recruit_start, :recruit_end, :image, :article, :place, :place_url, :postcode, :prefecture, :city, :address1, :address2, :map, :organizer, :tel, :email, :facebook_url, :twitter_url).merge(user_id: current_user.id)

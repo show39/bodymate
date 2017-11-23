@@ -121,6 +121,7 @@
       .event-image {
         position: relative;
         .event-name {
+          font-size: 16px;
           color: white;
           width: 100%;
           z-index: 3;
@@ -129,6 +130,7 @@
           left: 0;
         }
         .event-name-background {
+          font-size: 16px;
           background-color: black;
           width: 100%;
           z-index: 1;

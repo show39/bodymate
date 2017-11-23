@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show]
 
-  resources :events, only: [:new, :create]
+  resources :events, only: [:new, :create, :show]
 
   root 'static_pages#home'
 

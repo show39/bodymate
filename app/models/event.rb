@@ -1,16 +1,15 @@
 class Event < ApplicationRecord
   belongs_to :user
+  has_many :tickets
 
   validates :name, presence: true, length: {maximum: 30}
   validates :description, length: {maximum: 80}
-  validates :place, presence: true
   validates :city, presence: true
   validates :address1, presence: true
   validates :organizer, presence: true
   validates :tel, presence: true
   validates :email, presence: true
   validates :article, presence: true, length: {maximum: 2000}
-  validates :capacity, presence: true, numericality: {greater_than_equal_to: 0}
   validate  :event_start_should_be_before_event_end
   validate  :recruit_start_should_be_before_recruit_end
 

@@ -10,13 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170930070926) do
+ActiveRecord::Schema.define(version: 20171123072817) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
     t.string "description"
-    t.integer "price_type", null: false
-    t.integer "capacity"
     t.datetime "event_start", null: false
     t.datetime "event_end"
     t.datetime "recruit_start"
@@ -39,8 +37,20 @@ ActiveRecord::Schema.define(version: 20170930070926) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "tel", null: false
+    t.string "organizer_url"
+    t.string "instagram_url"
     t.index ["prefecture"], name: "index_events_on_prefecture"
     t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "tickets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.integer "quantity", null: false
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_tickets_on_event_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -65,4 +75,5 @@ ActiveRecord::Schema.define(version: 20170930070926) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "tickets", "events"
 end

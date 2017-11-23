@@ -1,0 +1,76 @@
+.container.contents-wrapper
+  %h1 #{@event.name}
+  .row
+    .col-md-8
+      .left-contents
+        = image_tag("event-image.jpg", alt: "イベントイメージ", class: "event-image")
+        .event-description
+          %p #{@event.description}
+        .event-basicinfo
+          %h2 イベント情報
+          %table
+            %tr
+              %th 開催日時
+              %td #{@event.event_start.strftime("%Y年%m月%d日 %H:%M")} 〜 #{@event.event_end.strftime("%m月%d日 %H:%M")}
+            %tr
+              %th 開催場所
+              %td
+                #{@event.place}
+                - if(@event.place_url)
+                  = link_to('リンク', "#{@event.place_url}", target: "_blank")
+            %tr
+              %th 住所
+              %td
+                〒#{@event.postcode}<br />#{@event.prefecture}#{@event.city}#{@event.address1}#{@event.address2}
+                - if(@event.map)
+                  = link_to('マップ', "#{@event.map}", target: "_blank")
+            %tr
+              %th 募集状況
+              %td
+                - if(@event.recruit_start <= Time.now && @event.recruit_end >= Time.now)
+                  募集中
+                - elsif(@event.recruit_start >= Time.now)
+                  募集前
+                - else
+                  終了
+            %tr
+              %th 募集期間
+              %td #{@event.recruit_start.strftime("%Y年%m月%d日 %H:%M")} 〜 #{@event.recruit_end.strftime("%m月%d日 %H:%M")}
+        .event-sentence
+          %h2 イベント内容
+          .event-sentencebody= simple_format("#{@event.article}")
+        %h2 主催者情報
+        %p ＊当イベントは下記の主催者によって企画・運営されており、Bodymateは関与しておりません。
+        %table
+          %tr
+            %th 主催者
+            %td #{@event.organizer}
+          %tr
+            %th 電話番号
+            %td #{@event.tel}
+          %tr
+            %th メールアドレス
+            %td
+              = mail_to("#{@event.email}")
+          - if(@event.organizer_url)
+            %tr
+              %th ホームページ
+              %td
+                =link_to("#{@event.organizer_url}", "#{@event.organizer_url}", target: "_blank")
+
+          %tr
+            %th SNS
+            %td
+              - if(@event.facebook_url)
+                %span.organizer-facebook
+                  = link_to(content_tag(:i, ' Facebook', class: "fa fa-facebook-square"), "#{@event.facebook_url}", target: "_blank")
+              - if(@event.twitter_url)
+                %span.organizer-twitter
+                  = link_to(content_tag(:i, ' Twitter', class: "fa fa-twitter-square"), "#{@event.twitter_url}", target: "_blank")
+              - if(@event.instagram_url)
+                %span.organizer-instagram
+                  = link_to(content_tag(:i, ' Instagram', class: "fa fa-instagram"), "#{@event.instagram_url}", target: "_blank")
+    .col-md-4
+      .right-contents
+        %h2 チケット一覧
+        .ticket-box
