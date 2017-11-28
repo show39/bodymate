@@ -1,9 +1,12 @@
 class Event < ApplicationRecord
   belongs_to :user
   has_many :tickets
+  accepts_nested_attributes_for :tickets, allow_destroy: true
 
   validates :name, presence: true, length: {maximum: 30}
   validates :description, length: {maximum: 80}
+  validates :place, presence: true
+  validates :prefecture, presence: true
   validates :city, presence: true
   validates :address1, presence: true
   validates :organizer, presence: true

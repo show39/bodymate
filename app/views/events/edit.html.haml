@@ -1,9 +1,9 @@
-- provide(:title, "新規イベント作成")
+- provide(:title, "イベントの編集")
 .row
   .event_form_wrapper.col-sm-8.col-sm-offset-2
     .row
       .col-sm-10.col-sm-offset-1
-        %h2 新規イベント作成
+        %h2 イベントの作成
         = form_for @event do |f|
           .form-group
             .field
@@ -104,12 +104,28 @@
             .field
               = f.label :InstgramのURL
               = f.text_field :instagram_url, placeholder: "https://www.instagram.com/bodymate_jp", class: "form-control"
-          .form-group
-            .field
-              = f.fields_for :tickets do |t|
-                = render "ticket_boxes", f: t
-              = link_to_add_boxes 'チケット追加', f, :tickets
+          #tickets_box
+            = f.fields_for :tickets do |t|
+              .form-group
+                .field
+                  = t.label :チケット名
+                  %span.required 必須
+                  = t.text_field :name, placeholder: 'ハーフマラソン（完走証あり）', class: "form-control", required: true
+              .form-group
+                .field
+                  = t.label :価格
+                  %span.required 必須
+                  = t.number_field :price, placeholder: '6000', class: "form-control", required: true
+              .form-group
+                .field
+                  = t.label :定員
+                  %span.required 必須
+                  = t.number_field :quantity, placeholder: '500', class: "form-control", maxlength: 10000, required: true
+              - if @event.persisted?
+                = t.check_box :_destroy
+                = t.label :_destroy, 'チケットを削除する'
+
           .form-group
             .text-right
               .actions
-                = f.submit "新規イベントを作成", class: "btn btn-primary"
+                = f.submit "イベントを編集する", class: "btn btn-primary"

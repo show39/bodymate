@@ -13,6 +13,7 @@ gem 'turbolinks'
 # UI/UX
 gem 'uglifier'
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'coffee-rails'
 gem 'jbuilder'
 gem 'bootstrap-sass'
