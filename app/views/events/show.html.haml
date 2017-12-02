@@ -73,4 +73,19 @@
     .col-md-4
       .right-contents
         %h2 チケット一覧
-        .ticket-box
+        - @tickets.each do |ticket|
+          .ticket-box
+            .ticket-name #{ticket.name}
+            .ticket-price
+              %span 価格
+              - if(ticket.price == 0)
+                %span 参加無料
+              - else
+                %span ¥ #{ticket.price.to_s(:delimited)}
+            .ticket-quantity
+              %span 定員
+              %span 0
+              %span /
+              %span #{ticket.quantity}
+            .modal-button{data:{target: "modal-01"}}
+              = link_to "予約モーダルを開く", "#", class: "modal-open"

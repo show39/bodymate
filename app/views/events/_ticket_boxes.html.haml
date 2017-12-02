@@ -1,17 +1,20 @@
 %ticketset
-  .form-group
-    .field
-      = f.label :チケット名
-      %span.required 必須
-      = f.text_field :name, placeholder: 'ハーフマラソン（完走証あり）', class: "form-control"
-  .form-group
-    .field
-      = f.label :価格
-      %span.required 必須
-      = f.number_field :price, placeholder: '6000', class: "form-control"
-    .field
-      = f.label :定員
-      %span.required 必須
-      = f.number_field :quantity, placeholder: '500', class: "form-control", maxlength: 10000
-  = f.hidden_field :_destroy
-  = link_to '削除', '#', class: "remove_ticket"
+  .ticket-box
+    .form-group
+      .field.ticket-name
+        = f.label :チケット名
+        %span.required 必須
+        = f.text_field :name, placeholder: 'ハーフマラソン（完走証あり）', class: "form-control"
+    .form-group.clearfix
+      .field.price-form
+        = f.label :価格
+        %span.required 必須
+        = f.number_field :price, placeholder: '6000', class: "form-control"
+      .field.quantity-form
+        = f.label :定員
+        %span.required 必須
+        = f.number_field :quantity, placeholder: '500', class: "form-control", maxlength: 10000
+
+    .ticket-button
+      = f.hidden_field :_destroy
+      = link_to '削除', '#', class: "remove_ticket"

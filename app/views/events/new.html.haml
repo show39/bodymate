@@ -108,8 +108,9 @@
             .field
               = f.fields_for :tickets do |t|
                 = render "ticket_boxes", f: t
-              = link_to_add_boxes 'チケット追加', f, :tickets
+              .add-ticket-area
+                = link_to_add_boxes 'チケット追加', f, :tickets
           .form-group
-            .text-right
+            .ticket-submit.text-right
               .actions
                 = f.submit "新規イベントを作成", class: "btn btn-primary"

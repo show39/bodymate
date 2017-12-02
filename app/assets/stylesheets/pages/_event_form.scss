@@ -24,9 +24,57 @@
     background-color: #ff4c54;
     padding: 2px 3px;
   }
-
   .form-textarea {
     resize: none;
+  }
+  .ticket-box {
+    background-color: #efefef;
+    border: 1px solid $dark_gray;
+    border-radius: 5px;
+    padding: 10px 30px 20px;
+    margin-bottom: 15px;
+    .price-form {
+      width: 48%;
+      float: left;
+    }
+    .quantity-form {
+      width: 48%;
+      float: right;
+    }
+    .ticket-button {
+      a.remove_ticket {
+        background-color: white;
+        border: 1px solid $brand-primary;
+        border-radius: 5px;
+        padding: 6px 15px;
+        text-decoration: none;
+      }
+      a.remove_ticket:hover {
+        color: white;
+        background-color: $brand-primary;
+      }
+    }
+  }
+  .add-ticket-area {
+    margin-top: 20px;
+    a.add_ticket {
+      background-color: white;
+      border: 1px solid $brand-primary;
+      border-radius: 5px;
+      padding: 6px 15px;
+      text-decoration: none;
+    }
+    a.add_ticket:hover {
+      color: white;
+      background-color: $brand-primary;
+    }
+  }
+  .ticket-submit {  
+    margin-right: 20px;
+    margin-bottom: 30px;
+    .btn {
+      padding: 10px 20px;
+    }
   }
 }
 

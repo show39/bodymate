@@ -1,98 +1,60 @@
 .navbar-header {
-  background: none;
-}
-// ロゴ
-.navbar-brand {
-  float: none;
-  padding: 15px 15px;
-  font-size: 18px;
-  line-height: 20px;
-}
-.logo {
-  img {
-    webkit-filter:brightness(300%)  drop-shadow(2px 0 2px #333333);
-    -moz-filter:brightness(300%)  drop-shadow(2px 0 2px #333333);
-    -ms-filter:brightness(300%) drop-shadow(2px 0 2px #333333);
-    filter:brightness(300%)  drop-shadow(2px 0 2px #333333);
+  .navbar-toggle {
+    border: 1px solid white;
+    padding: 10px 12px;
+    border-radius: 4px;
+    .icon-bar {
+      background: white;
+    }
+  }
+  .logo {
+    img {
+      width: 252px;
+      height: 63px;
+      margin: 0;
+      webkit-filter:brightness(300%)  drop-shadow(2px 0 2px #333333);
+      -moz-filter:brightness(300%)  drop-shadow(2px 0 2px #333333);
+      -ms-filter:brightness(300%) drop-shadow(2px 0 2px #333333);
+      filter:brightness(300%)  drop-shadow(2px 0 2px #333333);
+    }
   }
 }
-
-.nav li a {
-  margin: 10px 5px;
-  padding: 0;
-  img {
-    background: rgba( 255 , 255 , 255 ,1 );
-    border: 1px solid #a9a9a9;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px #a9a9a9;
-  }
-}
-
-.navbar-nav {
-  float: none;
-  margin: 0;
-  text-align: right;
-  .navbar-nav>li {
-    float: none;
-    display: inline-block;
-    .nav>li>a:hover, .nav>li>a:focus {
-      text-decoration: none;
-      background-color: transparent;
+.navbar-collapse {
+  .nav {
+    margin-right: 15px;
+    float: right;
+    li {
+      a {
+        margin: 10px 5px;
+        padding: 0;
+        img {
+          background: rgba( 255 , 255 , 255 , 1);
+          border: 1px solid #a9a9a9;
+          border-radius: 5px;
+          box-shadow: 0 2px 4px #a9a9a9;
+        }
+      }
     }
   }
 }
 
-.navbar-toggle .icon-bar {
-  background: #FFFFFF;
-}
-
-.navbar-toggle {
-  position: relative;
-  float: right;
-  margin-right: 0px;
-  padding: 9px 10px;
-  margin-top: 28px;
-  margin-bottom: 16px;
-  background-color: transparent;
-  background-image: none;
-  border: 1px solid #FFFFFF;
-  border-radius: 4px;
-}
-
-@media screen and (max-width:767px){
-  .topcontent h1,h2 {
-      font-size: 2em;
-  }
-  .topimage .topcontent .topcontent-button .button,.home-search .home-search-button, .post-event .post-event-content .post-event-right .post-event-button {
-      font-size: 1.2em;
-  }
-  .topcontent p {
-      font-size: 1em;
-  }
-  .navbar-brand {
-      padding: 0px;
-      margin: 0px;
-  }
-  .logo img {
-  margin: 8px 0px 0px -16px;
-  }
-  .navbar-toggle {
-    margin-top: 16px;
-    margin-bottom: 16px;
-  }
+@media screen and (max-width:767px) {
   .navbar-fixed-top {
+    height: 56px;
     background: #333333;
+    .navbar-header {
+      .logo {
+        img {
+          height: 42px;
+          position: relative;
+          top: -8px;
+        }
+      }
+    }
   }
-  .topimage .topcontent {
-    top: 56%;
-  }
-  .home-search .home-search-container,.home-search .home-search-container .fa-times,.home-search-button-area {
-    display: block;
-  }
-  .home-search-button-area{
-    margin: 20px 0px 0px;
-  }
-  .post-event-right {
-    text-align: center;
+  .navbar-collapse {
+    .nav {
+      margin-right: 5px;
+    }
   }
 }

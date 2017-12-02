@@ -53,6 +53,43 @@
     font-weight: bold;
     width: 25%;
   }
+  .right-contents {
+    .ticket-box {
+      border: 1px solid $dark_gray;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin: 0 10px 10px;
+      .ticket-name {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      .ticket-price {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+      .ticket-quantity {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+      .modal-button {
+        float: right;
+        margin-right: 20px;
+        a.modal-open {
+          color: white;
+          background-color: $brand-primary;
+          border: 1px solid $brand-primary;
+          border-radius: 5px;
+          padding: 6px 15px;
+          margin-bottom: 30px;
+          text-decoration: none;
+        }
+        a.modal-open:hover {
+          color: $brand-primary;
+          background-color: white;
+        }
+      }
+    }
+  }
 }
 @media (min-width: 767px) {
   .container {
