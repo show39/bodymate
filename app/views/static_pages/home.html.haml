@@ -109,16 +109,20 @@
               = link_to "ジャンル1サンプル", "#", class: "sports-genre1"
               = link_to "ジャンル2サンプル", "#", class: "sports-genre2"
               %span.price ¥2,000
-            = link_to event do
-              .event-description-area
-                .event-description= event.description
-              .event-information-area
-                %p.event-start= event.event_start
-                %p.event-address
-                  %span.event-prefecture= event.prefecture
-                  %span.event-city= event.city
-                  %span.event-address1= event.address1
-                  %span.event-address2= event.address2
+            .event-info
+              = link_to event do
+                .event-description-area
+                  .event-description= event.description
+                .event-info
+                  %p.event-datetime
+                    %span= event.event_start.strftime("%Y年%m月%d日 %H:%M")
+                    %span 〜
+                    - if event.event_start.strftime("%Y%m%d") == event.event_end.strftime("%Y%m%d")
+                      %span= event.event_end.strftime("%H:%M")
+                    - else
+                      %span= event.event_end.strftime("%m月%d日 %H:%M")
+                  %p.event-address
+                    %span.event-prefecture= event.prefecture + event.city + event.address1 + event.address2
 
 .container-fluid.post-event
   .post-event-content.row
