@@ -73,6 +73,12 @@
                       = link_to(content_tag(:i, ' Instagram', class: "fa fa-instagram"), "#{@event.instagram_url}", target: "_blank")
       .col-md-4
         .right-contents
+          - if(@event.user_id == current_user.id)
+            .event-controllbtn
+              .event-editbtn
+                = link_to 'イベントを編集する', "/events/#{@event.id}/edit", method: :get
+              .event-deletebtn
+                = link_to 'イベントを削除する'
           .event-tickets
             %h2 チケット一覧
             - @tickets.each do |ticket|

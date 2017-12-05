@@ -35,13 +35,14 @@
       }
     }
     .event-organizer {
+      margin-bottom: 20px;
       .organizer-facebook, .organizer-twitter {
         margin-right: 15px;
       }
     }
   }
   h2 {
-    font-size: 22px;
+    font-size: 20px;
   }
   table {
     font-size: 16px;
@@ -104,6 +105,38 @@
     }
   }
 }
+.event-controllbtn {
+  .event-editbtn {
+    background-color: $blue;
+    border-radius: 4px;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 16px;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+  .event-editbtn:hover {
+    background-color: $blue_hover;
+  }
+  .event-deletebtn {
+    border-radius: 4px;
+    background-color: $red;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+  .event-deletebtn:hover {
+    background-color: $red_hover;
+  }
+}
+
 @media (max-width: 767px) {
   .contents-wrapper {
     margin-top: 80px;
