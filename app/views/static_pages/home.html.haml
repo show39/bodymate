@@ -115,6 +115,7 @@
                   .event-description= event.description
                 .event-info
                   %p.event-datetime
+                    %i.fa.fa-calendar-o
                     %span= event.event_start.strftime("%Y年%m月%d日 %H:%M")
                     %span 〜
                     - if event.event_start.strftime("%Y%m%d") == event.event_end.strftime("%Y%m%d")
@@ -122,7 +123,11 @@
                     - else
                       %span= event.event_end.strftime("%m月%d日 %H:%M")
                   %p.event-address
+                    %i.fa.fa-map-marker
                     %span.event-prefecture= event.prefecture + event.city + event.address1 + event.address2
+                  %p.event-organizer
+                    %i.fa.fa-user-circle-o
+                    %span.event-organizername= event.organizer
 
 .container-fluid.post-event
   .post-event-content.row
