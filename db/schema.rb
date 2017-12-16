@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123072817) do
+ActiveRecord::Schema.define(version: 20171210160210) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20171123072817) do
     t.string "tel", null: false
     t.string "organizer_url"
     t.string "instagram_url"
+    t.boolean "del_flg", default: false, null: false
     t.index ["prefecture"], name: "index_events_on_prefecture"
     t.index ["user_id"], name: "index_events_on_user_id"
   end

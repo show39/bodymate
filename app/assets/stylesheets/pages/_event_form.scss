@@ -31,7 +31,7 @@
     background-color: #efefef;
     border: 1px solid $dark_gray;
     border-radius: 5px;
-    padding: 10px 30px 20px;
+    padding: 5px 30px 0;
     margin-bottom: 15px;
     .price-form {
       width: 48%;
@@ -42,6 +42,7 @@
       float: right;
     }
     .ticket-button {
+      margin-bottom: 25px;
       a.remove_ticket {
         background-color: white;
         border: 1px solid $brand-primary;
@@ -52,6 +53,13 @@
       a.remove_ticket:hover {
         color: white;
         background-color: $brand-primary;
+      }
+    }
+    .ticket-delete {
+      padding-top: 15px;
+      clear: both;
+      .ticket-delete  {
+        margin-bottom: 3px;
       }
     }
   }
@@ -69,7 +77,7 @@
       background-color: $brand-primary;
     }
   }
-  .ticket-submit {  
+  .ticket-submit {
     margin-right: 20px;
     margin-bottom: 30px;
     .btn {

@@ -147,36 +147,47 @@
           left: 0;
         }
         .sports-genre1 {
-          color: $blue;
+          color: $brand_primary;
           font-size: 12px;
           border: 1px solid $dark_gray;
           border-radius: 2px;
           background-color: $light_gray;
           text-decoration: none;
-          padding: 0 5px;
+          padding: 2px 6px;
           position: absolute;
-          bottom: 25px;
+          bottom: 30px;
           right: 8px;
         }
         .sports-genre2 {
-          color: $blue;
+          color: $brand_primary;
           font-size: 12px;
           border: 1px solid $dark_gray;
           border-radius: 2px;
           background-color: $light_gray;
           text-decoration: none;
-          padding: 0 5px;
+          padding: 2px 6px;
           position: absolute;
           bottom: 5px;
           right: 8px;
         }
-        .price {
-          color: $font_black;
+        .wanted {
+          color: $blue;
+          font-size: 15px;
+          border: 1px solid $font_black;
+          border-radius: 2px;
+          background-color: white;
+          padding: 3px 12px;
+          position: absolute;
+          bottom: -8px;
+          left: 12px;
+        }
+        .recruit-end {
+          color: $red;
           font-size: 16px;
           border: 1px solid $font_black;
-          border-radius: 1px;
+          border-radius: 2px;
           background-color: white;
-          padding: 0 10px;
+          padding: 3px 10px;
           position: absolute;
           bottom: -10px;
           left: 10px;

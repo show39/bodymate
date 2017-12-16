@@ -3,7 +3,7 @@
   .event_form_wrapper.col-sm-8.col-sm-offset-2
     .row
       .col-sm-10.col-sm-offset-1
-        %h2 イベントの作成
+        %h2 イベントの編集
         = form_for @event do |f|
           .form-group
             .field
@@ -36,6 +36,7 @@
           .form-group
             .field
               = f.label :イベント案内文
+              %span.required 必須
               = f.text_area :article, placeholder: "例：すごいマラソンイベントです!!", class: "form-control form-textarea", rows: "6"
           .form-group
             .field
@@ -106,26 +107,31 @@
               = f.text_field :instagram_url, placeholder: "https://www.instagram.com/bodymate_jp", class: "form-control"
           #tickets_box
             = f.fields_for :tickets do |t|
-              .form-group
-                .field
-                  = t.label :チケット名
-                  %span.required 必須
-                  = t.text_field :name, placeholder: 'ハーフマラソン（完走証あり）', class: "form-control", required: true
-              .form-group
-                .field
-                  = t.label :価格
-                  %span.required 必須
-                  = t.number_field :price, placeholder: '6000', class: "form-control", required: true
-              .form-group
-                .field
-                  = t.label :定員
-                  %span.required 必須
-                  = t.number_field :quantity, placeholder: '500', class: "form-control", maxlength: 10000, required: true
-              - if @event.persisted?
-                = t.check_box :_destroy
-                = t.label :_destroy, 'チケットを削除する'
+              %ticketset
+                .ticket-box
+                  .form-group
+                    .field.ticket-name
+                      = t.label :チケット名
+                      %span.required 必須
+                      = t.text_field :name, placeholder: 'ハーフマラソン（完走証あり）', class: "form-control"
+                  .form-group.clearfix
+                    .field.price-form
+                      = t.label :価格
+                      %span.required 必須
+                      = t.number_field :price, placeholder: '6000', class: "form-control"
+                    .field.quantity-form
+                      = t.label :定員
+                      %span.required 必須
+                      = t.number_field :quantity, placeholder: '500', class: "form-control", maxlength: 10000
+                    - if @event.persisted?
+                      .ticket-delete
+                        = t.check_box :_destroy
+                        = t.label :_destroy, 'チケットを削除する', class: 'ticket-deletemessage'
+                        %p.message  ＊このチケットの予約情報も削除されます。
+            .add-ticket-area
+              = link_to_add_boxes 'チケット追加', f, :tickets
 
           .form-group
-            .text-right
+            .ticket-submit.text-right
               .actions
-                = f.submit "イベントを編集する", class: "btn btn-primary"
+                = f.submit "イベントを更新する", class: "btn btn-primary"

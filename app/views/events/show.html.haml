@@ -77,7 +77,7 @@
             .event-controllbtn
               .event-editbtn
                 = link_to 'イベントを編集する', "/events/#{@event.id}/edit", method: :get
-              .event-deletebtn
+              .event-deletebtn{data:{target: "event-delete"}}
                 = link_to 'イベントを削除する'
           .event-tickets
             %h2 チケット一覧
@@ -94,6 +94,20 @@
                   %span 定員
                   %span 0
                   %span /
-                  %span #{ticket.quantity}
+                  %span #{ticket.quantity.to_s(:delimited)}
                 .modal-button{data:{target: "modal-01"}}
                   = link_to "予約モーダルを開く", "#", class: "modal-open"
+
+    .modal-content#event-delete
+      %p イベントは削除されますが、チケットの予約情報は残ります。
+      %p イベントを削除してよろしいですか？
+      .row.row-center
+        .col-xs-6.center-block
+          %span
+            = form_for @event do |f|
+              = f.hidden_field :del_flg, value: true
+              = f.submit 'イベントを削除する'
+        .col-xs-6.center-block
+          %sapn
+            .modal-cancel
+              = link_to 'キャンセル', class: 'modal-close'
