@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :events, only: [:new, :create, :show, :edit, :update]
 
+  resources :bookings, only: [:new, :create]
+
   root 'static_pages#home'
 
   get  '/about'     => 'static_pages#about'

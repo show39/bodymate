@@ -78,7 +78,7 @@
               .event-editbtn
                 = link_to 'イベントを編集する', "/events/#{@event.id}/edit", method: :get
               .event-deletebtn{data:{target: "event-delete"}}
-                = link_to 'イベントを削除する'
+                = link_to 'イベントを削除する', 'javascript:void(0);'
           .event-tickets
             %h2 チケット一覧
             - @tickets.each do |ticket|
@@ -95,10 +95,48 @@
                   %span 0
                   %span /
                   %span #{ticket.quantity.to_s(:delimited)}
-                .modal-button{data:{target: "modal-01"}}
-                  = link_to "予約モーダルを開く", "#", class: "modal-open"
+                .ticket-bookingbtn{data:{target: "ticket-booking#{ticket.id}"}}
+                  = link_to '予約モーダルを開く', 'javascript:void(0);'
+              // チケット予約モーダル
+              .ticket-booking.ticket-modal{id: "ticket-booking#{ticket.id}"}
+                %h3 #{ticket.name}
+                = form_for @booking do |f|
+                  .form-horizontal
+                    .form-group
+                      .field
+                        %span.col.col-md-3.control-label
+                          %span= f.label :お名前
+                          %span.required 必須
+                        .col.col-md-9
+                          - if user_signed_in?
+                            = f.text_field :name, class: "form-control", value: @user.name, required: true, maxlength: 20
+                          - else
+                            = f.text_field :name, class: "form-control", required: true, maxlength: 20
+                    .form-group
+                      .field
+                        %span.col.col-md-3.control-label
+                          %span= f.label :メールアドレス
+                          %span.required 必須
+                        .col.col-md-9
+                          - if user_signed_in?
+                            = f.email_field :email, class: "form-control", value: @user.email, required: true, maxlength: 50
+                          - else
+                            = f.email_field :email, class: "form-control", required: true, maxlength: 50
+                    .form-group
+                      .field
+                        = f.label :コメント, class: "col col-md-3 control-label"
+                        .col.col-md-9
+                          = f.text_area :comment, class: "form-control booking-comment", rows: 2
+                    = f.hidden_field :ticket_id, value: ticket.id
+                    - if user_signed_in?
+                      = f.hidden_field :user_id, value: @user.id
+                    .form-grup
+                      .actions
+                        = f.submit 'このチケットを予約する', class: "booking-submit"
+                    %p ＊確認画面はありません。予約確定後に確認メールをお送りします。
 
-    .modal-content#event-delete
+    // イベント削除モーダル
+    .eventdelete-modal#event-delete
       %p イベントは削除されますが、チケットの予約情報は残ります。
       %p イベントを削除してよろしいですか？
       .row.row-center

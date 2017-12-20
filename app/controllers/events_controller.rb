@@ -40,6 +40,7 @@ class EventsController < ApplicationController
     @user = current_user
     @event = Event.find(params[:id])
     @tickets = @event.tickets
+    @booking = Booking.new
   end
 
   private

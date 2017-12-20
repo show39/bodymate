@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171210160210) do
+ActiveRecord::Schema.define(version: 20171217133559) do
+
+  create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.bigint "ticket_id"
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ticket_id"], name: "index_bookings_on_ticket_id"
+  end
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -76,5 +87,6 @@ ActiveRecord::Schema.define(version: 20171210160210) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "tickets"
   add_foreign_key "tickets", "events"
 end
