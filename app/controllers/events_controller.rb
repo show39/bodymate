@@ -1,10 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: :new
 
-  # after_update do
-  #   event_delete_message if del_flg_changed?
-  # end
-
   def new
     @user = current_user
     @event = Event.new
@@ -28,11 +24,18 @@ class EventsController < ApplicationController
   end
 
   def update
+    @user = current_user
     @event = Event.find(params[:id])
     if @event.update(update_event_params)
-      redirect_to root_path, notice: 'イベントが編集されました'
+      if @event.del_flg == true
+        redirect_to user_path(@user.id), notice: 'イベントが削除されました'
+      else
+        redirect_to event_path(@event), notice: 'イベントが編集されました'
+      end
     else
+      flash.now[:alert] = @event.errors.full_messages.join(",")
       render :edit
+
     end
   end
 
@@ -52,7 +55,4 @@ class EventsController < ApplicationController
       params.require(:event).permit(:name, :description, :event_start, :event_end, :recruit_start, :recruit_end, :image, :article, :place, :place_url, :postcode, :prefecture, :city, :address1, :address2, :map, :organizer, :tel, :email, :organizer_url, :facebook_url, :twitter_url, :instagram_url, :del_flg, tickets_attributes: [:name, :price, :quantity, :_destroy, :id]).merge(user_id: current_user.id)
     end
 
-    # def event_delete_message
-    #   redirect_to user_path, alert: 'イベントが削除されました'
-    # end
 end
