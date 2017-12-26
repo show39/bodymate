@@ -22,9 +22,9 @@ set :linked_files, %w{ config/secrets.yml }
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
-  # task :restart do
-  #   invoke 'unicorn:restart'
-  # end
+  task :restart do
+    invoke 'unicorn:restart'
+  end
 
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
