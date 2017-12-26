@@ -22,7 +22,32 @@ set :linked_files, %w{ config/secrets.yml }
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
+  # task :restart do
+  #   invoke 'unicorn:restart'
+  # end
+
   task :restart do
-    invoke 'unicorn:restart'
+    on roles(:app), in: :sequence, wait: 5 do
+      # unix command execute status;
+      # 0 : true
+      # 1 : false
+      old_env = capture(
+        "/usr/bin/test /path/to/secret/yml/env.yml -ot #{fetch(:deploy_to)}/shared/tmp/pids/unicorn.pid; echo $?"
+      )
+      old_ruby = capture(
+        "/usr/bin/test /home/app/.rbenv/versions/#{fetch(:rbenv_ruby)} -ot #{fetch(:deploy_to)}/shared/tmp/pids/unicorn.pid; echo $?"
+      )
+      if old_env == '0' && old_ruby == '0'
+        info 'env.yml and ruby version is old. restat unicorn.'
+        invoke 'unicorn:restart'
+      else
+        info 'env.yml or ruby version is new. stop and start(reload env.yml) unicorn.'
+        invoke 'unicorn:stop'
+        execute :sleep, fetch(:unicorn_stop_sleep_time)
+        invoke 'unicorn:start'
+      end
+    end
   end
+
+  after :publishing, :restart
 end
