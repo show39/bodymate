@@ -58,6 +58,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address => 'smtp.gmail.com',
     :port => 587,
+    :user_name => Rails.application.secrets.user_name,
+    :password => Rails.application.secrets.password,
     :domain => 'event.bodymate.jp',
     :authentication => :plain,
     :enable_starttls_auto => true
