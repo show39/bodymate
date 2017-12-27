@@ -84,7 +84,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  gmailの送信
+  # gmailの送信
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   host = 'event.bodymate.jp'
