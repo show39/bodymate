@@ -52,17 +52,20 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  # secrets.yml.encを読む
+  config.read_encrypted_secrets = true
+
+  # gmailを送信
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => 'smtp.gmail.com',
-    :port => 587,
-    :user_name => Rails.application.secrets.user_name,
-    :password => Rails.application.secrets.password,
-    :domain => 'event.bodymate.jp',
-    :authentication => :plain,
-    :enable_starttls_auto => true
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'event.bodymate.jp',
+  user_name:            Rails.application.secrets.user_name,
+  password:             Rails.application.secrets.password,
+  authentication:       'plain',
+  enable_starttls_auto: true
   }
 
 end
