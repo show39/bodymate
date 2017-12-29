@@ -91,9 +91,9 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:    'smtp.gmail.com',
+    address:    'acacia39.sakura.ne.jp',
     port:       587,
-    domain:     'event.bodymate.jp',
+    domain:     'bodymate.jp',
     user_name:   Rails.application.secrets.user_name,
     password:    Rails.application.secrets.password,
     authentication:  'plain',
