@@ -20,6 +20,8 @@ set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 set :linked_files, %w{ config/secrets.yml }
 
+set :default_env, rails_master_key: ENV['RAILS_MASTER_KEY'] || File.read('./config/secrets.yml.key')
+
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
