@@ -27,7 +27,10 @@
           %td #{@booking.ticket.event.name}
         %tr
           %th 開催日時
-          %td #{@booking.ticket.event.event_start} 〜 #{@booking.ticket.event.event_end}
+          - if @booking.ticket.event.event_start.strftime("%Y%m%d") == @booking.ticket.event.event_end.strftime("%Y%m%d")
+            %td #{@booking.ticket.event.event_start.strftime("%Y年%m月%d日 %H:%M")} 〜 #{@booking.ticket.event.event_end.strftime("%H:%M")}
+          - else
+            %td #{@booking.ticket.event.event_start.strftime("%Y年%m月%d日 %H:%M")} 〜 #{@booking.ticket.event.event_end.strftime("%m月%d日 %H:%M")}
         %tr
           %th 会場
           %td #{@booking.ticket.event.place}
@@ -41,4 +44,6 @@
           %th 主催者E-mail
           %td #{@booking.ticket.event.email}
     %h4 イベント詳細はこちら
-      = event_url(@booking.ticket.event)
+    %a{href: "https://event.bodymate.jp/events/#{@booking.ticket.event.id}"} https://event.bodymate.jp/events/#{@booking.ticket.event.id}
+    %br
+    %br	

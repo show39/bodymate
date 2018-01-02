@@ -12,7 +12,10 @@
             %table
               %tr
                 %th 開催日時
-                %td #{@event.event_start.strftime("%Y年%m月%d日 %H:%M")} 〜 #{@event.event_end.strftime("%m月%d日 %H:%M")}
+                - if @event.event_start.strftime("%Y%m%d") == @event.event_end.strftime("%Y%m%d")
+                  %td #{@event.event_start.strftime("%Y年%m月%d日 %H:%M")} 〜 #{@event.event_end.strftime("%H:%M")}
+                - else
+                  %td #{@event.event_start.strftime("%Y年%m月%d日 %H:%M")} 〜 #{@event.event_end.strftime("%m月%d日 %H:%M")}
               %tr
                 %th 開催場所
                 %td
