@@ -173,22 +173,22 @@
         }
         .wanted {
           color: $blue;
-          font-size: 13px;
+          font-size: 12px;
           border: 1px solid $font_black;
           border-radius: 2px;
           background-color: white;
-          padding: 3px 12px;
+          padding: 2px 8px;
           position: absolute;
           bottom: -8px;
           left: 8px;
         }
         .recruit-end {
           color: $red;
-          font-size: 13px;
+          font-size: 12px;
           border: 1px solid $font_black;
           border-radius: 2px;
           background-color: white;
-          padding: 3px 10px;
+          padding: 2px 8px;
           position: absolute;
           bottom: -10px;
           left: 8px;
@@ -228,7 +228,7 @@
           .event-datetime {
             color: $font_black;
             font-size: 12px;
-            padding: 5px 5px 0;
+            padding: 4px 5px 0;
             margin: 0;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -237,7 +237,7 @@
           .event-address, .event-organizer {
             color: $font_black;
             font-size: 12px;
-            padding: 4px 5px 0;
+            padding: 3px 5px 0;
             margin: 0;
             overflow: hidden;
             text-overflow: ellipsis;
