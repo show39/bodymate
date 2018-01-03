@@ -94,13 +94,13 @@
 -#     .home-search-button-area.text-center
 -#       %input{type: "submit", value: "検索する", class: "home-search-button"}
 
-.container-fluid.new-events
+.new-events
   %h2 新着イベント
   %p.new-events-description 最近投稿されたスポーツイベントです。
   .new-events-wraper.row
     - @events.each do |event|
       - if event.del_flg == false
-        .col-md-3.col-sm-6.col-xs-12
+        .col-md-3.col-sm-4.col-xs-6
           = link_to event do
             - if Time.now >= event.recruit_start
               .event-block

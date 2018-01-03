@@ -104,14 +104,15 @@
 }
 
 .new-events {
+  margin: 0 15px;
   h2 {
     color: $font_black;
-    font-size: 24px;
+    font-size: 22px;
     text-align: center;
   }
   .new-events-description {
     color: $font_black;
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
   }
   .new-events-wraper {
@@ -126,7 +127,7 @@
       .event-image {
         position: relative;
         .event-name {
-          font-size: 17px;
+          font-size: 15px;
           color: white;
           width: 100%;
           padding: 4px 12px;
@@ -136,7 +137,7 @@
           left: 0;
         }
         .event-name-background {
-          font-size: 17px;
+          font-size: 15px;
           background-color: black;
           width: 100%;
           padding: 4px 12px;
@@ -148,49 +149,49 @@
         }
         .sports-genre1 {
           color: $brand_primary;
-          font-size: 12px;
+          font-size: 10px;
           border: 1px solid $dark_gray;
           border-radius: 2px;
           background-color: $light_gray;
           text-decoration: none;
-          padding: 2px 6px;
+          padding: 2px 4px;
           position: absolute;
           bottom: 30px;
-          right: 8px;
+          right: 5px;
         }
         .sports-genre2 {
           color: $brand_primary;
-          font-size: 12px;
+          font-size: 10px;
           border: 1px solid $dark_gray;
           border-radius: 2px;
           background-color: $light_gray;
           text-decoration: none;
-          padding: 2px 6px;
+          padding: 2px 4px;
           position: absolute;
           bottom: 5px;
-          right: 8px;
+          right: 5px;
         }
         .wanted {
           color: $blue;
-          font-size: 15px;
+          font-size: 13px;
           border: 1px solid $font_black;
           border-radius: 2px;
           background-color: white;
           padding: 3px 12px;
           position: absolute;
           bottom: -8px;
-          left: 12px;
+          left: 8px;
         }
         .recruit-end {
           color: $red;
-          font-size: 16px;
+          font-size: 13px;
           border: 1px solid $font_black;
           border-radius: 2px;
           background-color: white;
           padding: 3px 10px;
           position: absolute;
           bottom: -10px;
-          left: 10px;
+          left: 8px;
         }
       }
       .event-info {
@@ -198,21 +199,22 @@
           text-decoration: none;
         }
         i.fa-calendar-o {
-          font-size: 16px;
+          font-size: 14px;
           margin-right: 6px;
         }
         i.fa-map-marker {
-          font-size: 18px;
+          font-size: 16px;
           margin-right: 8px;
           margin-left: 2px;
         }
         i.fa-user-circle-o {
-          font-size: 16px;
+          font-size: 14px;
           margin-right: 4px;
         }
         .event-description {
           color: $font_black;
-          height: 94px;
+          font-size: 12px;
+          height: 84px;
           border-bottom: 1px solid $dark_gray;
           padding: 15px 7px 1px;
           display: -webkit-box;
@@ -225,6 +227,7 @@
           padding: 2px 5px 7px;
           .event-datetime {
             color: $font_black;
+            font-size: 12px;
             padding: 5px 5px 0;
             margin: 0;
             overflow: hidden;
@@ -233,6 +236,7 @@
           }
           .event-address, .event-organizer {
             color: $font_black;
+            font-size: 12px;
             padding: 4px 5px 0;
             margin: 0;
             overflow: hidden;
@@ -351,6 +355,15 @@
       p {
         font-size: 1.3em;
         line-height: 2;
+      }
+    }
+  }
+  .new-events {
+    margin: 0;
+    .new-events-wraper{
+      padding: 5px 5px 15px;
+      .event-block {
+        margin: 8px 3px;
       }
     }
   }
