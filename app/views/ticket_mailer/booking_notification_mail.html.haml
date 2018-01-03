@@ -1,0 +1,49 @@
+%html
+  %head
+    %meta{content: 'text/html; charset=UTF-8'}
+  %body
+    %h3 #{@booking.ticket.event.organizer}様
+    %p #{@booking.ticket.event.name}へのお申し込みがありましたので、ご連絡いたします。
+    %h4 お申し込み情報
+    %table
+      %tbody
+        %tr
+          %th お申込者名
+          %td #{@booking.name}
+        %tr
+          %th メールアドレス
+          %td #{@booking.email}
+        %tr
+          %th コメント
+          %td #{@booking.comment}
+        %tr
+          %th チケット名
+          %td #{@booking.ticket.name}
+        %tr
+          %th 価格
+          %td #{@booking.ticket.price.to_s(:delimited)}円
+        %tr
+          %th イベント名
+          %td #{@booking.ticket.event.name}
+        %tr
+          %th 開催日時
+          - if @booking.ticket.event.event_start.strftime("%Y%m%d") == @booking.ticket.event.event_end.strftime("%Y%m%d")
+            %td #{@booking.ticket.event.event_start.strftime("%Y年%m月%d日 %H:%M")} 〜 #{@booking.ticket.event.event_end.strftime("%H:%M")}
+          - else
+            %td #{@booking.ticket.event.event_start.strftime("%Y年%m月%d日 %H:%M")} 〜 #{@booking.ticket.event.event_end.strftime("%m月%d日 %H:%M")}
+        %tr
+          %th 会場
+          %td #{@booking.ticket.event.place}
+        %tr
+          %th 主催者
+          %td #{@booking.ticket.event.organizer}
+        %tr
+          %th 主催者TEL
+          %td #{@booking.ticket.event.tel}
+        %tr
+          %th 主催者E-mail
+          %td #{@booking.ticket.event.email}
+    %h4 イベント詳細はこちら
+    %a{href: "https://event.bodymate.jp/events/#{@booking.ticket.event.id}"} https://event.bodymate.jp/events/#{@booking.ticket.event.id}
+    %br
+    %br
