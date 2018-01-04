@@ -101,6 +101,20 @@
             background-color: white;
           }
         }
+        .ticket-full {
+          margin-right: 20px;
+          position: absolute;
+          right: 0;
+          bottom: 20px;
+          p {
+            color: white;
+            background-color: $red;
+            border: 1px solid $red;
+            border-radius: 5px;
+            padding: 6px 15px;
+            margin-bottom: -5px;
+          }
+        }
       }
     }
   }

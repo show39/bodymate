@@ -95,11 +95,15 @@
                     %span ¥ #{ticket.price.to_s(:delimited)}
                 .ticket-quantity
                   %span 定員
-                  %span 0
+                  %span #{ticket.bookings.count}
                   %span /
                   %span #{ticket.quantity.to_s(:delimited)}
-                .ticket-bookingbtn{data:{target: "ticket-booking#{ticket.id}"}}
-                  = link_to '予約モーダルを開く', 'javascript:void(0);'
+                - if ticket.quantity <= ticket.bookings.count
+                  .ticket-full
+                    %p 満席
+                - else
+                  .ticket-bookingbtn{data:{target: "ticket-booking#{ticket.id}"}}
+                    = link_to '予約モーダルを開く', 'javascript:void(0);'
               // チケット予約モーダル
               .ticket-booking.ticket-modal{id: "ticket-booking#{ticket.id}"}
                 %h3 #{ticket.name}
