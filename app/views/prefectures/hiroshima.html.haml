@@ -1,0 +1,39 @@
+.prefecture-events
+  %h1 広島県のイベント一覧
+  %p.new-events-description 広島県内で開催されるイベントです。
+  .new-events-wraper.row
+    - @events.each do |event|
+      - if event.del_flg == false
+        .col-md-3.col-sm-4.col-xs-6
+          = link_to event do
+            - if Time.now >= event.recruit_start
+              .event-block
+                .event-image
+                  .event-name= event.name
+                  .event-name-background= event.name
+                  = image_tag("event-image.jpg", alt: "イベントイメージ", size: "960x640", class: "img-responsive")
+                  = link_to "ジャンル1サンプル", "#", class: "sports-genre1"
+                  = link_to "ジャンル2サンプル", "#", class: "sports-genre2"
+                  - if Time.now >= event.recruit_start && Time.now <= event.recruit_end
+                    %span.wanted 予約受付中
+                  - else
+                    %span.recruit-end 予約受付終了
+                .event-info
+                  = link_to event do
+                    .event-description-area
+                      .event-description= event.description
+                    .event-info
+                      %p.event-datetime
+                        %i.fa.fa-calendar-o
+                        %span= event.event_start.strftime("%Y年%m月%d日 %H:%M")
+                        %span 〜
+                        - if event.event_start.strftime("%Y%m%d") == event.event_end.strftime("%Y%m%d")
+                          %span= event.event_end.strftime("%H:%M")
+                        - else
+                          %span= event.event_end.strftime("%m月%d日 %H:%M")
+                      %p.event-address
+                        %i.fa.fa-map-marker
+                        %span.event-prefecture= event.prefecture + event.city + event.address1 + event.address2
+                      %p.event-organizer
+                        %i.fa.fa-user-circle-o
+                        %span.event-organizername= event.organizer
