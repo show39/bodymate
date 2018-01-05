@@ -115,6 +115,20 @@
             margin-bottom: -5px;
           }
         }
+        .ticket-end {
+          margin-right: 20px;
+          position: absolute;
+          right: 0;
+          bottom: 20px;
+          p {
+            color: white;
+            background-color: #999;
+            border: 1px solid #999;
+            border-radius: 5px;
+            padding: 6px 15px;
+            margin-bottom: -5px;
+          }
+        }
       }
     }
   }

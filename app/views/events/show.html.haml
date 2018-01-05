@@ -98,12 +98,16 @@
                   %span #{ticket.bookings.count}
                   %span /
                   %span #{ticket.quantity.to_s(:delimited)}
-                - if ticket.quantity <= ticket.bookings.count
-                  .ticket-full
-                    %p 満席
+                - if Time.now >= ticket.event.recruit_start && Time.now <= ticket.event.recruit_end
+                  - if ticket.quantity <= ticket.bookings.count
+                    .ticket-full
+                      %p 満席
+                  - else
+                    .ticket-bookingbtn{data:{target: "ticket-booking#{ticket.id}"}}
+                      = link_to '予約モーダルを開く', 'javascript:void(0);'
                 - else
-                  .ticket-bookingbtn{data:{target: "ticket-booking#{ticket.id}"}}
-                    = link_to '予約モーダルを開く', 'javascript:void(0);'
+                  .ticket-end
+                    %p 募集終了
               // チケット予約モーダル
               .ticket-booking.ticket-modal{id: "ticket-booking#{ticket.id}"}
                 %h3 #{ticket.name}
