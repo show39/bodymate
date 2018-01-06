@@ -39,6 +39,7 @@ gem 'rails_autolink'
 
 # ページネーション
 gem 'kaminari'
+gem 'kaminari-bootstrap'
 
 # パンくず
 gem 'gretel'
