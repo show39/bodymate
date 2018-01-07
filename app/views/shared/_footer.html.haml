@@ -85,21 +85,26 @@
             %li= link_to "フットサル", "#"
       .date.col-md-3.col-xs-12
         %h3 開催日
-        %ul
-          %li= link_to "今日のイベント", "#"
-          %li= link_to "明日のイベント", "#"
-          %li= link_to "今週のイベント", "#"
-          %li= link_to "来週のイベント", "#"
-          %li= link_to "今月のイベント", "#"
-          %li= link_to "来月のイベント", "#"
-          %li= link_to "土日（週末）のイベント", "#"
-          %li= link_to "土曜日のイベント", "#"
-          %li= link_to "日曜日のイベント", "#"
+        %ul.row
+          .col-xs-6
+            %li= link_to "今日のイベント", "#"
+            %li= link_to "明日のイベント", "#"
+            %li= link_to "今週のイベント", "#"
+            %li= link_to "来週のイベント", "#"
+            %li= link_to "今月のイベント", "#"
+            %li= link_to "来月のイベント", "#"
+          .col-xs-6
+            %li= link_to "土日（週末）のイベント", "#"
+            %li= link_to "土曜日のイベント", "#"
+            %li= link_to "日曜日のイベント", "#"
       .feature.col-md-3.col-xs-12
         %h3 その他のオススメ
-        %ul
-          %li= link_to "朝活", "#"
-          %li= link_to "無料体験", "#"
+        %ul.row
+          .col-xs-6
+            %li= link_to "朝活", "#"
+            %li= link_to "女性限定", "#"
+          .col-xs-6
+            %li= link_to "無料体験", "#"
   .footer-bottom
     .footer-bottom-link
       %ul
@@ -109,4 +114,4 @@
         %li= link_to "お問い合わせ", contact_path
         %li= link_to "広告掲載について", advertise_path
     .copyright
-      %p © 2017 Bodymate
+      %p © 2018 Bodymate
