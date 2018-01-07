@@ -1,10 +1,14 @@
 .navbar-header {
   .navbar-toggle {
-    border: 1px solid white;
-    padding: 10px 12px;
-    border-radius: 4px;
+    margin-top: 0;
+    padding-top: 6px;
     .icon-bar {
-      background: white;
+      background: #777777;
+      padding-bottom: 3px;
+      width: 100%;
+    }
+    .hamburger-menu {
+      font-size: 6px;
     }
   }
   .logo {
@@ -21,7 +25,7 @@
 }
 .navbar-collapse {
   .nav {
-    margin-right: 15px;
+    margin-right: 5px;
     float: right;
     li {
       a {
@@ -40,22 +44,19 @@
 
 @media screen and (max-width:767px) {
   .navbar-fixed-top {
-    height: 56px;
-    background: #333333;
+    height: 50px;
+    background: white;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.4);
     .navbar-header {
+      border-top: 4px solid $brand_primary;
       .logo {
         img {
-          height: 42px;
+          height: 34px;
           position: relative;
-          top: -8px;
+          top: -9px;
           left: -36px;
         }
       }
-    }
-  }
-  .navbar-collapse {
-    .nav {
-      margin-right: 5px;
     }
   }
 }
