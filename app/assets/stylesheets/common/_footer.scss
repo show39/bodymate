@@ -8,15 +8,15 @@ footer {
     font-size: 18px;
     line-height: 1.7;
   }
-  a {
-    color: #ffffff;
-    line-height: 1.7;
-  }
   .classify {
-    background-color: #3d618c;
+    background-color: #222;
     padding: 20px 40px;
     margin-bottom: 0;
     text-align: center;
+    a {
+      color: #ffffff;
+      line-height: 1.7;
+    }
     .prefecture {
       a:hover {
         color: $brand-primary;
@@ -43,9 +43,13 @@ footer {
     }
   }
   .footer-bottom {
-    background-color: #2b3d52;
-    padding: 15px 20px 10px;
+    color: $font_black;
+    background-color: #eeeaec;
+    padding: 12px 5px 5px;
     .footer-bottom-link {
+      a {
+        color: $font_black;
+      }
       a:hover {
         color: $brand-primary;
         text-decoration: none;
@@ -60,11 +64,10 @@ footer {
       }
     }
     .copyright {
-      color: white;
       text-align: center;
       p {
         font-size: 12px;
-        padding: 20px 0 10px;
+        padding: 10px 0 10px;
         margin-bottom: 0;
       }
     }

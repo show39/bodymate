@@ -2,38 +2,45 @@
   position: relative;
   border-bottom: 4px solid $brand_primary;
   .topslider {
-    height: 545px;
+    height: 450px;
     background-image: url(image-path("bodymateappheader.jpg"));
-    -webkit-background-size: 3850px;
-    background-size: 3850px;
+    -webkit-background-size: 3180px;
+    background-size: 3180px;
     -webkit-animation: bgscroll 25s linear infinite;
     animation: bgscroll 25s linear infinite;
-    -webkit-filter: brightness(0.4);
-    -moz-filter: brightness(0.4);
-    -o-filter: brightness(0.4);
-    -ms-filter: brightness(0.4);
-    filter: brightness(0.4);
+  }
+  .gradation {
+    height: 450px;
+    width: 100%;
+    background: linear-gradient(rgba(246, 255, 0, .6), rgba(255, 51, 102, .6));
+    background: -wedkit-linear-gradient(rgba(246, 255, 0, .6), rgba(255, 44, 171, .6), rgba(255, 0, 161, .6));
+    animation: AnimationTop 10s ease infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
   }
   .topcontent {
     width: 80%;
     text-align: center;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.8);
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
+    z-index: 3;
     h1 {
       color: #ffffff;
-      font-size: 2.2em;
+      font-size: 24px;
       margin: 50px 0 20px;
       padding: 12px 15px;
       background-color: rgba(0, 0, 0, 0.5);
     }
     p {
       color: #ffffff;
-      font-size:1.5em;
+      font-size: 16px;
       line-height: 1.6;
     }
     .topcontent-button {
@@ -46,18 +53,22 @@
         border-radius: 2px;
         color: $brand-primary;
         transition: .2s;
-        background: $brand-primary;
-        background: rgba(0, 0, 0, 0.3);
-        font-size: 20px;
+        background: rgba(0, 0, 0, .6);
+        font-size: 18px;
         margin: 30px 0px;
       }
       .button:hover,
       .button:active {
-        background-color: rgba(255, 204, 51, 0.3);
+        background-color: rgba(0, 0, 0, .4);
         color: white;
       }
     }
   }
+}
+@keyframes AnimationTop {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
 @-webkit-keyframes bgscroll {
@@ -147,11 +158,10 @@
           left: 0;
         }
         .sports-genre1 {
-          color: $brand_primary;
+          color: $blue;
           font-size: 10px;
           border: 1px solid $dark_gray;
           border-radius: 2px;
-          background-color: $light_gray;
           text-decoration: none;
           padding: 2px 4px;
           position: absolute;
@@ -159,11 +169,10 @@
           right: 5px;
         }
         .sports-genre2 {
-          color: $brand_primary;
+          color: $blue;
           font-size: 10px;
           border: 1px solid $dark_gray;
           border-radius: 2px;
-          background-color: $light_gray;
           text-decoration: none;
           padding: 2px 4px;
           position: absolute;
@@ -303,7 +312,7 @@
 .about-bodymate {
   color: $font_black;
   .about-bodymate-area {
-    margin: 8vh 0 3vh;
+    margin: 36px 0 16px;
     h2 {
       text-align: center;
       font-size: 20px;
@@ -346,6 +355,9 @@
 
 @media screen and (max-width:767px) {
   .topimage {
+    .topslider {
+      margin-top: 50px;
+    }
     .topcontent {
       width: 90%;
       h1 {
@@ -363,6 +375,24 @@
       padding: 5px 5px 15px;
       .event-block {
         margin: 8px 3px;
+        .event-name {
+          font-size: 12px;
+        }
+        .event-name-background {
+          font-size: 12px;
+        }
+        .sports-genre1 {
+          font-size: 8px;
+        }
+        .sports-genre2 {
+          font-size: 8px;
+        }
+        .wanted {
+          padding: 2px 6px;
+        }
+        .recruit-end {
+          padding: 2px 6px;
+        }
       }
     }
   }
