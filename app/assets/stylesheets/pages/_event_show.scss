@@ -52,6 +52,7 @@
         font-size: 10px;
         background-color: $brand_primary;
         border: 1px solid $brand_primary;
+        display: inline-block;
         border-radius: 2px;
         padding: 2px 5px;
         margin-left: 5px;
@@ -203,9 +204,6 @@
   .contents-wrapper {
     margin: 70px 10px 20px;
     border: none;
-    h1{
-      font-size: 18px;
-    }
     .event-show-genre1, .event-show-genre2 {
       font-size: 10px;
       padding: 1px 5px;
