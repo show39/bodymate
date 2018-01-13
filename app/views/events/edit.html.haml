@@ -16,19 +16,25 @@
               = f.text_area :description, placeholder: "例：5km、10km、ハーフマラソンでの自動タイム計測できます", class: "form-control form-textarea", rows: "3"
           .form-group
             .field
-              = f.label :イベント開始日時
-              %span.required 必須
-              = f.datetime_select :event_start, use_month_number: true, minute_step: 10, default: Time.now
-              %br
-              = f.label :イベント終了日時
-              = f.datetime_select :event_end, use_month_number: true, minute_step: 10
+              .event-datatime-top
+                = f.label :イベント開始日時
+                %span.required 必須
+                %br
+                = f.datetime_select :event_start, use_month_number: true, minute_step: 10, default: Time.now
+              .event-datatime-bottom
+                = f.label :イベント終了日時
+                %br
+                = f.datetime_select :event_end, use_month_number: true, minute_step: 10
           .form-group
             .field
-              = f.label :募集期間日時
-              = f.datetime_select :recruit_start, use_month_number: true, minute_step: 10
-              %br
-              = f.label :募集終了日時
-              = f.datetime_select :recruit_end, use_month_number: true, minute_step: 10
+              .event-datatime-top
+                = f.label :募集開始日時
+                %br
+                = f.datetime_select :recruit_start, use_month_number: true, minute_step: 10
+              .event-datatime-bottom
+                = f.label :募集終了日時
+                %br
+                = f.datetime_select :recruit_end, use_month_number: true, minute_step: 10
           .form-group
             .field
               = f.label :イベント画像
