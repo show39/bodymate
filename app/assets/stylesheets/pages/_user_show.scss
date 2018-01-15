@@ -1,0 +1,9 @@
+.mypage-wrapper {
+  margin: 120px 30px 50px;
+}
+
+@media (max-width: 767px) {
+  .mypage-wrapper {
+    margin: 70px 10px 20px;
+  }
+}

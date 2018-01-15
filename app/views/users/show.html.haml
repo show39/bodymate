@@ -1,7 +1,49 @@
 - provide(:title, "#{@user.name}さんのページ")
-%p #{@user.name}さん
-%p #{@user.title}
-%p #{@user.profile}
-%p あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>あ<br>
-= link_to 'アカウント編集', edit_user_registration_path
-%p= link_to 'ログアウト', destroy_user_session_path, method: :delete
+.mypage-wrapper
+  .row
+    .col-md-8
+      %h1 マイページ
+      %p お名前　　　　#{@user.name}さん
+      %p 肩書き　　　　#{@user.title}
+      %p プロフィール　#{@user.profile}
+      .adsense-left
+        %p SPONSORED LINK
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        -# 予約728×90
+        %ins{class: "adsbygoogle",
+             style: "display:inline-block;width:728px;height:90px",
+             data:{ad:{client: "ca-pub-9627911157097400"}},
+             data:{ad:{slot: "7289022221"}}}
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      .row
+        .col-md-6
+          %h2 イベントの主催
+          %p 募集中のイベント
+          -# %p 準備中のイベント
+          %p 終了したイベント
+          %p
+            = link_to 'イベントを作成する', new_event_path
+          %h2 アカウント
+          %p
+            = link_to 'アカウント編集', edit_user_registration_path
+          %p
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete
+        .col-md-6
+          %h2 参加チケット
+          %p 参加予定のチケット
+          %p 参加したチケット
+          %p キャンセルしたチケット
+    .col-md-4
+      .adsense-right
+        %p SPONSORED LINK
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        -# 予約300×600
+        %ins{class: "adsbygoogle",
+             style: "display:inline-block;width:300px;height:600px",
+             data:{ad:{client: "ca-pub-9627911157097400"}},
+             data:{ad:{slot: "2581999765"}}}
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>

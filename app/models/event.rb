@@ -10,7 +10,6 @@ class Event < ApplicationRecord
   validates :city, presence: true
   validates :address1, presence: true
   validates :organizer, presence: true
-  validates :tel, presence: true
   validates :email, presence: true
   validates :article, presence: true, length: {maximum: 2000}
   validate  :event_start_should_be_before_event_end

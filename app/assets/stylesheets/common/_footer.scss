@@ -9,7 +9,7 @@ footer {
     line-height: 1.7;
   }
   .classify {
-    background-color: #222;
+    background-color: $dark_primary;
     padding: 20px 40px;
     margin-bottom: 0;
     text-align: center;
@@ -44,7 +44,6 @@ footer {
   }
   .footer-bottom {
     color: $font_black;
-    background-color: #eeeaec;
     padding: 12px 5px 5px;
     .footer-bottom-link {
       a {
