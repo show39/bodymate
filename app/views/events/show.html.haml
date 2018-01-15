@@ -8,16 +8,14 @@
         = image_tag("event-image.jpg", alt: "イベントイメージ", class: "event-image")
         .event-description
           %p #{@event.description}
-        .adsense-home
-          %p SPONSORED LINK
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          / 予約レスポンシブ
-          %ins{class: "adsbygoogle",
-               style: "display:block",
-               data:{ad:{client: "ca-pub-9627911157097400", slot: "2862552430", format: "auto"}}}
-          <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
+          -# <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          -# / 予約320×100
+          -# %ins{class: "adsbygoogle",
+          -#      style: "display:inline-block;width:320px;height:100px",
+          -#      data:{ad:{client: "ca-pub-9627911157097400", slot: "9364241982"}}}
+          -# <script>
+          -# (adsbygoogle = window.adsbygoogle || []).push({});
+          -# </script>
         .event-basicinfo
           %h2
             %span ■
