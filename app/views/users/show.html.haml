@@ -23,66 +23,73 @@
         <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
-      %h2 チケット
-      %table
-        %tr
-          %th イベント名
-          %th 開催日時
-          %th チケット名
-          %th 価格
-          %th ステータス
-          %th
-        - @entry_tickets.each do |et|
+      .ticket-area
+        %h2 チケット
+        %table
           %tr
-            %td= link_to "#{et.ticket.event.name}", event_path(et.ticket.event)
-            %td=et.ticket.event.event_start.strftime("%m月%d日 %H:%M")
-            %td=et.ticket.name
-            %td #{et.ticket.price.to_s(:delimited)}円
-            - if et.ticket.event.event_start >= Time.now
-              %td 参加予定
-            - else
-              %td イベント終了
-            %td キャンセル
-      -# %h3 **キャンセルしたチケット
-      %h2 主催イベント
-      %h3 募集中のイベント
-      %table
-        %tr
-          %th イベント名
-          %th 開催日時
-          %th 募集状況
-          %th 募集終了日時
-          %th
-        - @wanted_events.each do |we|
+            .row
+              %th.col-md-4 イベント名
+              %th.col-md-2 開催日時
+              %th.col-md-2 チケット名
+              %th.col-md-2 ステータス
+              %th.col-md-2 キャンセル
+          - @entry_tickets.each do |et|
+            %tr
+              .row
+                %td.col-md-4= link_to "#{et.ticket.event.name}", event_path(et.ticket.event)
+                %td.col-md-2.text-center=et.ticket.event.event_start.strftime("%m月%d日 %H:%M")
+                %td.col-md-2.text-center=et.ticket.name
+                - if et.ticket.event.event_start >= Time.now
+                  %td.col-md-2.text-center 参加予定
+                - else
+                  %td.col-md-2.text-center イベント終了
+                %td.col-md-2.text-center
+        -# %h3 **キャンセルしたチケット
+      .event-area
+        %h2 主催イベント
+        %h3 募集中のイベント
+        %table
           %tr
-            %td= link_to "#{we.name}", event_path(we)
-            %td=we.event_start.strftime("%m月%d日 %H:%M")
-            %td *** / #{we.tickets.sum(:quantity)}
-            %td=we.recruit_end.strftime("%m月%d日 %H:%M")
-            %td= link_to '編集', edit_event_path(we)
-      -# %p 準備中のイベント
-      %h3 終了したイベント
-      %table
-        %tr
-          %th イベント名
-          %th 開催日時
-          %th 募集結果
-          %th 募集終了日時
-          %th
-        - @finished_events.each do |fe|
+            .row
+              %th.col-md-4 イベント名
+              %th.col-md-2 開催日時
+              %th.col-md-2 募集状況
+              %th.col-md-2 募集終了日時
+              %th.col-md-2
+          - @wanted_events.each do |we|
+            %tr
+              .row
+                %td.col-md-4= link_to "#{we.name}", event_path(we)
+                %td.col-md-2.text-center=we.event_start.strftime("%m月%d日 %H:%M")
+                %td.col-md-2.text-center *** / #{we.tickets.sum(:quantity)}
+                %td.col-md-2.text-center=we.recruit_end.strftime("%m月%d日 %H:%M")
+                %td.col-md-2.text-center= link_to '編集', edit_event_path(we)
+        -# %p 準備中のイベント
+        %h3 終了したイベント
+        %table
           %tr
-            %td= link_to "#{fe.name}", event_path(fe)
-            %td=fe.event_start.strftime("%m月%d日 %H:%M")
-            %td *** / #{fe.tickets.sum(:quantity)}
-            %td=fe.recruit_end.strftime("%m月%d日 %H:%M")
-            %td= link_to '複製', new_event_path
-      %p
-        = link_to 'イベントを作成する', new_event_path
-      %h2 アカウント
-      %p
-        = link_to 'アカウント編集', edit_user_registration_path
-      %p
-        = link_to 'ログアウト', destroy_user_session_path, method: :delete
+            .row
+              %th.col-md-4 イベント名
+              %th.col-md-2 開催日時
+              %th.col-md-2 募集結果
+              %th.col-md-2 募集終了日時
+              %th.col-md-2 複製
+          - @finished_events.each do |fe|
+            %tr
+              .row
+                %td.col-md-4= link_to "#{fe.name}", event_path(fe)
+                %td.col-md-2.text-center=fe.event_start.strftime("%m月%d日 %H:%M")
+                %td.col-md-2.text-center *** / #{fe.tickets.sum(:quantity)}
+                %td.col-md-2.text-center=fe.recruit_end.strftime("%m月%d日 %H:%M")
+                %td.col-md-2.text-center
+        %p
+          = link_to 'イベントを作成する', new_event_path, class: 'event-create-btn'
+      .account-area
+        %h2 アカウント
+        %p
+          = link_to 'アカウント編集', edit_user_registration_path
+        %p
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete
     .col-md-4
       .adsense-right
         %p SPONSORED LINK

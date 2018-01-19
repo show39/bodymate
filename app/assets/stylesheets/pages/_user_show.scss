@@ -6,23 +6,62 @@
   }
   h2 {
     font-size: 20px;
+    border-left: 3px solid $dark_primary;
+    background-color: #e2e0ff;
+    padding: 10px 20px;
+    margin-bottom: 20px;
   }
   h3 {
     font-size: 16px;
+    padding: 5px 10px 0 5px;;
+  }
+  a:hover {
+    text-decoration: none;
   }
   table {
+    width: 100%;
     border: 1px solid $dark_gray;
-    tr {
+    border-collapse: collapse;
+    th {
+      color: white;
+      text-align: center;
+      background-color: $dark-primary;
+    }
+    th, td {
       border: 1px solid $dark_gray;
+      padding: 5px 10px;
     }
   }
   .profile-area {
     padding: 0 10px;
+  }
+  .event-area {
+    .event-create-btn {
+      border: 1px solid $brand_primary;
+      border-radius: 2px;
+      padding: 5px 10px;
+      display: inline-block;
+      margin-top: 15px;
+
+    }
+  }
+  .ticket-area {
+  }
+  .account-area {
+    .account-link {
+
+    }
   }
 }
 
 @media (max-width: 767px) {
   .mypage-wrapper {
     margin: 70px 10px 20px;
+  }
+  table {
+    font-size: 10px;
+  }
+  th, td {
+    padding: 2px 4px;
   }
 }
