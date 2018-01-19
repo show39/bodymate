@@ -38,12 +38,9 @@
           %th 主催者
           %td #{@booking.ticket.event.organizer}
         %tr
-          %th 主催者TEL
-          %td #{@booking.ticket.event.tel}
-        %tr
           %th 主催者E-mail
           %td #{@booking.ticket.event.email}
     %h4 イベント詳細はこちら
     %a{href: "https://event.bodymate.jp/events/#{@booking.ticket.event.id}"} https://event.bodymate.jp/events/#{@booking.ticket.event.id}
     %br
-    %br	
+    %br

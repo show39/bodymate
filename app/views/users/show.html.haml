@@ -3,38 +3,86 @@
   .row
     .col-md-8
       %h1 マイページ
-      %p お名前　　　　#{@user.name}さん
-      %p 肩書き　　　　#{@user.title}
-      %p プロフィール　#{@user.profile}
+      .profile-area
+        .row
+          .col-xs-3
+            %p お名前
+            %p 肩書き
+            %p プロフィール
+          .col-xs-9
+            %p #{@user.name}さん
+            %p #{@user.title}
+            %p #{simple_format(@user.profile)}
       .adsense-left
         %p SPONSORED LINK
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        -# 予約728×90
+        / 予約レスポンシブ
         %ins{class: "adsbygoogle",
-             style: "display:inline-block;width:728px;height:90px",
-             data:{ad:{client: "ca-pub-9627911157097400"}},
-             data:{ad:{slot: "7289022221"}}}
+             style: "display:block",
+             data:{ad:{client: "ca-pub-9627911157097400", slot: "2862552430", format: "auto"}}}
         <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
-      .row
-        .col-md-6
-          %h2 イベントの主催
-          %p 募集中のイベント
-          -# %p 準備中のイベント
-          %p 終了したイベント
-          %p
-            = link_to 'イベントを作成する', new_event_path
-          %h2 アカウント
-          %p
-            = link_to 'アカウント編集', edit_user_registration_path
-          %p
-            = link_to 'ログアウト', destroy_user_session_path, method: :delete
-        .col-md-6
-          %h2 参加チケット
-          %p 参加予定のチケット
-          %p 参加したチケット
-          %p キャンセルしたチケット
+      %h2 チケット
+      %table
+        %tr
+          %th イベント名
+          %th 開催日時
+          %th チケット名
+          %th 価格
+          %th ステータス
+          %th
+        - @entry_tickets.each do |et|
+          %tr
+            %td= link_to "#{et.ticket.event.name}", event_path(et.ticket.event)
+            %td=et.ticket.event.event_start.strftime("%m月%d日 %H:%M")
+            %td=et.ticket.name
+            %td #{et.ticket.price.to_s(:delimited)}円
+            - if et.ticket.event.event_start >= Time.now
+              %td 参加予定
+            - else
+              %td イベント終了
+            %td キャンセル
+      -# %h3 **キャンセルしたチケット
+      %h2 主催イベント
+      %h3 募集中のイベント
+      %table
+        %tr
+          %th イベント名
+          %th 開催日時
+          %th 募集状況
+          %th 募集終了日時
+          %th
+        - @wanted_events.each do |we|
+          %tr
+            %td= link_to "#{we.name}", event_path(we)
+            %td=we.event_start.strftime("%m月%d日 %H:%M")
+            %td *** / #{we.tickets.sum(:quantity)}
+            %td=we.recruit_end.strftime("%m月%d日 %H:%M")
+            %td= link_to '編集', edit_event_path(we)
+      -# %p 準備中のイベント
+      %h3 終了したイベント
+      %table
+        %tr
+          %th イベント名
+          %th 開催日時
+          %th 募集結果
+          %th 募集終了日時
+          %th
+        - @finished_events.each do |fe|
+          %tr
+            %td= link_to "#{fe.name}", event_path(fe)
+            %td=fe.event_start.strftime("%m月%d日 %H:%M")
+            %td *** / #{fe.tickets.sum(:quantity)}
+            %td=fe.recruit_end.strftime("%m月%d日 %H:%M")
+            %td= link_to '複製', new_event_path
+      %p
+        = link_to 'イベントを作成する', new_event_path
+      %h2 アカウント
+      %p
+        = link_to 'アカウント編集', edit_user_registration_path
+      %p
+        = link_to 'ログアウト', destroy_user_session_path, method: :delete
     .col-md-4
       .adsense-right
         %p SPONSORED LINK
@@ -42,8 +90,7 @@
         -# 予約300×600
         %ins{class: "adsbygoogle",
              style: "display:inline-block;width:300px;height:600px",
-             data:{ad:{client: "ca-pub-9627911157097400"}},
-             data:{ad:{slot: "2581999765"}}}
+             data:{ad:{client: "ca-pub-9627911157097400", slot: "2581999765"}}}
         <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
