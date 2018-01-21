@@ -36,7 +36,7 @@
           width: 100%;
           padding: 3px 10px;
           z-index: 1;
-          opacity: 0.5;
+          opacity: 0.7;
           position: absolute;
           top: 0;
           left: 0;
@@ -153,12 +153,30 @@
 
 
 @media screen and (max-width:767px) {
-  .prefecture-events {
-    margin-top: 70px;
+  .new-events {
+    margin: 0;
     .new-events-wraper{
       padding: 5px 5px 15px;
       .event-block {
         margin: 8px 3px;
+        .event-name {
+          font-size: 12px;
+        }
+        .event-name-background {
+          font-size: 12px;
+        }
+        .sports-genre1 {
+          font-size: 8px;
+        }
+        .sports-genre2 {
+          font-size: 8px;
+        }
+        .wanted {
+          padding: 2px 6px;
+        }
+        .recruit-end {
+          padding: 2px 6px;
+        }
       }
     }
   }
