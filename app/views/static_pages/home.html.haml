@@ -108,7 +108,10 @@
                 .event-image
                   .event-name= event.name
                   .event-name-background= event.name
-                  = image_tag("event-image.jpg", alt: "イベントイメージ", size: "960x640", class: "img-responsive")
+                  - if event.image.present?
+                    = image_tag(event.image.thumb.url, alt: "イベントイメージ", class: "img-responsive")
+                  - else
+                    = image_tag("event-image.jpg", alt: "イベントイメージ", class: "img-responsive")
                   = link_to "ジャンル1サンプル", "#", class: "sports-genre1"
                   = link_to "ジャンル2サンプル", "#", class: "sports-genre2"
                   - if Time.now >= event.recruit_start && Time.now <= event.recruit_end

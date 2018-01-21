@@ -31,6 +31,11 @@ gem 'devise-i18n'
 # 日本語化
 gem 'rails-i18n'
 
+# 画像表示
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'mini_magick'
+
 # 検索機能
 gem 'ransack'
 
