@@ -65,4 +65,19 @@ Rails.application.routes.draw do
   get  '/kagoshima'  => 'prefectures#kagoshima'
   get  '/okinawa'    => 'prefectures#okinawa'
 
+  # 開催日別イベント一覧
+  get  '/today'      => 'eventdates#today'
+  get  '/tomorrow'   => 'eventdates#tomorrow'
+  get  '/thisweek'   => 'eventdates#thisweek'
+  get  '/nextweek'   => 'eventdates#nextweek'
+  get  '/thismonth'  => 'eventdates#thismonth'
+  get  '/nextmonth'  => 'eventdates#nextmonth'
+  get  '/monday'     => 'eventdates#monday'
+  get  '/tuesday'    => 'eventdates#tuesday'
+  get  '/wednesday'  => 'eventdates#wednesday'
+  get  '/thursday'   => 'eventdates#thursday'
+  get  '/friday'     => 'eventdates#friday'
+  get  '/saturday'   => 'eventdates#saturday'
+  get  '/sunday'     => 'eventdates#sunday'
+
 end

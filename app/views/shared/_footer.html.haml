@@ -87,31 +87,35 @@
         %h3 開催日
         %ul.row
           .col-xs-6
-            %li= link_to "今日のイベント", "#"
-            %li= link_to "明日のイベント", "#"
-            %li= link_to "今週のイベント", "#"
-            %li= link_to "来週のイベント", "#"
-            %li= link_to "今月のイベント", "#"
-            %li= link_to "来月のイベント", "#"
+            %li= link_to "今日のイベント（#{Event.where(event_start: Time.now.all_day).count()}）", today_path
+            %li= link_to "明日のイベント（#{Event.where('event_start >= ? and event_start < ?', Date.tomorrow, Date.tomorrow + 1).count()}）", tomorrow_path
+            %li= link_to "今週のイベント（#{Event.where(event_start: Time.now.all_week).count()}）", thisweek_path
+            %li= link_to "来週のイベント（#{Event.where('event_start >= ? and event_start < ?', Date.today.next_week, Date.today.next_week + 7).count()}）", nextweek_path
+            %li= link_to "今月のイベント（#{Event.where(event_start: Time.now.all_month).count()}）", thismonth_path
+            %li= link_to "来月のイベント（#{Event.where('event_start > ? and event_start < ?', Date.today.end_of_month, Date.today.beginning_of_month.months_since(2)).count()}）", nextmonth_path
           .col-xs-6
-            %li= link_to "土日（週末）のイベント", "#"
-            %li= link_to "土曜日のイベント", "#"
-            %li= link_to "日曜日のイベント", "#"
-      .feature.col-md-3.col-xs-12
-        %h3 その他のオススメ
-        %ul.row
-          .col-xs-6
-            %li= link_to "朝活", "#"
-            %li= link_to "女性限定", "#"
-          .col-xs-6
-            %li= link_to "無料体験", "#"
+            %li= link_to "月曜日のイベント", monday_path
+            %li= link_to "火曜日のイベント", tuesday_path
+            %li= link_to "水曜日のイベント", wednesday_path
+            %li= link_to "木曜日のイベント", thursday_path
+            %li= link_to "金曜日のイベント", friday_path
+            %li= link_to "土曜日のイベント", saturday_path
+            %li= link_to "日曜日のイベント", sunday_path
+      -# .feature.col-md-3.col-xs-12
+      -#   %h3 その他のオススメ
+      -#   %ul.row
+      -#     .col-xs-6
+      -#       %li= link_to "朝活", "#"
+      -#       %li= link_to "女性限定", "#"
+      -#     .col-xs-6
+      -#       %li= link_to "無料体験", "#"
   .footer-bottom
     .footer-bottom-link
       %ul
-        %li= link_to "よくある質問", faq_path
+        -# %li= link_to "よくある質問", faq_path
         %li= link_to "利用規約", terms_path
         %li= link_to "プライバシーポリシー", privacy_path
-        %li= link_to "お問い合わせ", contact_path
-        %li= link_to "広告掲載について", advertise_path
+        -# %li= link_to "お問い合わせ", contact_path
+        -# %li= link_to "広告掲載について", advertise_path
     .copyright
       %p © 2018 Bodymate
