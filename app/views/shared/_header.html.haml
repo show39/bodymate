@@ -10,8 +10,8 @@
       = link_to image_tag("logo.svg", alt: "Bodymateロゴ"), root_path, class: 'navbar-brand logo'
     .navbar-collapse.collapse#navbar-main
       %ul.nav.navbar-nav.navbar-right
-        %li=link_to image_tag("info.svg", alt: "Bodymateについて"), about_path
-        %li=link_to image_tag("help.svg", alt: "使い方"), guide_path
+        -# %li=link_to image_tag("info.svg", alt: "Bodymateについて"), about_path
+        -# %li=link_to image_tag("help.svg", alt: "使い方"), guide_path
         - if user_signed_in?
           %li= link_to image_tag("newpost.svg", alt: "新規投稿"), new_event_path
           %li= link_to image_tag("mypage.svg", alt: "マイページ"), user_path(@user)

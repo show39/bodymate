@@ -2,7 +2,8 @@
 .mypage-wrapper
   .row
     .col-md-8
-      %h1 マイページ
+      - if user_signed_in? && @user.id == current_user.id
+        %h1 マイページ
       .profile-area
         .row
           .col-xs-3
@@ -23,28 +24,29 @@
         <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
-      .ticket-area
-        %h2 チケット
-        %table
-          %tr
-            .row
-              %th.col-md-4 イベント名
-              %th.col-md-2 開催日時
-              %th.col-md-2 チケット名
-              %th.col-md-2 ステータス
-              %th.col-md-2 キャンセル
-          - @entry_tickets.each do |et|
+      - if user_signed_in? && @user.id == current_user.id
+        .ticket-area
+          %h2 チケット
+          %table
             %tr
               .row
-                %td.col-md-4= link_to "#{et.ticket.event.name}", event_path(et.ticket.event)
-                %td.col-md-2.text-center=et.ticket.event.event_start.strftime("%m月%d日 %H:%M")
-                %td.col-md-2.text-center=et.ticket.name
-                - if et.ticket.event.event_start >= Time.now
-                  %td.col-md-2.text-center 参加予定
-                - else
-                  %td.col-md-2.text-center イベント終了
-                %td.col-md-2.text-center
-        -# %h3 **キャンセルしたチケット
+                %th.col-md-4 イベント名
+                %th.col-md-2 開催日時
+                %th.col-md-2 チケット名
+                %th.col-md-2 ステータス
+                %th.col-md-2
+            - @entry_tickets.each do |et|
+              %tr
+                .row
+                  %td.col-md-4= link_to "#{et.ticket.event.name}", event_path(et.ticket.event)
+                  %td.col-md-2.text-center=et.ticket.event.event_start.strftime("%m月%d日 %H:%M")
+                  %td.col-md-2.text-center=et.ticket.name
+                  - if et.ticket.event.event_start >= Time.now
+                    %td.col-md-2.text-center 参加予定
+                  - else
+                    %td.col-md-2.text-center イベント終了
+                  %td.col-md-2.text-center キャンセル
+          -# %h3 **キャンセルしたチケット
       .event-area
         %h2 主催イベント
         %h3 募集中のイベント
@@ -63,7 +65,10 @@
                 %td.col-md-2.text-center=we.event_start.strftime("%m月%d日 %H:%M")
                 %td.col-md-2.text-center *** / #{we.tickets.sum(:quantity)}
                 %td.col-md-2.text-center=we.recruit_end.strftime("%m月%d日 %H:%M")
-                %td.col-md-2.text-center= link_to '編集', edit_event_path(we)
+                - if user_signed_in? && @user.id == current_user.id
+                  %td.col-md-2.text-center= link_to '編集', edit_event_path(we)
+                - else
+                  %td.col-md-2
         -# %p 準備中のイベント
         %h3 終了したイベント
         %table
@@ -73,7 +78,7 @@
               %th.col-md-2 開催日時
               %th.col-md-2 募集結果
               %th.col-md-2 募集終了日時
-              %th.col-md-2 複製
+              %th.col-md-2
           - @finished_events.each do |fe|
             %tr
               .row
@@ -81,15 +86,20 @@
                 %td.col-md-2.text-center=fe.event_start.strftime("%m月%d日 %H:%M")
                 %td.col-md-2.text-center *** / #{fe.tickets.sum(:quantity)}
                 %td.col-md-2.text-center=fe.recruit_end.strftime("%m月%d日 %H:%M")
-                %td.col-md-2.text-center
-        %p
-          = link_to 'イベントを作成する', new_event_path, class: 'event-create-btn'
-      .account-area
-        %h2 アカウント
-        %p
-          = link_to 'アカウント編集', edit_user_registration_path
-        %p
-          = link_to 'ログアウト', destroy_user_session_path, method: :delete
+                - if user_signed_in? && @user.id == current_user.id
+                  %td.col-md-2.text-center 複製
+                - else
+                  %td.col-md-2
+        - if user_signed_in? && @user.id == current_user.id
+          %p
+            = link_to 'イベントを作成する', new_event_path, class: 'event-create-btn'
+      - if user_signed_in? && @user.id == current_user.id
+        .account-area
+          %h2 アカウント
+          %p
+            = link_to 'アカウント編集', edit_user_registration_path
+          %p
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete
     .col-md-4
       .adsense-right
         %p SPONSORED LINK
