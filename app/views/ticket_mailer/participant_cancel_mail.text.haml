@@ -1,0 +1,18 @@
+#{@booking.name}様
+　　
+#{@booking.ticket.event.name}のキャンセルが完了しましたのでご連絡いたします。
+
+【キャンセル内容】
+お申込者名       #{@booking.name}
+メールアドレス   #{@booking.email}
+コメント        #{@booking.comment}
+チケット名       #{@booking.ticket.name}
+価格                #{@booking.ticket.price.to_s(:delimited)}円
+イベント名       #{@booking.ticket.event.name}
+開催日時          #{@booking.ticket.event.event_start.strftime("%Y年%m月%d日 %H:%M")} 〜 #{@booking.ticket.event.event_end.strftime("%m月%d日 %H:%M")}
+会場                #{@booking.ticket.event.place}
+主催者             #{@booking.ticket.event.organizer}
+主催者E-mail     #{@booking.ticket.event.email}
+　　
+イベント詳細はこちら
+https://event.bodymate.jp/events/#{@booking.ticket.event.id}

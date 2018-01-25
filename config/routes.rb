@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :events, only: [:new, :create, :show, :edit, :update]
 
-  resources :bookings, only: [:new, :create]
+  resources :bookings, only: [:new, :create, :update]
 
   root 'static_pages#home'
 

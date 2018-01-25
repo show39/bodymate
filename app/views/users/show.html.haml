@@ -41,11 +41,29 @@
                   %td.col-md-4= link_to "#{et.ticket.event.name}", event_path(et.ticket.event)
                   %td.col-md-2.text-center=et.ticket.event.event_start.strftime("%m月%d日 %H:%M")
                   %td.col-md-2.text-center=et.ticket.name
-                  - if et.ticket.event.event_start >= Time.now
+                  - if et.ticket.event.event_start >= Time.now && et.del_flg == false
                     %td.col-md-2.text-center 参加予定
+                  - elsif et.del_flg == true
+                    %td.col-md-2.text-center キャンセル済み
                   - else
                     %td.col-md-2.text-center イベント終了
-                  %td.col-md-2.text-center キャンセル
+                  %td.col-md-2.text-center.ticket-cancel{data:{target: "ticket-cancel#{et.id}"}}
+                    - if et.del_flg == false
+                      = link_to 'キャンセル', 'javascript:void(0);'
+              // チケットキャンセルモーダル
+              .ticketcancel-modal{id: "ticket-cancel#{et.id}"}
+                %p 予約チケットをキャンセルしてもよろしいですか？
+                %p あなたとイベント主催者にキャンセル確認メールを送信します。
+                .row.row-center
+                  .col-xs-6.center-block
+                    %span
+                      = form_for et do |f|
+                        = f.hidden_field :del_flg, value: true
+                        = f.submit 'チケットをキャンセルする'
+                  .col-xs-6.center-block
+                    %sapn
+                      .modal-cancel
+                        = link_to 'キャンセル', class: 'modal-close'
           -# %h3 **キャンセルしたチケット
       .event-area
         %h2 主催イベント
@@ -87,7 +105,7 @@
                 %td.col-md-2.text-center *** / #{fe.tickets.sum(:quantity)}
                 %td.col-md-2.text-center=fe.recruit_end.strftime("%m月%d日 %H:%M")
                 - if user_signed_in? && @user.id == current_user.id
-                  %td.col-md-2.text-center 複製
+                  %td.col-md-2.text-center
                 - else
                   %td.col-md-2
         - if user_signed_in? && @user.id == current_user.id

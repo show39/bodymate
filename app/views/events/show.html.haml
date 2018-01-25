@@ -122,7 +122,7 @@
                   %span ¥ #{ticket.price.to_s(:delimited)}
               .ticket-quantity
                 %span 定員
-                %span #{ticket.bookings.count}
+                %span #{ticket.bookings.where('del_flg = ?', false).count}
                 %span /
                 %span #{ticket.quantity.to_s(:delimited)}
               - if Time.now >= ticket.event.recruit_start && Time.now <= ticket.event.recruit_end
