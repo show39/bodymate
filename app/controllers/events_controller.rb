@@ -1,6 +1,88 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: :new
 
+  @@prefecture_code = {
+    "北海道" => 1,
+    "青森県" => 2,
+    "秋田県" => 3,
+    "岩手県" => 4,
+    "宮城県" => 5,
+    "山形県" => 6,
+    "福島県" => 7,
+    "茨城県" => 8,
+    "栃木県" => 9,
+    "群馬県" => 10,
+    "埼玉県" => 11,
+    "千葉県" => 12,
+    "東京都" => 13,
+    "神奈川県" => 14,
+    "新潟県" => 15,
+    "富山県" => 16,
+    "石川県" => 17,
+    "福井県" => 18,
+    "山梨県" => 19,
+    "長野県" => 20,
+    "岐阜県" => 21,
+    "静岡県" => 22,
+    "愛知県" => 23,
+    "三重県" => 24,
+    "滋賀県" => 25,
+    "京都府" => 26,
+    "大阪府" => 27,
+    "兵庫県" => 28,
+    "奈良県" => 29,
+    "和歌山県" => 30,
+    "鳥取県" => 31,
+    "島根県" => 32,
+    "岡山県" => 33,
+    "広島県" => 34,
+    "山口県" => 35,
+    "徳島県" => 36,
+    "香川県" => 37,
+    "愛媛県" => 38,
+    "高知県" => 39,
+    "福岡県" => 40,
+    "佐賀県" => 41,
+    "長崎県" => 42,
+    "熊本県" => 43,
+    "大分県" => 44,
+    "宮崎県" => 45,
+    "鹿児島県" => 46,
+    "沖縄県" => 47,
+  }
+
+  @@sports_type_code = {
+    "スポーツ（その他）" => 1,
+    "ランニング" => 2,
+    "ヨガ" => 3,
+    "ピラティス" => 4,
+    "トレーニング" => 5,
+    "ボルダリング" => 6,
+    "ゴルフ" => 7,
+    "サッカー・フットサル" => 8,
+    "プール・水泳" => 9,
+    "マリンスポーツ（その他）" => 10,
+    "ボクシング" => 11,
+    "キックボクシング" => 12,
+    "格闘技（その他）" => 13,
+    "バレエ" => 14,
+    "体操・トランポリン" => 15,
+    "ダンス（その他）" => 16,
+    "野球" => 17,
+    "テニス" => 18,
+    "卓球" => 19,
+    "バドミントン" => 20,
+    "バスケットボール" => 21,
+    "バレーボール" => 22,
+    "スキー・スノーボード" => 23,
+    "スケート" => 24,
+    "ウィンタースポーツ（その他）" => 25,
+    "ボウリング" => 26,
+    "ダーツ" => 27,
+    "ビリヤード" => 28,
+    "セミナー" => 29,
+  }
+
   def new
     @user = current_user
     @event = Event.new
@@ -10,6 +92,10 @@ class EventsController < ApplicationController
   def create
     @user = current_user
     @event = Event.new(event_params)
+    prefecture = @event["prefecture"]
+    sports_type = @event["sports_type"]
+    @event["prefecture_code"] = @@prefecture_code[prefecture]
+    @event["sports_type_code"] = @@sports_type_code[sports_type]
     if @event.save
       redirect_to root_path, notice: 'イベントが作成されました'
     else
@@ -26,6 +112,10 @@ class EventsController < ApplicationController
   def update
     @user = current_user
     @event = Event.find(params[:id])
+    prefecture = @event["prefecture"]
+    sports_type = @event["sports_type"]
+    @event["prefecture_code"] = @@prefecture_code[prefecture]
+    @event["sports_type_code"] = @@sports_type_code[sports_type]
     if @event.update(update_event_params)
       if @event.del_flg == true
         redirect_to user_path(@user.id), notice: 'イベントが削除されました'
@@ -48,11 +138,11 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:name, :description, :event_start, :event_end, :recruit_start, :recruit_end, :image, :article, :place, :place_url, :postcode, :prefecture, :city, :address1, :address2, :map, :organizer, :email, :organizer_url, :facebook_url, :twitter_url, :instagram_url, tickets_attributes: [:name, :price, :quantity]).merge(user_id: current_user.id)
+      params.require(:event).permit(:name, :sports_type, :sports_type_code, :description, :event_start, :event_end, :recruit_start, :recruit_end, :image, :article, :place, :place_url, :postcode, :prefecture, :prefecture_code, :city, :address1, :address2, :map, :organizer, :email, :organizer_url, :facebook_url, :twitter_url, :instagram_url, tickets_attributes: [:name, :price, :quantity]).merge(user_id: current_user.id)
     end
 
     def update_event_params
-      params.require(:event).permit(:name, :description, :event_start, :event_end, :recruit_start, :recruit_end, :image, :article, :place, :place_url, :postcode, :prefecture, :city, :address1, :address2, :map, :organizer, :email, :organizer_url, :facebook_url, :twitter_url, :instagram_url, :del_flg, tickets_attributes: [:name, :price, :quantity, :_destroy, :id]).merge(user_id: current_user.id)
+      params.require(:event).permit(:name, :sports_type, :sports_type_code, :description, :event_start, :event_end, :recruit_start, :recruit_end, :image, :article, :place, :place_url, :postcode, :prefecture, :prefecture_code, :city, :address1, :address2, :map, :organizer, :email, :organizer_url, :facebook_url, :twitter_url, :instagram_url, :del_flg, tickets_attributes: [:name, :price, :quantity, :_destroy, :id]).merge(user_id: current_user.id)
     end
 
 end

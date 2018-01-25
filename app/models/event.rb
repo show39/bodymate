@@ -7,6 +7,7 @@ class Event < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   validates :name, presence: true, length: {maximum: 30}
+  validates :sports_type, presence: true
   validates :description, length: {maximum: 80}
   validates :place, presence: true
   validates :prefecture, presence: true
