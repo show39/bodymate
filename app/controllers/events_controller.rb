@@ -53,7 +53,7 @@ class EventsController < ApplicationController
 
   @@sports_type_code = {
     "スポーツ（その他）" => 1,
-    "ランニング" => 2,
+    "ランニング・マラソン" => 2,
     "ヨガ" => 3,
     "ピラティス" => 4,
     "トレーニング" => 5,
@@ -81,6 +81,10 @@ class EventsController < ApplicationController
     "ダーツ" => 27,
     "ビリヤード" => 28,
     "セミナー" => 29,
+    "ボディケア・マッサージ" => 30,
+    "エステ・トリートメント" => 31,
+    "リラクゼーション・アロマ" => 32,
+    "施術（その他）" => 33
   }
 
   def new

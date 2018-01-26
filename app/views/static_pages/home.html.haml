@@ -112,8 +112,8 @@
                     = image_tag(event.image.thumb.url, alt: "イベントイメージ", class: "event-image")
                   - else
                     = image_tag("event-image.jpg", alt: "イベントイメージ", class: "event-image")
-                  = link_to "ジャンル1サンプル", "#", class: "sports-genre1"
-                  = link_to "ジャンル2サンプル", "#", class: "sports-genre2"
+                  -# = link_to "ジャンル1サンプル", "#", class: "sports-genre1"
+                  .sports-genre2=event.sports_type
                   - if Time.now >= event.recruit_start && Time.now <= event.recruit_end
                     %span.wanted 予約受付中
                   - else

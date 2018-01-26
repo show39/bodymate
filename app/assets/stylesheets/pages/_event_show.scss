@@ -9,19 +9,17 @@
     line-height: 1.5;
     margin: 20px 20px 10px;
   }
-  .event-show-genre1 {
+  .event-show-prefecture {
     margin-left: 20px;
   }
-  .event-show-genre1, .event-show-genre2 {
+  .event-show-genre1, .event-show-genre2, .event-show-prefecture {
     font-size: 12px;
+    color: $brand_primary;
     border: 1px solid $brand_primary;
     border-radius: 2px;
     padding: 2px 6px;
     display: inline-block;
     margin-bottom: 10px;
-  }
-  .event-show-genre1:hover, .event-show-genre2:hover {
-    text-decoration: none;
   }
   h2 {
     font-size: 18px;
