@@ -59,7 +59,7 @@
           %h2
             %span ■
             %p イベント内容
-          .event-sentencebody= simple_format("#{@event.article}")
+          .event-sentencebody= simple_format(text_url_to_link(h("#{@event.article}")), {}, sanitize: false)
         .adsense-left
           %p SPONSORED LINK
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
