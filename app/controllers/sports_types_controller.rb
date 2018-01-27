@@ -9,6 +9,11 @@ class SportsTypesController < ApplicationController
     @events = Event.where(sports_type_code: 2).order('event_start DESC').page(params[:page]).per(12)
   end
 
+  def walking
+    @user = current_user
+    @events = Event.where(sports_type_code: 34).order('event_start DESC').page(params[:page]).per(12)
+  end
+
   def yoga
     @user = current_user
     @events = Event.where(sports_type_code: 3).order('event_start DESC').page(params[:page]).per(12)
@@ -162,5 +167,15 @@ class SportsTypesController < ApplicationController
   def other_treatments
     @user = current_user
     @events = Event.where(sports_type_code: 33).order('event_start DESC').page(params[:page]).per(12)
+  end
+
+  def nutrition
+    @user = current_user
+    @events = Event.where(sports_type_code: 35).order('event_start DESC').page(params[:page]).per(12)
+  end
+
+  def mental
+    @user = current_user
+    @events = Event.where(sports_type_code: 36).order('event_start DESC').page(params[:page]).per(12)
   end
 end

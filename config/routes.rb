@@ -68,6 +68,7 @@ Rails.application.routes.draw do
   # スポーツ種目別イベント一覧
   get  '/other_sports'        => 'sports_types#other_sports'
   get  '/running'             => 'sports_types#running'
+  get  '/walking'             => 'sports_types#walking'
   get  '/yoga'                => 'sports_types#yoga'
   get  '/pilates'             => 'sports_types#pilates'
   get  '/training'            => 'sports_types#training'
@@ -94,11 +95,13 @@ Rails.application.routes.draw do
   get  '/bowling'             => 'sports_types#bowling'
   get  '/darts'               => 'sports_types#darts'
   get  '/billiards'           => 'sports_types#billiards'
-  get  '/seminar'             => 'sports_types#seminar'
   get  '/bodycare'            => 'sports_types#bodycare'
   get  '/treatment'           => 'sports_types#treatment'
   get  '/relaxation'          => 'sports_types#relaxation'
   get  '/other_treatments'    => 'sports_types#other_treatments'
+  get  '/seminar'             => 'sports_types#seminar'
+  get  '/nutrition'             => 'sports_types#nutrition'
+  get  '/mental'             => 'sports_types#mental'
 
   # 開催日別イベント一覧
   get  '/today'      => 'eventdates#today'

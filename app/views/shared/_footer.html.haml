@@ -55,11 +55,12 @@
             %li= link_to "鹿児島県（#{Event.where(prefecture_code: 46).count()}）", kagoshima_path
             %li= link_to "沖縄県（#{Event.where(prefecture_code: 47).count()}）", okinawa_path
       .genre.col-md-3.col-xs-12
-        %h3 スポーツ種目 
+        %h3 スポーツ種目
         %ul.row
           .col-xs-6
             %li= link_to "スポーツ（その他）(#{Event.where(sports_type_code: 1).count()})", other_sports_path
             %li= link_to "ランニング・マラソン(#{Event.where(sports_type_code: 2).count()})", running_path
+            %li= link_to "ウォーキング・ハイキング(#{Event.where(sports_type_code: 34).count()})", walking_path
             %li= link_to "ヨガ(#{Event.where(sports_type_code: 3).count()})", yoga_path
             %li= link_to "ピラティス(#{Event.where(sports_type_code: 4).count()})", pilates_path
             %li= link_to "トレーニング(#{Event.where(sports_type_code: 5).count()})", training_path
@@ -87,11 +88,13 @@
             %li= link_to "ボウリング(#{Event.where(sports_type_code: 26).count()})", bowling_path
             %li= link_to "ダーツ(#{Event.where(sports_type_code: 27).count()})", darts_path
             %li= link_to "ビリヤード(#{Event.where(sports_type_code: 28).count()})", billiards_path
-            %li= link_to "セミナー(#{Event.where(sports_type_code: 29).count()})", seminar_path
             %li= link_to "ボディケア・マッサージ(#{Event.where(sports_type_code: 30).count()})", bodycare_path
             %li= link_to "エステ・トリートメント(#{Event.where(sports_type_code: 31).count()})", treatment_path
             %li= link_to "リラクゼーション・アロマ(#{Event.where(sports_type_code: 32).count()})", relaxation_path
             %li= link_to "施術（その他）(#{Event.where(sports_type_code: 33).count()})", other_treatments_path
+            %li= link_to "セミナー・勉強会(#{Event.where(sports_type_code: 29).count()})", seminar_path
+            %li= link_to "食事・栄養(#{Event.where(sports_type_code: 35).count()})", nutrition_path
+            %li= link_to "瞑想・メンタル(#{Event.where(sports_type_code: 36).count()})", mental_path
       .date.col-md-3.col-xs-12
         %h3 開催日
         %ul.row
