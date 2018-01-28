@@ -169,6 +169,16 @@
           }
         }
       }
+      .booking-people {
+        padding-left: 5px;
+        margin-bottom: 15px;
+        h3 {
+          font-size: 14px;
+        }
+        .booking-parson-name {
+          line-height: 1.6;
+        }
+      }
     }
   }
 }
@@ -216,6 +226,18 @@
         height: 280px;
         position: relative;
         left: -25px;
+      }
+    }
+    .right-contents {
+      .event-tickets {
+        .booking-people {
+          h3 {
+            font-size: 12px;
+          }
+          .booking-person-name {
+            font-size: 12px;
+          }
+        }
       }
     }
   }
