@@ -1,6 +1,4 @@
 class StaticPagesController < ApplicationController
-  # ログインしていないとログインページへリダイレクト
-  before_action :authenticate_user!, only: :about
 
   def home
     @user = current_user

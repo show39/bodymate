@@ -7,7 +7,10 @@
       .col-md-6.col-xs-6
         = link_to "検索する", "#classify", class: "button search-button"
       .col-md-6.col-xs-6
+      - if user_signed_in?
         = link_to "募集する", new_event_path, class: "button post-button"
+      - else
+        = link_to "募集する", new_user_session_path, class: "button post-button"
     %p Bodymateはスポーツ & ウェルネス専用のイベント予約サービスです。<br>誰でも無料で募集ができます。
 
 -# .container-fluid.home-search
@@ -156,7 +159,10 @@
         %p スポーツイベントやレッスン、栄養セミナーなどの募集や仲間集めにご活用ください。
     .col-md-4.col-xs-12
       .post-event-right
-        = link_to "募集を開始する", new_event_path, class: "post-event-button"
+        - if user_signed_in?
+          = link_to "募集を開始する", new_event_path, class: "post-event-button"
+        - else
+          = link_to "募集を開始する", new_user_session_path, class: "post-event-button"
 
 .container-fluid.about-bodymate
   .about-bodymate-area

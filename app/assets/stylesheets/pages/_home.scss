@@ -52,7 +52,7 @@
         border: solid 2px $brand-primary;
         border-radius: 2px;
         color: $brand-primary;
-        // transition: .2s;
+        transition: .2s;
         background: rgba(0, 0, 0, .6);
         font-size: 18px;
         margin: 30px 0px;
@@ -103,7 +103,7 @@
     border: solid 1px $blue;
     border-radius: 4px;
     background-color: white;
-    transition: .3s;
+    transition: .2s;
     padding: 8px 12px;
   }
   .home-search-button-area {
@@ -301,8 +301,9 @@
         border: solid 2px $brand-primary;
         border-radius: 4px;
         background-color: $brand-primary;
-        // transition: .3s;
+        transition: .2s;
         padding: 8px 12px;
+        margin-top: 10px;
       }
       .post-event-button:hover,
       .post-event-button:active {
