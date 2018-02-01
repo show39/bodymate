@@ -18,6 +18,7 @@ class Event < ApplicationRecord
   validates :article, presence: true, length: {maximum: 2000}
   validate  :event_start_should_be_before_event_end
   validate  :recruit_start_should_be_before_recruit_end
+  validate  :event_feature_not_duplicate
 
   private
   def event_start_should_be_before_event_end
@@ -31,6 +32,13 @@ class Event < ApplicationRecord
     return unless recruit_start && recruit_end
     if recruit_start >= recruit_end
       errors.add(:recruit_start, 'は募集終了時間よりも前に設定してください')
+    end
+  end
+
+  def event_feature_not_duplicate
+    return unless feature && feature2
+    if feature == feature2 && (feature != "選択してください" && feature2 != "選択してください")
+      errors.add(:feature, 'は重複しないようにしてください')
     end
   end
 end

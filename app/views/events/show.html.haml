@@ -3,6 +3,10 @@
   .event-show-prefecture=@event.prefecture
   .event-show-genre1=@event.sports_type
   -# = link_to "ジャンル2", "#", class: "event-show-genre2"
+  - unless @event.feature_code == 0
+    .event-show-feature=@event.feature
+  - unless @event.feature2_code == 0
+    .event-show-feature=@event.feature2
   .row
     .col-md-8
       .left-contents

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125155033) do
+ActiveRecord::Schema.define(version: 20180131004721) do
 
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
@@ -54,6 +54,10 @@ ActiveRecord::Schema.define(version: 20180125155033) do
     t.integer "prefecture_code"
     t.string "sports_type"
     t.integer "sports_type_code"
+    t.string "feature"
+    t.integer "feature_code"
+    t.string "feature2"
+    t.integer "feature2_code"
     t.index ["prefecture"], name: "index_events_on_prefecture"
     t.index ["user_id"], name: "index_events_on_user_id"
   end

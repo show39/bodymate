@@ -90,6 +90,22 @@ class EventsController < ApplicationController
     "瞑想・メンタル" => 36
   }
 
+  @@feature_code = {
+    "選択してください" => 0,
+    "無料体験" => 1,
+    "体験イベント" => 2,
+    "ボディメイク" => 3,
+    "ダイエット" => 4,
+    "アンチエイジング" => 5,
+    "朝活" => 6,
+    "女性限定" => 7,
+    "託児所有り" => 8,
+    "子ども向け" => 9,
+    "親子参加" => 10,
+    "マッチング・出会い" => 11,
+    "仲間募集" => 12
+  }
+
   def new
     @user = current_user
     @event = Event.new
@@ -101,8 +117,12 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     prefecture = @event["prefecture"]
     sports_type = @event["sports_type"]
+    feature = @event["feature"]
+    feature2 = @event["feature2"]
     @event["prefecture_code"] = @@prefecture_code[prefecture]
     @event["sports_type_code"] = @@sports_type_code[sports_type]
+    @event["feature_code"] = @@feature_code[feature]
+    @event["feature2_code"] = @@feature_code[feature2]
     if @event.save
       redirect_to root_path, notice: 'イベントが作成されました'
     else
@@ -121,8 +141,12 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     prefecture = @event["prefecture"]
     sports_type = @event["sports_type"]
+    feature = @event["feature"]
+    feature2 = @event["feature2"]
     @event["prefecture_code"] = @@prefecture_code[prefecture]
     @event["sports_type_code"] = @@sports_type_code[sports_type]
+    @event["feature_code"] = @@feature_code[feature]
+    @event["feature2_code"] = @@feature_code[feature2]
     if @event.update(update_event_params)
       if @event.del_flg == true
         redirect_to user_path(@user.id), notice: 'イベントが削除されました'
@@ -145,11 +169,11 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:name, :sports_type, :sports_type_code, :description, :event_start, :event_end, :recruit_start, :recruit_end, :image, :article, :place, :place_url, :postcode, :prefecture, :prefecture_code, :city, :address1, :address2, :map, :organizer, :email, :organizer_url, :facebook_url, :twitter_url, :instagram_url, tickets_attributes: [:name, :price, :quantity]).merge(user_id: current_user.id)
+      params.require(:event).permit(:name, :sports_type, :sports_type_code, :feature, :feature_code, :feature2, :feature2_code, :description, :event_start, :event_end, :recruit_start, :recruit_end, :image, :article, :place, :place_url, :postcode, :prefecture, :prefecture_code, :city, :address1, :address2, :map, :organizer, :email, :organizer_url, :facebook_url, :twitter_url, :instagram_url, tickets_attributes: [:name, :price, :quantity]).merge(user_id: current_user.id)
     end
 
     def update_event_params
-      params.require(:event).permit(:name, :sports_type, :sports_type_code, :description, :event_start, :event_end, :recruit_start, :recruit_end, :image, :article, :place, :place_url, :postcode, :prefecture, :prefecture_code, :city, :address1, :address2, :map, :organizer, :email, :organizer_url, :facebook_url, :twitter_url, :instagram_url, :del_flg, tickets_attributes: [:name, :price, :quantity, :_destroy, :id]).merge(user_id: current_user.id)
+      params.require(:event).permit(:name, :sports_type, :sports_type_code, :feature, :feature_code, :feature2, :feature2_code, :description, :event_start, :event_end, :recruit_start, :recruit_end, :image, :article, :place, :place_url, :postcode, :prefecture, :prefecture_code, :city, :address1, :address2, :map, :organizer, :email, :organizer_url, :facebook_url, :twitter_url, :instagram_url, :del_flg, tickets_attributes: [:name, :price, :quantity, :_destroy, :id]).merge(user_id: current_user.id)
     end
 
 end

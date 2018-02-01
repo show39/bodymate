@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      event: イベント
     attributes:
       user:
         id: ID
@@ -11,3 +12,7 @@ ja:
         name: ユーザーネーム
         title: 肩書き
         profile: プロフィール
+      event:
+        event_start: イベント開始日時
+        recruit_start: 募集開始日時
+        feature: イベント特徴

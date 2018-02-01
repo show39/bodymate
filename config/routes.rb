@@ -100,8 +100,8 @@ Rails.application.routes.draw do
   get  '/relaxation'          => 'sports_types#relaxation'
   get  '/other_treatments'    => 'sports_types#other_treatments'
   get  '/seminar'             => 'sports_types#seminar'
-  get  '/nutrition'             => 'sports_types#nutrition'
-  get  '/mental'             => 'sports_types#mental'
+  get  '/nutrition'           => 'sports_types#nutrition'
+  get  '/mental'              => 'sports_types#mental'
 
   # 開催日別イベント一覧
   get  '/today'      => 'eventdates#today'
@@ -117,5 +117,19 @@ Rails.application.routes.draw do
   get  '/friday'     => 'eventdates#friday'
   get  '/saturday'   => 'eventdates#saturday'
   get  '/sunday'     => 'eventdates#sunday'
+
+  # イベント特徴一覧
+  get '/free_trial'      => 'features#free_trial'
+  get '/trial_event'     => 'features#trial_event'
+  get '/body_make'       => 'features#body_make'
+  get '/diet'            => 'features#diet'
+  get '/anti_aging'      => 'features#anti_aging'
+  get '/moning_activity' => 'features#moning_activity'
+  get '/women_only'      => 'features#women_only'
+  get '/nursery'         => 'features#nursery'
+  get '/children'        => 'features#children'
+  get '/parent_child'    => 'features#parent_child'
+  get '/matching'        => 'features#matching'
+  get '/friends'         => 'features#friends'
 
 end
