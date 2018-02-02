@@ -203,6 +203,10 @@
         %span
           = form_for @event do |f|
             = f.hidden_field :del_flg, value: true
+            = f.hidden_field :prefecture_code, value: @event.prefecture_code
+            = f.hidden_field :sports_type_code, value: @event.sports_type_code
+            = f.hidden_field :feature_code, value: @event.feature_code
+            = f.hidden_field :feature2_code, value: @event.feature2_code
             = f.submit 'イベントを削除する'
       .col-xs-6.center-block
         %sapn

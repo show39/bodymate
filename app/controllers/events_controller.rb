@@ -87,7 +87,7 @@ class EventsController < ApplicationController
     "施術（その他）" => 33,
     "セミナー・勉強会" => 29,
     "食事・栄養" => 35,
-    "瞑想・メンタル" => 36
+    "瞑想・メンタル" => 36,
   }
 
   @@feature_code = {
@@ -103,7 +103,7 @@ class EventsController < ApplicationController
     "子ども向け" => 9,
     "親子参加" => 10,
     "マッチング・出会い" => 11,
-    "仲間募集" => 12
+    "仲間募集" => 12,
   }
 
   def new
@@ -139,14 +139,15 @@ class EventsController < ApplicationController
   def update
     @user = current_user
     @event = Event.find(params[:id])
-    prefecture = @event["prefecture"]
-    sports_type = @event["sports_type"]
-    feature = @event["feature"]
-    feature2 = @event["feature2"]
-    @event["prefecture_code"] = @@prefecture_code[prefecture]
-    @event["sports_type_code"] = @@sports_type_code[sports_type]
-    @event["feature_code"] = @@feature_code[feature]
-    @event["feature2_code"] = @@feature_code[feature2]
+    prefecture = update_event_params["prefecture"]
+    sports_type = update_event_params["sports_type"]
+    feature = update_event_params["feature"]
+    feature2 = update_event_params["feature2"]
+    prefecture_code = @@prefecture_code[prefecture]
+    sports_type_code = @@sports_type_code[sports_type]
+    feature_code = @@feature_code[feature]
+    feature2_code = @@feature_code[feature2]
+    @event.attributes = {prefecture_code: prefecture_code, sports_type_code: sports_type_code, feature_code: feature_code, feature2_code: feature2_code}
     if @event.update(update_event_params)
       if @event.del_flg == true
         redirect_to user_path(@user.id), notice: 'イベントが削除されました'
