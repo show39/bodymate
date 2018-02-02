@@ -12,7 +12,7 @@
                      {rel: 'apple-touch-icon',
                       sizes: '180x180',
                       type: 'image/png'})
-
+    = analytics_init if Rails.env.production?
   %body
     = render 'shared/header'
     - flash.each do |key, value|
