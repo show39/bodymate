@@ -8,7 +8,7 @@
   padding: 20px 20px;
   border: 2px solid $dark_gray;
   background: #fff;
-  P {
+  p {
     line-height: 1.8;
     margin: 0;
     padding: 0;
@@ -95,13 +95,27 @@
 }
 
 @media (max-width: 767px) {
-  // スマホのイベント削除のモーダル
+  // イベント削除のモーダル
   .eventdelete-modal {
     width: 90%;
   }
 
-  // スマホのチケット予約のモーダル
+  // チケット予約のモーダル
   .ticket-modal {
     width: 90%;
   }
+
+  // マイページのチケットキャンセルのモーダル
+  .ticketcancel-modal {
+    width: 90%;
+    input[type="submit"] {
+      font-size: 12px;
+      padding: 8px 10px;
+    }
+    .modal-cancel a{
+      font-size: 12px;
+      padding: 8px 16px;
+    }
+  }
+
 }
