@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
 
   def home
     @user = current_user
-    @events = Event.order('created_at DESC').limit(12)
+    @events = Event.where('del_flg = ?', false).order('created_at DESC').limit(12)
   end
 
   def about

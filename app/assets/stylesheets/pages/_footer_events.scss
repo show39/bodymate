@@ -151,29 +151,36 @@
 
 
 @media screen and (max-width:767px) {
-  .new-events {
-    margin: 0;
-    .new-events-wraper{
-      padding: 5px 5px 15px;
-      .event-block {
-        margin: 8px 3px;
-        .event-name {
-          font-size: 12px;
-        }
-        .event-name-background {
-          font-size: 12px;
-        }
-        .sports-genre1 {
-          font-size: 8px;
-        }
-        .sports-genre2 {
-          font-size: 8px;
-        }
-        .wanted {
-          padding: 2px 6px;
-        }
-        .recruit-end {
-          padding: 2px 6px;
+  .prefecture-events, .eventdate-events, .sports-type-events, .feature-events {
+    .new-events-wraper .col-xs-6 .event-block {
+      margin: 8px 3px;
+    }
+  }
+  .prefecture-events, .eventdate-events, .sports-type-events, .feature-events {
+    margin: 80px 4px 0;
+    .new-events {
+      margin: 0;
+      .new-events-wraper{
+        .event-block {
+          margin: 0;
+          .event-name {
+            font-size: 12px;
+          }
+          .event-name-background {
+            font-size: 12px;
+          }
+          .sports-genre1 {
+            font-size: 8px;
+          }
+          .sports-genre2 {
+            font-size: 8px;
+          }
+          .wanted {
+            padding: 2px 6px;
+          }
+          .recruit-end {
+            padding: 2px 6px;
+          }
         }
       }
     }
