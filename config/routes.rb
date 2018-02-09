@@ -105,6 +105,7 @@ Rails.application.routes.draw do
   get  '/seminar'             => 'sports_types#seminar'
   get  '/nutrition'           => 'sports_types#nutrition'
   get  '/mental'              => 'sports_types#mental'
+  get  '/squash'              => 'sports_types#squash'
 
   # 開催日別イベント一覧
   get  '/today'      => 'eventdates#today'

@@ -88,6 +88,7 @@ class EventsController < ApplicationController
     "セミナー・勉強会" => 29,
     "食事・栄養" => 35,
     "瞑想・メンタル" => 36,
+    "スカッシュ" => 37,
   }
 
   @@feature_code = {

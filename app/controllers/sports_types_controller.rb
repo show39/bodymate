@@ -178,4 +178,9 @@ class SportsTypesController < ApplicationController
     @user = current_user
     @events = Event.where(sports_type_code: 36, del_flg: false).order('event_start DESC').page(params[:page]).per(12)
   end
+
+  def squash
+    @user = current_user
+    @events = Event.where(sports_type_code: 37, del_flg: false).order('event_start DESC').page(params[:page]).per(12)
+  end
 end
