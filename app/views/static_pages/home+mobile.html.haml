@@ -1,0 +1,107 @@
+.topimage
+  .topslider
+  .gradation
+  .topcontent
+    %h1 コドモが簡単に運動できる世の中をつくる
+    .row.topcontent-button
+      .col-md-6.col-xs-6
+        = link_to "検索する", "#classify", class: "button search-button"
+      .col-md-6.col-xs-6
+      - if user_signed_in?
+        = link_to "募集する", new_event_path, class: "button post-button"
+      - else
+        = link_to "募集する", new_user_session_path, class: "button post-button"
+    %p Bodymateはスポーツ & ヘルスケア専用のイベント予約サービスです。<br>誰でも無料で募集ができます。
+
+.new-events
+  %h2 新着イベント
+  %p.new-events-description 最近投稿されたスポーツイベントです。
+  .new-events-wraper.row
+    - @events.each do |event|
+      .col-md-3.col-sm-4.col-xs-6
+        = link_to event do
+          - if Time.now >= event.recruit_start
+            .event-block
+              .event-image-area
+                .event-name= event.name
+                .event-name-background= event.name
+                - if event.image.present?
+                  = image_tag(event.image.thumb.url, alt: "イベントイメージ", class: "event-image")
+                - else
+                  = image_tag("event-image.jpg", alt: "イベントイメージ", class: "event-image")
+                -# = link_to "ジャンル1サンプル", "#", class: "sports-genre1"
+                .sports-genre2=event.sports_type
+                - if Time.now >= event.recruit_start && Time.now <= event.recruit_end
+                  %span.wanted 予約受付中
+                - else
+                  %span.recruit-end 予約受付終了
+              .event-info
+                = link_to event do
+                  .event-description-area
+                    .event-description= event.description
+                  .event-info
+                    %p.event-datetime
+                      %i.fa.fa-calendar-o
+                      %span= event.event_start.strftime("%Y年%m月%d日 %H:%M")
+                      %span 〜
+                      - if event.event_start.strftime("%Y%m%d") == event.event_end.strftime("%Y%m%d")
+                        %span= event.event_end.strftime("%H:%M")
+                      - else
+                        %span= event.event_end.strftime("%m月%d日 %H:%M")
+                    %p.event-address
+                      %i.fa.fa-map-marker
+                      %span.event-prefecture= event.prefecture + event.city + event.address1 + event.address2
+                    %p.event-organizer
+                      %i.fa.fa-user-circle-o
+                      %span.event-organizername= event.organizer
+.adsense-home
+  %p SPONSORED LINK
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  / 予約レスポンシブ
+  %ins{class: "adsbygoogle",
+       style: "display:block",
+       data:{ad:{client: "ca-pub-9627911157097400", slot: "2862552430", format: "auto"}}}
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
+.container-fluid.post-event
+  .post-event-content.row
+    .col-md-8.col-xs-12
+      .post-event-left
+        %h2 イベントを投稿する
+        %p スポーツイベントやレッスン、栄養セミナーなどの募集や仲間集めにご活用ください。
+    .col-md-4.col-xs-12
+      .post-event-right
+        - if user_signed_in?
+          = link_to "募集を開始する", new_event_path, class: "post-event-button"
+        - else
+          = link_to "募集を開始する", new_user_session_path, class: "post-event-button"
+
+.container-fluid.about-bodymate
+  .about-bodymate-area
+    %h2 オトナの運動ハードルを下げる
+    %p Bodymateはどこよりも簡単にスポーツイベントを検索・予約できることにより、大人の運動ハードルを下げるためのサービスです。
+    .row
+      .col-md-4.col-sm-12
+        = image_tag("free.png", alt: "登録無料のイメージ", class: "free-image")
+        %h3 掲載無料・審査なし
+        %p イベント掲載の審査はなく、イベント投稿フォームより無料で誰でもご利用できます。
+      .col-md-4.col-sm-12
+        = image_tag("search.png", alt: "検索のイメージ", class: "search-image")
+        %h3 条件検索で見つかる
+        %p スポーツジャンルや時間帯、特定の条件を合わせて検索することで自分に合ったスポーツイベントが簡単に見つかります。
+      .col-md-4.col-sm-12
+        = image_tag("booking.png", alt: "予約のイメージ", class: "booking-image")
+        %h3 予約はログイン不要
+        %p イベント参加予約はお名前とメールアドレスのみで会員登録なしで簡単にできます。
+.adsense-home
+  %p SPONSORED LINK
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  / 予約レスポンシブ
+  %ins{class: "adsbygoogle",
+       style: "display:block",
+       data:{ad:{client: "ca-pub-9627911157097400", slot: "2862552430", format: "auto"}}}
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
