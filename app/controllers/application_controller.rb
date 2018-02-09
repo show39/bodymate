@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :detect_device
 
   # サインアウト後のリダイレクト先URLを指定
   def after_sign_out_path_for(resource)
@@ -16,20 +15,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :title, :profile, :icon])
   end
-
-  # デバイス毎にビューファイルを変更
-  private
-    def detect_device
-      case request.user_agent
-        when /iPad/
-            request.variant = :mobile
-        when /iPod/
-            request.variant = :mobile
-        when /iPhone/
-            request.variant = :mobile
-        when /Android/
-            request.variant = :mobile
-      end
-    end
 
 end

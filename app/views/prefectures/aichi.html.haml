@@ -1,7 +1,17 @@
 .prefecture-events
   %h1 愛知県のイベント一覧
   %p.new-events-description 愛知県内で開催されるイベントです。
-  .adsense-home
+  .adsense-home.visible-xs
+    %p SPONSORED LINK
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    / 300×250予約
+    %ins{class: "adsbygoogle",
+         style: "display:block",
+         data:{ad:{client: "ca-pub-9627911157097400", slot: "2707069331", format: "auto"}}}
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  .adsense-home.hidden-xs
     %p SPONSORED LINK
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     / 予約レスポンシブ
@@ -49,7 +59,7 @@
                     %p.event-organizer
                       %i.fa.fa-user-circle-o
                       %span.event-organizername= event.organizer
-  .adsense-home
+  .adsense-home.visible-xs
     %p SPONSORED LINK
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     / 予約レスポンシブ
@@ -59,3 +69,22 @@
     <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
+  .adsense-home.hidden-xs
+    %p SPONSORED LINK
+    .adsense-double.center
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      / 336×280予約
+      %ins{class: "adsbygoogle",
+           style: "display:inline-block;width:336px;height:280px",
+           data:{ad:{client: "ca-pub-9627911157097400", slot: "1371126305"}}}
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      / 336×280予約
+      %ins{class: "adsbygoogle",
+           style: "display:inline-block;width:336px;height:280px",
+           data:{ad:{client: "ca-pub-9627911157097400", slot: "1371126305"}}}
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
