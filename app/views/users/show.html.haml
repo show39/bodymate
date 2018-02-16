@@ -48,7 +48,7 @@
                   - else
                     %td.col-md-2.text-center イベント終了
                   %td.col-md-2.text-center.ticket-cancel{data:{target: "ticket-cancel#{et.id}"}}
-                    - if et.del_flg == false
+                    - if et.del_flg == false && et.ticket.event.event_start >= Time.now
                       = link_to 'キャンセル', 'javascript:void(0);'
               // チケットキャンセルモーダル
               .ticketcancel-modal{id: "ticket-cancel#{et.id}"}
@@ -64,6 +64,8 @@
                     %sapn
                       .modal-cancel
                         = link_to 'キャンセル', class: 'modal-close'
+          .more-button-area
+            = link_to 'もっと見る',  "#{@user.id}/ticket", class: 'more-button'
           -# %h3 **キャンセルしたチケット
       .event-area
         %h2 主催イベント
@@ -108,6 +110,8 @@
                   %td.col-md-2.text-center
                 - else
                   %td.col-md-2
+        .more-button-area
+          = link_to 'もっと見る',  "#{@user.id}/event", class: 'more-button'
         - if user_signed_in? && @user.id == current_user.id
           %p
             = link_to 'イベントを作成する', new_event_path, class: 'event-create-btn'

@@ -9,11 +9,11 @@ class UsersController < ApplicationController
 
   def event
     @user = User.find(params[:id])
-    @events = Event.where('user_id = ?', @user.id).where('del_flg = ?', false).page(params[:page]).per(24)
+    @events = Event.where('user_id = ?', @user.id).where('del_flg = ?', false).order("created_at desc").page(params[:page]).per(24)
   end
 
   def ticket
     @user = User.find(params[:id])
-    @tickets = Booking.where('user_id = ?', @user.id).where('del_flg = ?', false).page(params[:page]).per(24)
+    @tickets = Booking.where('user_id = ?', @user.id).order("created_at desc").page(params[:page]).per(24)
   end
 end

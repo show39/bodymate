@@ -1,0 +1,66 @@
+- provide(:title, "#{@user.name}さんのチケット一覧")
+.mypage-wrapper
+  .row
+    .col-md-8
+      %h1.text-center #{@user.name}さんのチケット一覧
+      .adsense-left
+        %p SPONSORED LINK
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        / 予約レスポンシブ
+        %ins{class: "adsbygoogle",
+             style: "display:block",
+             data:{ad:{client: "ca-pub-9627911157097400", slot: "2862552430", format: "auto"}}}
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      .ticket-area
+        %h2 チケット
+        %table
+          %tr
+            .row
+              %th.col-md-4 イベント名
+              %th.col-md-2 開催日時
+              %th.col-md-2 チケット名
+              %th.col-md-2 ステータス
+              %th.col-md-2
+          - @tickets.each do |ticket|
+            %tr
+              .row
+                %td.col-md-4= link_to "#{ticket.ticket.event.name}", event_path(ticket.ticket.event)
+                %td.col-md-2.text-center=ticket.ticket.event.event_start.strftime("%m月%d日 %H:%M")
+                %td.col-md-2.text-center=ticket.ticket.name
+                - if ticket.ticket.event.event_start >= Time.now && ticket.del_flg == false
+                  %td.col-md-2.text-center 参加予定
+                - elsif ticket.del_flg == true
+                  %td.col-md-2.text-center キャンセル済み
+                - else
+                  %td.col-md-2.text-center イベント終了
+                %td.col-md-2.text-center.ticket-cancel{data:{target: "ticket-cancel#{ticket.id}"}}
+                  - if ticket.del_flg == false && ticket.ticket.event.event_start >= Time.now
+                    = link_to 'キャンセル', 'javascript:void(0);'
+            // チケットキャンセルモーダル
+            .ticketcancel-modal{id: "ticket-cancel#{ticket.id}"}
+              %p 予約チケットをキャンセルしてもよろしいですか？
+              %p あなたとイベント主催者にキャンセル確認メールを送信します。
+              .row.row-center
+                .col-xs-6.center-block
+                  %span
+                    = form_for ticket do |f|
+                      = f.hidden_field :del_flg, value: true
+                      = f.submit 'チケットをキャンセルする'
+                .col-xs-6.center-block
+                  %sapn
+                    .modal-cancel
+                      = link_to 'キャンセル', class: 'modal-close'
+      .text-center= paginate @tickets
+    .col-md-4
+      .adsense-right
+        %p SPONSORED LINK
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        -# 予約300×600
+        %ins{class: "adsbygoogle",
+             style: "display:inline-block;width:300px;height:600px",
+             data:{ad:{client: "ca-pub-9627911157097400", slot: "2581999765"}}}
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>

@@ -45,7 +45,22 @@
 
     }
   }
-  .ticket-area {
+  .more-button-area {
+    margin: 20px 0 30px;
+    text-align: center;
+    .more-button {
+      color: #fff;
+      background-color: $brand_primary;
+      border: 1px solid $brand_primary;
+      border-radius: 3px;
+      padding: 6px 20px;
+      margin: 10px 0 5px;
+    }
+    .more-button:hover {
+      color: $brand_primary;
+      background-color: #fff;
+      order: 3px solid $brand_primary;
+    }
   }
   .account-area {
     .account-link {

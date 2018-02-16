@@ -1,2 +1,51 @@
-- @events.each do |e|
-  = e.name
+- provide(:title, "#{@user.name}さんのイベント一覧")
+.mypage-wrapper
+  .row
+    .col-md-8
+      %h1.text-center #{@user.name}さんのイベント一覧
+      .adsense-left
+        %p SPONSORED LINK
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        / 予約レスポンシブ
+        %ins{class: "adsbygoogle",
+             style: "display:block",
+             data:{ad:{client: "ca-pub-9627911157097400", slot: "2862552430", format: "auto"}}}
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      .event-area
+        %h2 主催イベント
+        %table
+          %tr
+            .row
+              %th.col-md-4 イベント名
+              %th.col-md-2 開催日時
+              %th.col-md-2 募集状況
+              %th.col-md-2 募集終了日時
+              %th.col-md-2
+          - @events.each do |event|
+            %tr
+              .row
+                %td.col-md-4= link_to "#{event.name}", event_path(event)
+                %td.col-md-2.text-center=event.event_start.strftime("%m月%d日 %H:%M")
+                %td.col-md-2.text-center *** / #{event.tickets.sum(:quantity)}
+                %td.col-md-2.text-center=event.recruit_end.strftime("%m月%d日 %H:%M")
+                - if user_signed_in? && @user.id == current_user.id
+                  %td.col-md-2.text-center= link_to '編集', edit_event_path(event)
+                - else
+                  %td.col-md-2
+        - if user_signed_in? && @user.id == current_user.id
+          %p
+            = link_to 'イベントを作成する', new_event_path, class: 'event-create-btn'
+      .text-center= paginate @events
+    .col-md-4
+      .adsense-right
+        %p SPONSORED LINK
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        -# 予約300×600
+        %ins{class: "adsbygoogle",
+             style: "display:inline-block;width:300px;height:600px",
+             data:{ad:{client: "ca-pub-9627911157097400", slot: "2581999765"}}}
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
