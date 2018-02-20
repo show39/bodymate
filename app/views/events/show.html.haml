@@ -236,7 +236,6 @@
             = link_to 'キャンセル', class: 'modal-close'
 
 :javascript
-  <script type="text/javascript">
   function initMap() {
 
     var test ={lat: <%= @event.latitude %>, lng: <%= @event.longitude %>};
@@ -264,5 +263,5 @@
   }
    </script>
    <script async defer
-     src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyC1NXmYV-OfKmkksB-HidMATB9KAjDgqhg&callback=initMap">
+     src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyC1NXmYV-OfKmkksB-HidMATB9KAjDgqhg&callback">
    </script>
