@@ -6,6 +6,10 @@ class Event < ApplicationRecord
   # イベント画像のアップローダー
   mount_uploader :image, ImageUploader
 
+  # addressから緯度と経度を取得
+  geocoded_by :address
+  after_validation :geocode
+
   validates :name, presence: true, length: {maximum: 30}
   validates :sports_type, presence: true
   validates :description, length: {maximum: 80}

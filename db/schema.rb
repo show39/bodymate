@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180131004721) do
+ActiveRecord::Schema.define(version: 20180216180709) do
 
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
@@ -58,6 +58,9 @@ ActiveRecord::Schema.define(version: 20180131004721) do
     t.integer "feature_code"
     t.string "feature2"
     t.integer "feature2_code"
+    t.string "address"
+    t.float "latitude", limit: 24
+    t.float "longitude", limit: 24
     t.index ["prefecture"], name: "index_events_on_prefecture"
     t.index ["user_id"], name: "index_events_on_user_id"
   end

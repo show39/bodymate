@@ -49,6 +49,9 @@ gem 'kaminari-bootstrap'
 # パンくず
 gem 'gretel'
 
+# 住所から緯度経度を取得
+gem 'geocoder'
+
 # gem 'redis'
 
 # gem 'capistrano-rails', group: :development
