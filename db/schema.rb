@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180216180709) do
+ActiveRecord::Schema.define(version: 20180221021019) do
 
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20180216180709) do
     t.string "city"
     t.string "address1"
     t.string "address2"
-    t.string "map"
     t.string "email", null: false
     t.string "organizer", null: false
     t.string "facebook_url"

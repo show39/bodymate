@@ -57,8 +57,6 @@
               %th 住所
               %td
                 〒#{@event.postcode}<br />#{@event.prefecture}#{@event.city}#{@event.address1}#{@event.address2}
-                - if(@event.map)
-                  = link_to('マップ', "#{@event.map}", target: "_blank")
             %tr
               %th 募集状況
               %td
