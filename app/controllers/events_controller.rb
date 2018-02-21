@@ -169,6 +169,9 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @tickets = @event.tickets
     @booking = Booking.new
+    @latitude = @event.latitude
+    @longitude = @event.longitude
+    @address = @event.address
   end
 
   private

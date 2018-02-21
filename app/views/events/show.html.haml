@@ -237,8 +237,8 @@
 
 :javascript
   var map;
-  var point = {lat: 35.6793, lng: 139.711};
-  var contentString = '住所：東京都中央区銀座1-1-1';
+  var point = {lat: #{@latitude}, lng: #{@longitude}};
+  var contentString = '住所：#{@address}';
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: point,
