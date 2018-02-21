@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'users/:id/event'  => 'users#event'
   get 'users/:id/ticket'  => 'users#ticket'
+  get 'events/:id/replication'  => 'events#replication'
 
   get  '/about'      => 'static_pages#about'
   get  '/guide'      => 'static_pages#guide'

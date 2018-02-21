@@ -160,7 +160,6 @@ class EventsController < ApplicationController
     else
       flash.now[:alert] = @event.errors.full_messages.join(",")
       render :edit
-
     end
   end
 
@@ -172,6 +171,12 @@ class EventsController < ApplicationController
     @latitude = @event.latitude
     @longitude = @event.longitude
     @address = @event.address
+  end
+
+  def replication
+    @user = current_user
+    @event = Event.new
+    @event_data = Event.find(params[:id])
   end
 
   private
