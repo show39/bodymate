@@ -14,21 +14,21 @@
             .field
               = f.label :スポーツ種別
               %span.required 必須
-              = f.select :sports_type, [["スポーツ（その他）", "スポーツ（その他）"], ["ランニング・マラソン", "ランニング・マラソン"], ["ウォーキング・ハイキング", "ウォーキング・ハイキング"], ["ヨガ", "ヨガ"], ["ピラティス", "ピラティス"], ["トレーニング", "トレーニング"], ["ボルダリング", "ボルダリング"], ["ゴルフ", "ゴルフ"], ["サッカー・フットサル", "サッカー・フットサル"], ["プール・水泳", "プール・水泳"], ["マリンスポーツ（その他）", "マリンスポーツ（その他）"], ["ボクシング", "ボクシング"], ["キックボクシング", "キックボクシング"], ["格闘技（その他）", "格闘技（その他）"], ["バレエ", "バレエ"], ["体操・トランポリン", "体操・トランポリン"], ["ダンス（その他）", "ダンス（その他）"], ["野球", "野球"], ["テニス", "テニス"], ["スカッシュ", "スカッシュ"], ["卓球", "卓球"], ["バドミントン", "バドミントン"], ["バスケットボール", "バスケットボール"], ["バレーボール", "バレーボール"], ["スキー・スノーボード", "スキー・スノーボード"], ["スケート", "スケート"], ["ウィンタースポーツ（その他）", "ウィンタースポーツ（その他）"], ["ボウリング", "ボウリング"], ["ダーツ", "ダーツ"], ["ビリヤード", "ビリヤード"], ["ボディケア・マッサージ", "ボディケア・マッサージ"], ["エステ・トリートメント", "エステ・トリートメント"], ["リラクゼーション・アロマ", "リラクゼーション・アロマ"], ["施術（その他）", "施術（その他）"], ["セミナー・勉強会", "セミナー・勉強会"], ["食事・栄養", "食事・栄養"], ["瞑想・メンタル", "瞑想・メンタル"]]
+              = f.select :sports_type, [["スポーツ（その他）", "スポーツ（その他）"], ["ランニング・マラソン", "ランニング・マラソン"], ["ウォーキング・ハイキング", "ウォーキング・ハイキング"], ["ヨガ", "ヨガ"], ["ピラティス", "ピラティス"], ["トレーニング", "トレーニング"], ["ボルダリング", "ボルダリング"], ["ゴルフ", "ゴルフ"], ["サッカー・フットサル", "サッカー・フットサル"], ["プール・水泳", "プール・水泳"], ["マリンスポーツ（その他）", "マリンスポーツ（その他）"], ["ボクシング", "ボクシング"], ["キックボクシング", "キックボクシング"], ["格闘技（その他）", "格闘技（その他）"], ["バレエ", "バレエ"], ["体操・トランポリン", "体操・トランポリン"], ["ダンス（その他）", "ダンス（その他）"], ["野球", "野球"], ["テニス", "テニス"], ["スカッシュ", "スカッシュ"], ["卓球", "卓球"], ["バドミントン", "バドミントン"], ["バスケットボール", "バスケットボール"], ["バレーボール", "バレーボール"], ["スキー・スノーボード", "スキー・スノーボード"], ["スケート", "スケート"], ["ウィンタースポーツ（その他）", "ウィンタースポーツ（その他）"], ["ボウリング", "ボウリング"], ["ダーツ", "ダーツ"], ["ビリヤード", "ビリヤード"], ["ボディケア・マッサージ", "ボディケア・マッサージ"], ["エステ・トリートメント", "エステ・トリートメント"], ["リラクゼーション・アロマ", "リラクゼーション・アロマ"], ["施術（その他）", "施術（その他）"], ["セミナー・勉強会", "セミナー・勉強会"], ["食事・栄養", "食事・栄養"], ["瞑想・メンタル", "瞑想・メンタル"]], selected: "#{@event_data.sports_type}"
           .form-group
             .field
               = f.label :イベント特徴1
               %span
-              = f.select :feature, [["選択してください", "選択してください"], ["無料体験", "無料体験"], ["体験イベント", "体験イベント"], ["ボディメイク", "ボディメイク"], ["ダイエット", "ダイエット"], ["アンチエイジング", "アンチエイジング"], ["朝活", "朝活"], ["女性限定", "女性限定"], ["託児所有り", "託児所有り"], ["子ども向け", "子ども向け"], ["親子参加", "親子参加"], ["マッチング・出会い", "マッチング・出会い"], ["仲間募集", "仲間募集"]]
+              = f.select :feature, [["選択してください", "選択してください"], ["無料体験", "無料体験"], ["体験イベント", "体験イベント"], ["ボディメイク", "ボディメイク"], ["ダイエット", "ダイエット"], ["アンチエイジング", "アンチエイジング"], ["朝活", "朝活"], ["女性限定", "女性限定"], ["託児所有り", "託児所有り"], ["子ども向け", "子ども向け"], ["親子参加", "親子参加"], ["マッチング・出会い", "マッチング・出会い"], ["仲間募集", "仲間募集"]], selected: "#{@event_data.feature}"
           .form-group
             .field
               = f.label :イベント特徴2
               %span
-              = f.select :feature2, [["選択してください", "選択してください"], ["無料体験", "無料体験"], ["体験イベント", "体験イベント"], ["ボディメイク", "ボディメイク"], ["ダイエット", "ダイエット"], ["アンチエイジング", "アンチエイジング"], ["朝活", "朝活"], ["女性限定", "女性限定"], ["託児所有り", "託児所有り"], ["子ども向け", "子ども向け"], ["親子参加", "親子参加"], ["マッチング・出会い", "マッチング・出会い"], ["仲間募集", "仲間募集"]]
+              = f.select :feature2, [["選択してください", "選択してください"], ["無料体験", "無料体験"], ["体験イベント", "体験イベント"], ["ボディメイク", "ボディメイク"], ["ダイエット", "ダイエット"], ["アンチエイジング", "アンチエイジング"], ["朝活", "朝活"], ["女性限定", "女性限定"], ["託児所有り", "託児所有り"], ["子ども向け", "子ども向け"], ["親子参加", "親子参加"], ["マッチング・出会い", "マッチング・出会い"], ["仲間募集", "仲間募集"]], selected: "#{@event_data.feature2}"
           .form-group
             .field
               = f.label :概要
-              = f.text_area :description, placeholder: "例：5km、10km、ハーフマラソンでの自動タイム計測できます", class: "form-control form-textarea", rows: "3"
+              = f.text_area :description, placeholder: "例：5km、10km、ハーフマラソンでの自動タイム計測できます", class: "form-control form-textarea", rows: "3", value: "#{@event_data.description}"
           .form-group
             .field
               .event-datatime-top
@@ -54,96 +54,97 @@
             .field
               = f.label :イベント画像
               = f.file_field :image
+              = f.hidden_field :replication_id, value: "#{@event_data.id}"
           .form-group
             .field
               = f.label :イベント案内文
               %span.required 必須
-              = f.text_area :article, placeholder: "例：すごいマラソンイベントです!!", class: "form-control form-textarea", rows: "6"
+              = f.text_area :article, placeholder: "例：すごいマラソンイベントです!!", class: "form-control form-textarea", rows: "6", value: "#{@event_data.article}"
           .form-group
             .field
               = f.label :会場名
               %span.required 必須
-              = f.text_field :place, placeholder: "皇居", class: "form-control"
+              = f.text_field :place, placeholder: "皇居", class: "form-control", value: "#{@event_data.place}"
           .form-group
             .field
               = f.label :会場のURL
-              = f.url_field :place_url, placeholder: "http://bodymate.jp/", class: "form-control"
+              = f.url_field :place_url, placeholder: "http://bodymate.jp/", class: "form-control", value: "#{@event_data.place_url}"
           .form-group
             .field
               = f.label :郵便番号番号（ハイフンなし7桁）
-              = f.text_field :postcode, placeholder: "1234567", class: "form-control"
+              = f.text_field :postcode, placeholder: "1234567", class: "form-control", value: "#{@event_data.postcode}"
           .form-group
             .field
               = f.label :都道府県
               %span.required 必須
-              = f.select :prefecture, [["北海道", "北海道"], ["青森県", "青森県"], ["秋田県", "秋田県"], ["岩手県", "岩手県"], ["宮城県", "宮城県"], ["山形県", "山形県"], ["福島県", "福島県"], ["茨城県", "茨城県"], ["栃木県", "栃木県"], ["群馬県", "群馬県"], ["埼玉県", "埼玉県"], ["千葉県", "千葉県"], ["東京都", "東京都"], ["神奈川県", "神奈川県"], ["新潟県", "新潟県"], ["富山県", "富山県"], ["石川県", "石川県"], ["福井県", "福井県"], ["山梨県", "山梨県"], ["長野県", "長野県"], ["岐阜県", "岐阜県"], ["静岡県", "静岡県"], ["愛知県", "愛知県"], ["三重県", "三重県"], ["滋賀県", "滋賀県"], ["京都府", "京都府"], ["大阪府", "大阪府"], ["兵庫県", "兵庫県"], ["奈良県", "奈良県"], ["和歌山県", "和歌山県"], ["鳥取県", "鳥取県"], ["島根県", "島根県"], ["岡山県", "岡山県"], ["広島県", "広島県"], ["山口県", "山口県"], ["徳島県", "徳島県"], ["香川県", "香川県"], ["愛媛県", "愛媛県"], ["高知県", "高知県"], ["福岡県", "福岡県"], ["佐賀県", "佐賀県"], ["長崎県", "長崎県"], ["熊本県", "熊本県"], ["大分県", "大分県"], ["宮崎県", "宮崎県"], ["鹿児島県", "鹿児島県"], ["沖縄県", "沖縄県"]]
+              = f.select :prefecture, [["北海道", "北海道"], ["青森県", "青森県"], ["秋田県", "秋田県"], ["岩手県", "岩手県"], ["宮城県", "宮城県"], ["山形県", "山形県"], ["福島県", "福島県"], ["茨城県", "茨城県"], ["栃木県", "栃木県"], ["群馬県", "群馬県"], ["埼玉県", "埼玉県"], ["千葉県", "千葉県"], ["東京都", "東京都"], ["神奈川県", "神奈川県"], ["新潟県", "新潟県"], ["富山県", "富山県"], ["石川県", "石川県"], ["福井県", "福井県"], ["山梨県", "山梨県"], ["長野県", "長野県"], ["岐阜県", "岐阜県"], ["静岡県", "静岡県"], ["愛知県", "愛知県"], ["三重県", "三重県"], ["滋賀県", "滋賀県"], ["京都府", "京都府"], ["大阪府", "大阪府"], ["兵庫県", "兵庫県"], ["奈良県", "奈良県"], ["和歌山県", "和歌山県"], ["鳥取県", "鳥取県"], ["島根県", "島根県"], ["岡山県", "岡山県"], ["広島県", "広島県"], ["山口県", "山口県"], ["徳島県", "徳島県"], ["香川県", "香川県"], ["愛媛県", "愛媛県"], ["高知県", "高知県"], ["福岡県", "福岡県"], ["佐賀県", "佐賀県"], ["長崎県", "長崎県"], ["熊本県", "熊本県"], ["大分県", "大分県"], ["宮崎県", "宮崎県"], ["鹿児島県", "鹿児島県"], ["沖縄県", "沖縄県"]], selected: "#{@event_data.prefecture}"
           .form-group
             .field
               = f.label :市区町村
               %span.required 必須
-              = f.text_field :city, placeholder: "中央区", class: "form-control"
+              = f.text_field :city, placeholder: "千代田区", class: "form-control", value: "#{@event_data.city}"
           .form-group
             .field
               = f.label :住所
               %span.required 必須
-              = f.text_field :address1, placeholder: "築地1-1-1", class: "form-control"
+              = f.text_field :address1, placeholder: "千代田1-1", class: "form-control", value: "#{@event_data.address1}"
           .form-group
             .field
               = f.label :ビル名・階数
-              = f.text_field :address2, placeholder: "マグロビル 3F", class: "form-control"
+              = f.text_field :address2, placeholder: "桜田門広場", class: "form-control", value: "#{@event_data.address2}"
           .form-group
             .field
               = f.label :主催者
               %span.required 必須
-              = f.text_field :organizer, placeholder: "筋肉の伝道師とっぴー", class: "form-control"
+              = f.text_field :organizer, placeholder: "", class: "form-control", value: "#{@event_data.organizer}"
           .form-group
             .field
               = f.label :メールアドレス
               %span.required 必須
-              = f.text_field :email, placeholder: "sample@gmail.com", class: "form-control"
+              = f.text_field :email, placeholder: "sample@gmail.com", class: "form-control", value: "#{@event_data.email}"
           .form-group
             .field
               = f.label :ホームページのURL
-              = f.text_field :organizer_url, placeholder: "http://bodymate.jp/", class: "form-control"
+              = f.text_field :organizer_url, placeholder: "http://bodymate.jp/", class: "form-control", value: "#{@event_data.organizer_url}"
           .form-group
             .field
               = f.label :FacebookのURL
-              = f.text_field :facebook_url, placeholder: "https://www.facebook.com/bodymate.jp", class: "form-control"
+              = f.text_field :facebook_url, placeholder: "https://www.facebook.com/bodymate.jp", class: "form-control", value: "#{@event_data.facebook_url}"
           .form-group
             .field
               = f.label :TwitterのURL
-              = f.text_field :twitter_url, placeholder: "https://twitter.com/bodymate_jp", class: "form-control"
+              = f.text_field :twitter_url, placeholder: "https://twitter.com/bodymate_jp", class: "form-control", value: "#{@event_data.twitter_url}"
           .form-group
             .field
               = f.label :InstgramのURL
-              = f.text_field :instagram_url, placeholder: "https://www.instagram.com/bodymate_jp", class: "form-control"
-          #tickets_box
-            = f.fields_for :tickets do |t|
-              %ticketset
-                .ticket-box
-                  .form-group
-                    .field.ticket-name
-                      = t.label :チケット名
-                      %span.required 必須
-                      = t.text_field :name, placeholder: 'ハーフマラソン（完走証あり）', class: "form-control"
-                  .form-group.clearfix
-                    .field.price-form
-                      = t.label :価格
-                      %span.required 必須
-                      = t.number_field :price, placeholder: '6000', class: "form-control"
-                    .field.quantity-form
-                      = t.label :定員
-                      %span.required 必須
-                      = t.number_field :quantity, placeholder: '500', class: "form-control", maxlength: 10000
-                    - if @event.persisted?
-                      .ticket-delete
-                        = t.check_box :_destroy
-                        = t.label :_destroy, 'チケットを削除する', class: 'ticket-deletemessage'
-                        %p.message  ＊このチケットの予約情報も削除されます。
-            .add-ticket-area
-              = link_to_add_boxes 'チケット追加', f, :tickets
+              = f.text_field :instagram_url, placeholder: "https://www.instagram.com/bodymate_jp", class: "form-control", value: "#{@event_data.instagram_url}"
+          .form-group
+            .field
+              - @event_data.tickets.each do |td|
+                = f.fields_for :tickets do |t|
+                  %ticketset
+                    .ticket-box
+                      .form-group
+                        .field.ticket-name
+                          = t.label :チケット名
+                          %span.required 必須
+                          = t.text_field :name, placeholder: 'ハーフマラソン（完走証あり）', class: "form-control", value: "#{td.name}"
+                      .form-group.clearfix
+                        .field.price-form
+                          = t.label :価格
+                          %span.required 必須
+                          = t.number_field :price, placeholder: '6000', class: "form-control", value: "#{td.price}"
+                        .field.quantity-form
+                          = t.label :定員
+                          %span.required 必須
+                          = t.number_field :quantity, placeholder: '500', class: "form-control", maxlength: 10000, value: "#{td.quantity}"
+                      .ticket-button
+                        = t.hidden_field :_destroy
+                        = link_to '削除', '#', class: "remove_ticket"
 
+              .add-ticket-area
+                = link_to_add_boxes 'チケット追加', f, :tickets
           .form-group
             .ticket-submit.text-right
               .actions
-                = f.submit "イベントを更新する", class: "btn btn-primary"
+                = f.submit '新規イベントを作成', class: "btn btn-primary"

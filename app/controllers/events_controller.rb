@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :authenticate_user!, only: [:new, :replication, :create, :edit, :update]
 
   @@prefecture_code = {
     "北海道" => 1,
@@ -113,6 +113,13 @@ class EventsController < ApplicationController
     @event.tickets.build
   end
 
+  def replication
+    @user = current_user
+    @event = Event.new
+    @event.tickets.build
+    @event_data = Event.find(params[:id])
+  end
+
   def create
     @user = current_user
     @event = Event.new(event_params)
@@ -125,6 +132,10 @@ class EventsController < ApplicationController
     @event["feature_code"] = @@feature_code[feature]
     @event["feature2_code"] = @@feature_code[feature2]
     @event["address"] = @event["prefecture"] + @event["city"] + @event["address1"]
+    if @event.replication_id.present? && @event.image.filename.nil?
+      @event_data = Event.find(@event.replication_id)
+      @event.image = @event_data.image.file
+    end
     if @event.save
       redirect_to root_path, notice: 'イベントが作成されました'
     else
@@ -149,7 +160,11 @@ class EventsController < ApplicationController
     sports_type_code = @@sports_type_code[sports_type]
     feature_code = @@feature_code[feature]
     feature2_code = @@feature_code[feature2]
-    address = update_event_params["prefecture"] + update_event_params["city"] + update_event_params["address1"]
+    if update_event_params["del_flg"].nil?
+      address = update_event_params["prefecture"] + update_event_params["city"] + update_event_params["address1"]
+    else
+      address = @event.address
+    end
     @event.attributes = {prefecture_code: prefecture_code, sports_type_code: sports_type_code, feature_code: feature_code, feature2_code: feature2_code, address: address}
     if @event.update(update_event_params)
       if @event.del_flg == true
@@ -173,19 +188,13 @@ class EventsController < ApplicationController
     @address = @event.address
   end
 
-  def replication
-    @user = current_user
-    @event = Event.new
-    @event_data = Event.find(params[:id])
-  end
-
   private
     def event_params
-      params.require(:event).permit(:name, :sports_type, :sports_type_code, :feature, :feature_code, :feature2, :feature2_code, :description, :event_start, :event_end, :recruit_start, :recruit_end, :image, :article, :place, :place_url, :postcode, :prefecture, :prefecture_code, :city, :address1, :address2, :address, :latitude, :longitude, :organizer, :email, :organizer_url, :facebook_url, :twitter_url, :instagram_url, tickets_attributes: [:name, :price, :quantity]).merge(user_id: current_user.id)
+      params.require(:event).permit(:name, :sports_type, :sports_type_code, :feature, :feature_code, :feature2, :feature2_code, :description, :event_start, :event_end, :recruit_start, :recruit_end, :image, :article, :place, :place_url, :postcode, :prefecture, :prefecture_code, :city, :address1, :address2, :address, :latitude, :longitude, :organizer, :email, :organizer_url, :facebook_url, :twitter_url, :instagram_url, :replication_id, tickets_attributes: [:name, :price, :quantity]).merge(user_id: current_user.id)
     end
 
     def update_event_params
-      params.require(:event).permit(:name, :sports_type, :sports_type_code, :feature, :feature_code, :feature2, :feature2_code, :description, :event_start, :event_end, :recruit_start, :recruit_end, :image, :article, :place, :place_url, :postcode, :prefecture, :prefecture_code, :city, :address1, :address2, :address, :latitude, :longitude, :organizer, :email, :organizer_url, :facebook_url, :twitter_url, :instagram_url, :del_flg, tickets_attributes: [:name, :price, :quantity, :_destroy, :id]).merge(user_id: current_user.id)
+      params.require(:event).permit(:name, :sports_type, :sports_type_code, :feature, :feature_code, :feature2, :feature2_code, :description, :event_start, :event_end, :recruit_start, :recruit_end, :image, :article, :place, :place_url, :postcode, :prefecture, :prefecture_code, :city, :address1, :address2, :address, :latitude, :longitude, :organizer, :email, :organizer_url, :facebook_url, :twitter_url, :instagram_url, :del_flg, :replication_id, tickets_attributes: [:name, :price, :quantity, :_destroy, :id]).merge(user_id: current_user.id)
     end
 
 end
