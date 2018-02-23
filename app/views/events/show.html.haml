@@ -2,7 +2,6 @@
   %h1 #{@event.name}
   .event-show-prefecture=@event.prefecture
   .event-show-genre1=@event.sports_type
-  -# = link_to "ジャンル2", "#", class: "event-show-genre2"
   - unless @event.feature_code == 0
     .event-show-feature=@event.feature
   - unless @event.feature2_code == 0
@@ -37,11 +36,9 @@
           (adsbygoogle = window.adsbygoogle || []).push({});
           </script>
         .event-basicinfo
-          %h2
-            %span ■
-            %p イベント情報
+          %h2 イベント情報
           %table
-            %tr
+            %tr.table-top
               %th 開催日時
               - if @event.event_start.strftime("%Y%m%d") == @event.event_end.strftime("%Y%m%d")
                 %td #{@event.event_start.strftime("%Y年%m月%d日 %H:%M")} 〜 #{@event.event_end.strftime("%H:%M")}
@@ -72,17 +69,13 @@
         - if @event.latitude && @event.longitude
           .event-map#map
         .event-sentence
-          %h2
-            %span ■
-            %p イベント内容
+          %h2 イベント内容
           .event-sentencebody= simple_format(text_url_to_link(h("#{@event.article}")), {}, sanitize: false)
         .event-organizer
-          %h2
-            %span ■
-            %p 主催者情報
+          %h2 主催者情報
           .attention ＊当イベントは下記の主催者によって企画・運営されており、Bodymateは関与しておりません。
           %table
-            %tr
+            %tr.table-top
               %th 主催者
               %td #{@event.organizer}
             %tr
@@ -124,9 +117,7 @@
             .event-deletebtn{data:{target: "event-delete"}}
               = link_to 'イベントを削除する', 'javascript:void(0);'
         .event-tickets
-          %h2
-            %span ■
-            %p チケット一覧
+          %h2 チケット一覧
           - @tickets.each do |ticket|
             .ticket-box
               .ticket-name #{ticket.name}
