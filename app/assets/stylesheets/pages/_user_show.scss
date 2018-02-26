@@ -5,11 +5,15 @@
     font-size: 20px;
   }
   h2 {
-    font-size: 20px;
-    border-left: 3px solid $dark_primary;
-    background-color: #e2e0ff;
-    padding: 10px 20px;
-    margin-bottom: 20px;
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    background: -webkit-repeating-linear-gradient(-45deg, #08008e, #08008e 4px,#08017a 3px, #08017a 8px);
+    background: repeating-linear-gradient(-45deg, #08008e, #08008e 4px,#08017a 3px, #08017a 8px);
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 12px 18px;
+    margin-bottom: 15px;
   }
   h3 {
     font-size: 16px;
@@ -25,7 +29,7 @@
     th {
       color: white;
       text-align: center;
-      background-color: $dark-primary;
+      background-color: #08017a;
     }
     th, td {
       border: 1px solid $dark_gray;
@@ -72,6 +76,9 @@
 @media (max-width: 767px) {
   .mypage-wrapper {
     margin: 70px 10px 20px;
+    h2 {
+      font-size: 13px;
+    }
   }
   table {
     font-size: 10px;

@@ -117,75 +117,76 @@
             .event-deletebtn{data:{target: "event-delete"}}
               = link_to 'イベントを削除する', 'javascript:void(0);'
         .event-tickets
-          %h2 チケット一覧
-          - @tickets.each do |ticket|
-            .ticket-box
-              .ticket-name #{ticket.name}
-              .ticket-price
-                - if(ticket.price == 0)
-                  %span 参加無料
+          - if @tickets.present?
+            %h2 チケット一覧
+            - @tickets.each do |ticket|
+              .ticket-box
+                .ticket-name #{ticket.name}
+                .ticket-price
+                  - if(ticket.price == 0)
+                    %span 参加無料
+                  - else
+                    %span 価格
+                    %span ¥ #{ticket.price.to_s(:delimited)}
+                .ticket-quantity
+                  %span 定員
+                  %span #{ticket.bookings.where('del_flg = ?', false).count}
+                  %span /
+                  %span #{ticket.quantity.to_s(:delimited)}
+                - if Time.now >= ticket.event.recruit_start && Time.now <= ticket.event.recruit_end
+                  - if ticket.quantity <= ticket.bookings.count
+                    .ticket-full
+                      %p 満席
+                  - else
+                    .ticket-bookingbtn{data:{target: "ticket-booking#{ticket.id}"}}
+                      = link_to '予約モーダルを開く', 'javascript:void(0);'
                 - else
-                  %span 価格
-                  %span ¥ #{ticket.price.to_s(:delimited)}
-              .ticket-quantity
-                %span 定員
-                %span #{ticket.bookings.where('del_flg = ?', false).count}
-                %span /
-                %span #{ticket.quantity.to_s(:delimited)}
-              - if Time.now >= ticket.event.recruit_start && Time.now <= ticket.event.recruit_end
-                - if ticket.quantity <= ticket.bookings.count
-                  .ticket-full
-                    %p 満席
-                - else
-                  .ticket-bookingbtn{data:{target: "ticket-booking#{ticket.id}"}}
-                    = link_to '予約モーダルを開く', 'javascript:void(0);'
-              - else
-                .ticket-end
-                  %p 募集終了
-            // 予約者一覧
-            - if user_signed_in? && @event.user_id == current_user.id
-              - if ticket.bookings.where(del_flg: 0).present?
-                .booking-people
-                  %h3 #{ticket.name}の予約者一覧
-                  - ticket.bookings.where(del_flg: 0).each_with_index do |booking, i|
-                    .booking-parson-name #{i + 1}. #{booking.name}
-            // チケット予約モーダル
-            .ticket-booking.ticket-modal{id: "ticket-booking#{ticket.id}"}
-              %h3 #{ticket.name}
-              = form_for @booking do |f|
-                .form-horizontal
-                  .form-group
-                    .field
-                      %span.col.col-md-3.control-label
-                        %span= f.label :お名前
-                        %span.required 必須
-                      .col.col-md-9
-                        - if user_signed_in?
-                          = f.text_field :name, class: "form-control", value: @user.name, required: true, maxlength: 20
-                        - else
-                          = f.text_field :name, class: "form-control", required: true, maxlength: 20
-                  .form-group
-                    .field
-                      %span.col.col-md-3.control-label
-                        %span= f.label :メールアドレス
-                        %span.required 必須
-                      .col.col-md-9
-                        - if user_signed_in?
-                          = f.email_field :email, class: "form-control", value: @user.email, required: true, maxlength: 50
-                        - else
-                          = f.email_field :email, class: "form-control", required: true, maxlength: 50
-                  .form-group
-                    .field
-                      = f.label :コメント, class: "col col-md-3 control-label"
-                      .col.col-md-9
-                        = f.text_area :comment, class: "form-control booking-comment", rows: 2
-                  = f.hidden_field :ticket_id, value: ticket.id
-                  - if user_signed_in?
-                    = f.hidden_field :user_id, value: @user.id
-                  .form-grup
-                    .actions
-                      = f.submit 'このチケットを予約する', class: "booking-submit"
-                  %p.attention ＊確認画面はありません。予約確定後に確認メールをお送りします。
+                  .ticket-end
+                    %p 募集終了
+              // 予約者一覧
+              - if user_signed_in? && @event.user_id == current_user.id
+                - if ticket.bookings.where(del_flg: 0).present?
+                  .booking-people
+                    %h3 #{ticket.name}の予約者一覧
+                    - ticket.bookings.where(del_flg: 0).each_with_index do |booking, i|
+                      .booking-parson-name #{i + 1}. #{booking.name}
+              // チケット予約モーダル
+              .ticket-booking.ticket-modal{id: "ticket-booking#{ticket.id}"}
+                %h3 #{ticket.name}
+                = form_for @booking do |f|
+                  .form-horizontal
+                    .form-group
+                      .field
+                        %span.col.col-md-3.control-label
+                          %span= f.label :お名前
+                          %span.required 必須
+                        .col.col-md-9
+                          - if user_signed_in?
+                            = f.text_field :name, class: "form-control", value: @user.name, required: true, maxlength: 20
+                          - else
+                            = f.text_field :name, class: "form-control", required: true, maxlength: 20
+                    .form-group
+                      .field
+                        %span.col.col-md-3.control-label
+                          %span= f.label :メールアドレス
+                          %span.required 必須
+                        .col.col-md-9
+                          - if user_signed_in?
+                            = f.email_field :email, class: "form-control", value: @user.email, required: true, maxlength: 50
+                          - else
+                            = f.email_field :email, class: "form-control", required: true, maxlength: 50
+                    .form-group
+                      .field
+                        = f.label :コメント, class: "col col-md-3 control-label"
+                        .col.col-md-9
+                          = f.text_area :comment, class: "form-control booking-comment", rows: 2
+                    = f.hidden_field :ticket_id, value: ticket.id
+                    - if user_signed_in?
+                      = f.hidden_field :user_id, value: @user.id
+                    .form-grup
+                      .actions
+                        = f.submit 'このチケットを予約する', class: "booking-submit"
+                    %p.attention ＊確認画面はありません。予約確定後に確認メールをお送りします。
         .adsense-right.hidden-sm.hidden-xs
           %p SPONSORED LINK
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
