@@ -15,6 +15,29 @@
           = image_tag("event-image.jpg", alt: "イベントイメージ", class: "event-image")
         .event-description
           %p #{@event.description}
+        .event-shares
+          %h2 イベントをシェアする
+          %ul
+            %li
+              .facebook_share
+                = link_to "https://www.facebook.com/sharer/sharer.php?u=https://event.bodymate.jp/events/#{@event.id}", title: "Facebookでシェア", target: "_blank" do
+                  = image_tag "share_facebook.png", alt: "Facebookシェアボタン", class: "sns_icon"
+            %li
+              .sns_icon.twitter_share
+                = link_to "https://twitter.com/share?url=https://event.bodymate.jp/events/#{@event.id}", title: "ツイートする", target: "_blank" do
+                  = image_tag "share_twitter.png", alt: "Twitterシェアボタン", class: "sns_icon"
+            %li
+              .sns_icon.google_share
+                = link_to "https://plus.google.com/share?url=https://event.bodymate.jp/events/#{@event.id}", title: "Google+で共有", target: "_blank" do
+                  = image_tag "share_gplus.png", alt: "GooglePlusボタン", class: "sns_icon"
+            %li
+              .sns_icon.hatena_share
+                = link_to "http://b.hatena.ne.jp/add?mode=confirm&url=https://event.bodymate.jp/events/#{@event.id}", title: "はてなブックマークに登録", target: "_blank" do
+                  = image_tag "share_hatena.png", alt: "はてなブックマーク", class: "sns_icon"
+            %li
+              .sns_icon.line_share
+                = link_to "http://line.me/R/msg/text/?#{@event.name}%0D%0Ahttps://event.bodymate.jp/events/#{@event.id}", title: "LINEで送る", target: "_blank" do
+                  = image_tag "share_line.png", alt: "LINEで送るボタン", class: "sns_icon"
         .adsense-home.visible-xs
           %p SPONSORED LINK
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
