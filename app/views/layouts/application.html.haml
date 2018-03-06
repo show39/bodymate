@@ -8,7 +8,7 @@
       %meta{property: "og:title", content: "#{@event.name} | Bobymate"}
       %meta{property: "og:description", content: "#{@event.description}"}
       - if @event.image
-        %meta{property: "og:image", content: "@event.image"}
+        %meta{property: "og:image", content: "#{@event.image}"}
       - else
         %meta{property: "og:image", content: "https://event.bodymate.jp/assets/event-image-6f63f7e02ed3e4354689f7f298982fa5cfb4c8e69a3c674bcb74eb522d7d5b59.jpg"}
       %meta{property: "og:url", content: "https://event.bodymate.jp/events/#{@event.id}"}
