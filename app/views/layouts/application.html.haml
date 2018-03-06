@@ -7,7 +7,10 @@
       %meta{name: "description", content: "#{@event.description}"}
       %meta{property: "og:title", content: "#{@event.name} | Bobymate"}
       %meta{property: "og:description", content: "#{@event.description}"}
-      %meta{property: "og:image", content: "https://s3-ap-northeast-1.amazonaws.com/event.bodymate/uploads/event/image/#{@event.id}/#{@event.image}"}
+      - if @event.image
+        %meta{property: "og:image", content: "@event.image"}
+      - else
+        %meta{property: "og:image", content: "https://event.bodymate.jp/assets/event-image-6f63f7e02ed3e4354689f7f298982fa5cfb4c8e69a3c674bcb74eb522d7d5b59.jpg"}
       %meta{property: "og:url", content: "https://event.bodymate.jp/events/#{@event.id}"}
       %meta{property: "og:type", content: "article"}
       %meta{name: "twitter:site", content: "@bodymate_jp"}
