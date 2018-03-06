@@ -5,13 +5,18 @@
     %title= full_title(yield(:title))
     - if @event.present?
       %meta{name: "description", content: "#{@event.description}"}
-      %meta{property: "og:title", content: "#{@event.name}"}
+      %meta{property: "og:title", content: "#{@event.name} | Bobymate"}
       %meta{property: "og:description", content: "#{@event.description}"}
-      %meta{property: "og:image", content: "#{@event.image.show.url}"}
+      %meta{property: "og:image", content: "https://event.bodymate.jp/assets/event-image-6f63f7e02ed3e4354689f7f298982fa5cfb4c8e69a3c674bcb74eb522d7d5b59.jpg"}
       %meta{property: "og:url", content: "https://event.bodymate.jp/events/#{@event.id}"}
       %meta{property: "og:type", content: "article"}
       %meta{name: "twitter:site", content: "@bodymate_jp"}
       %meta{name: "twitter:card", content: "summary"}
+      %meta{property: "og:site_name", content: "Bobymate - スポーツイベントを無料掲載・集客支援"}
+      %meta{property: "og:locale", content: "ja_JP"}
+      %meta{property: "fb:app_id", content: "360700044447345"}
+    - else
+      %meta{name: "description", content: "Bodymateはスポーツ、ヘルスケアイベントに特化した予約サービスです。無料で掲載・集客できますので是非ご活用ください。"}
 
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
     = csrf_meta_tags
