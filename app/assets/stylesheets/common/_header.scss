@@ -26,6 +26,7 @@
 }
 .navbar-collapse {
   .nav {
+    margin-top: 5px;
     margin-right: 5px;
     float: right;
     .search-modalbtn {
@@ -104,6 +105,10 @@
           left: -42px;
         }
       }
+    }
+    .navbar-collapse .navbar-nav {
+      margin-top: -10px;
+      margin-right: 0;
     }
   }
 }
