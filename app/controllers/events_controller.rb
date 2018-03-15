@@ -71,6 +71,7 @@ class EventsController < ApplicationController
     "ダンス（その他）" => 16,
     "野球" => 17,
     "テニス" => 18,
+    "スカッシュ" => 37,
     "卓球" => 19,
     "バドミントン" => 20,
     "バスケットボール" => 21,
@@ -88,7 +89,6 @@ class EventsController < ApplicationController
     "セミナー・勉強会" => 29,
     "食事・栄養" => 35,
     "瞑想・メンタル" => 36,
-    "スカッシュ" => 37,
   }
 
   @@feature_code = {
@@ -188,6 +188,12 @@ class EventsController < ApplicationController
     @address = @event.address
   end
 
+  def search
+    @user = current_user
+    @q = Event.where(del_flg: false).search(search_params)
+    @search_events = @q.result.order('event_start DESC').page(params[:page]).per(12)
+  end
+
   private
     def event_params
       params.require(:event).permit(:name, :sports_type, :sports_type_code, :feature, :feature_code, :feature2, :feature2_code, :description, :event_start, :event_end, :recruit_start, :recruit_end, :image, :article, :place, :place_url, :postcode, :prefecture, :prefecture_code, :city, :address1, :address2, :address, :latitude, :longitude, :organizer, :email, :organizer_url, :facebook_url, :twitter_url, :instagram_url, :replication_id, tickets_attributes: [:name, :price, :quantity]).merge(user_id: current_user.id)
@@ -197,4 +203,7 @@ class EventsController < ApplicationController
       params.require(:event).permit(:name, :sports_type, :sports_type_code, :feature, :feature_code, :feature2, :feature2_code, :description, :event_start, :event_end, :recruit_start, :recruit_end, :image, :article, :place, :place_url, :postcode, :prefecture, :prefecture_code, :city, :address1, :address2, :address, :latitude, :longitude, :organizer, :email, :organizer_url, :facebook_url, :twitter_url, :instagram_url, :del_flg, :replication_id, tickets_attributes: [:name, :price, :quantity, :_destroy, :id]).merge(user_id: current_user.id)
     end
 
+    def search_params
+      params.require(:q).permit(:prefecture_eq, :sports_type_eq, :feature_or_feature2_eq)
+    end
 end

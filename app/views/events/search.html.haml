@@ -1,7 +1,7 @@
-- provide(:title, "スケートに関連するイベント一覧")
-.sports-type-events
-  %h1 スケートのイベント一覧
-  %p.new-events-description スケートに関連するイベントの一覧です。
+- provide(:title, "イベント検索結果")
+.search-events
+  %h1 イベント検索結果
+  %p.new-events-description 検索結果のイベント一覧です。
   .adsense-home
     %p SPONSORED LINK
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -13,7 +13,7 @@
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   .new-events-wraper.row
-    - @events.each do |event|
+    - @search_events.each do |event|
       .col-md-3.col-sm-4.col-xs-6
         = link_to event do
           - if Time.now >= event.recruit_start
@@ -50,7 +50,7 @@
                     %p.event-organizer
                       %i.fa.fa-user-circle-o
                       %span.event-organizername= event.organizer
-  .text-center= paginate @events
+  .text-center= paginate @search_events
   .adsense-home
     %p SPONSORED LINK
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

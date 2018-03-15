@@ -23,6 +23,10 @@
   .form-textarea {
     resize: none;
   }
+  .datetime_form {
+    width: auto;
+    display: inline-block;
+  }
   .ticket-box {
     background-color: #efefef;
     border: 1px solid $dark_gray;

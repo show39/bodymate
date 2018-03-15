@@ -20,6 +20,7 @@
       %meta{property: "fb:app_id", content: "360700044447345"}
     - else
       %meta{name: "description", content: "Bodymateはスポーツ、ヘルスケアイベントに特化した予約サービスです。無料で掲載・集客できますので是非ご活用ください。"}
+      %meta{property: "og:image", content: "https://event.bodymate.jp/assets/event-image-6f63f7e02ed3e4354689f7f298982fa5cfb4c8e69a3c674bcb74eb522d7d5b59.jpg"}
 
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
     = csrf_meta_tags
@@ -39,3 +40,20 @@
       = content_tag :div, value, class: "alert alert-#{key}"
     = yield
     = render 'shared/footer'
+    // 検索用モーダル
+    .compSearch-modal#multi-search
+      %h2 イベント条件検索
+      = search_form_for(@q, url:search_path) do |f|
+        .form-group
+          = f.label :prefecture_eq, '都道府県'
+          = f.select :prefecture_eq, @prefectures, {include_blank: '選択してください'}, class: "form-control"
+        .form-group
+          = f.label :sports_type_eq, 'スポーツ種目'
+          = f.select :sports_type_eq, @sports_types, {include_blank: '選択してください'}, class: "form-control"
+        .form-group
+          = f.label :feature_or_feature2_eq, '特徴'
+          = f.select :feature_or_feature2_eq, @features, {include_blank: '選択してください'}, class: "form-control"
+        .form-group
+          .ticket-submit.text-right
+            .actions
+              = f.submit '検索', class: "btn search_btn btn-primary"

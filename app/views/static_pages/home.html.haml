@@ -5,7 +5,7 @@
     %h1 オトナが簡単に運動できる世の中をつくる
     .row.topcontent-button
       .col-md-6.col-xs-6
-        = link_to "検索する", "#classify", class: "button search-button"
+        .button.search-modalbtn{data:{target: "multi-search"}} 検索する
       .col-md-6.col-xs-6
       - if user_signed_in?
         = link_to "募集する", new_event_path, class: "button post-button"

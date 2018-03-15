@@ -28,15 +28,53 @@
   .nav {
     margin-right: 5px;
     float: right;
+    .search-modalbtn {
+      color: $font_black;
+      margin: 10px 5px;
+      padding: 0 0 10px 0;
+      height: 70px;
+      width: 70px;
+      background: rgba( 255 , 255 , 255 , 1);
+      border: 1px solid #a9a9a9;
+      border-radius: 12px;
+      box-shadow: 0 2px 4px #a9a9a9;
+      cursor: pointer;
+      p {
+        font-size: 10px;
+        margin-top: 5px;
+        text-align: center;
+      }
+      i {
+        font-size: 32px;
+        display: block;
+        text-align: center;
+        margin-top: -5px;
+      }
+    }
+    .search-modalbtn:hover {
+      background-color: #ececec;
+    }
     li {
       a {
+        color: $font_black;
         margin: 10px 5px;
-        padding: 0;
-        img {
-          background: rgba( 255 , 255 , 255 , 1);
-          border: 1px solid #a9a9a9;
-          border-radius: 5px;
-          box-shadow: 0 2px 4px #a9a9a9;
+        padding: 0 0 10px 0;
+        height: 70px;
+        width: 70px;
+        background: rgba( 255 , 255 , 255 , 1);
+        border: 1px solid #a9a9a9;
+        border-radius: 12px;
+        box-shadow: 0 2px 4px #a9a9a9;
+        p {
+          font-size: 10px;
+          margin-top: 5px;
+          text-align: center;
+        }
+        i {
+          font-size: 32px;
+          display: block;
+          text-align: center;
+          margin-top: -7px;
         }
       }
     }

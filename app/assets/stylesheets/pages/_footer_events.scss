@@ -1,4 +1,4 @@
-.prefecture-events, .eventdate-events, .sports-type-events, .feature-events {
+.prefecture-events, .eventdate-events, .sports-type-events, .feature-events, .search-events{
   margin: 100px 15px 0;
   h1 {
     color: $font_black;
@@ -151,12 +151,12 @@
 
 
 @media screen and (max-width:767px) {
-  .prefecture-events, .eventdate-events, .sports-type-events, .feature-events {
+  .prefecture-events, .eventdate-events, .sports-type-events, .feature-events, .search-events {
     .new-events-wraper .col-xs-6 .event-block {
       margin: 8px 3px;
     }
   }
-  .prefecture-events, .eventdate-events, .sports-type-events, .feature-events {
+  .prefecture-events, .eventdate-events, .sports-type-events, .feature-events, .search-events {
     margin: 80px 4px 0;
     .new-events {
       margin: 0;
