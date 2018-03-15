@@ -32,20 +32,20 @@
       color: $font_black;
       margin: 10px 5px;
       padding: 0 0 10px 0;
-      height: 70px;
-      width: 70px;
+      height: 63px;
+      width: 63px;
       background: rgba( 255 , 255 , 255 , 1);
       border: 1px solid #a9a9a9;
-      border-radius: 12px;
+      border-radius: 10px;
       box-shadow: 0 2px 4px #a9a9a9;
       cursor: pointer;
       p {
         font-size: 10px;
-        margin-top: 5px;
+        margin-top: 7px;
         text-align: center;
       }
       i {
-        font-size: 32px;
+        font-size: 28px;
         display: block;
         text-align: center;
         margin-top: -5px;
@@ -59,22 +59,31 @@
         color: $font_black;
         margin: 10px 5px;
         padding: 0 0 10px 0;
-        height: 70px;
-        width: 70px;
+        height: 63px;
+        width: 63px;
         background: rgba( 255 , 255 , 255 , 1);
         border: 1px solid #a9a9a9;
-        border-radius: 12px;
+        border-radius: 10px;
         box-shadow: 0 2px 4px #a9a9a9;
         p {
           font-size: 10px;
           margin-top: 5px;
           text-align: center;
         }
+        p.event_add_btn_text {
+          line-height: 1;
+        }
         i {
-          font-size: 32px;
+          font-size: 30px;
           display: block;
           text-align: center;
-          margin-top: -7px;
+          margin-top: -8px;
+        }
+        i.regist-icon {
+          font-size: 26px;
+        }
+        i.mypage-icon {
+          font-size: 28px;
         }
       }
     }

@@ -21,17 +21,17 @@
         - if user_signed_in?
           %li
             = link_to new_event_path do
-              %p イベント投稿
+              %p.event_add_btn_text イベント<br>投稿
               %i.fa.fa-bullhorn
           %li
             = link_to user_path(@user) do
               %p マイページ
-              %i.fa.fa-address-card
+              %i.fa.fa-address-card.mypage-icon
         - else
           %li
             = link_to new_user_registration_path do
               %p 無料登録
-              %i.fa.fa-user-plus
+              %i.fa.fa-user-plus.regist-icon
           %li
             = link_to new_user_session_path do
               %p ログイン
