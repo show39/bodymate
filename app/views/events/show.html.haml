@@ -158,7 +158,7 @@
                   %span /
                   %span #{ticket.quantity.to_s(:delimited)}
                 - if Time.now >= ticket.event.recruit_start && Time.now <= ticket.event.recruit_end
-                  - if ticket.quantity <= ticket.bookings.count
+                  - if ticket.quantity <= ticket.bookings.where(del_flg: false).count
                     .ticket-full
                       %p 満席
                   - else

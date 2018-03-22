@@ -47,23 +47,22 @@
                     %td.col-md-2.text-center キャンセル済み
                   - else
                     %td.col-md-2.text-center イベント終了
-                  %td.col-md-2.text-center.ticket-cancel{data:{target: "ticket-cancel#{et.id}"}}
+                  %td.col-md-2.text-center
                     - if et.del_flg == false && et.ticket.event.event_start >= Time.now
-                      = link_to 'キャンセル', 'javascript:void(0);'
-              // チケットキャンセルモーダル
-              .ticketcancel-modal{id: "ticket-cancel#{et.id}"}
-                %p 予約チケットをキャンセルしてもよろしいですか？
-                %p あなたとイベント主催者にキャンセル確認メールを送信します。
-                .row.row-center
-                  .col-xs-6.center-block
-                    %span
-                      = form_for et do |f|
-                        = f.hidden_field :del_flg, value: true
-                        = f.submit 'チケットをキャンセルする'
-                  .col-xs-6.center-block
-                    %sapn
-                      .modal-cancel
-                        = link_to 'キャンセル', class: 'modal-close'
+                      .ticket-cancel{data:{target: "ticket-cancel#{et.id}"}}
+                        = link_to 'キャンセル', 'javascript:void(0);'
+                    // チケットキャンセルモーダル
+                    .ticketcancel-modal{id: "ticket-cancel#{et.id}"}
+                      %p 予約チケットをキャンセルしてもよろしいですか？
+                      %p あなたとイベント主催者にキャンセル確認メールを送信します。
+                      .row.row-center
+                        .col-xs-6
+                          = form_for et do |f|
+                            = f.hidden_field :del_flg, value: true
+                            = f.submit 'チケットをキャンセルする'
+                        .col-xs-6
+                          .modal-cancel
+                            = link_to 'キャンセル', "javascript:void(0)", class: 'modal-close'
           .more-button-area
             = link_to 'もっと見る',  "#{@user.id}/ticket", class: 'more-button'
           -# %h3 **キャンセルしたチケット
