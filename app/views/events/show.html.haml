@@ -114,13 +114,13 @@
             %tr
               %th SNS
               %td
-                - if(@event.facebook_url)
+                - if(@event.facebook_url.present?)
                   %span.organizer-facebook
                     = link_to(content_tag(:i, ' Facebook', class: "fa fa-facebook-square"), "#{@event.facebook_url}", target: "_blank")
-                - if(@event.twitter_url)
+                - if(@event.twitter_url.present?)
                   %span.organizer-twitter
                     = link_to(content_tag(:i, ' Twitter', class: "fa fa-twitter-square"), "#{@event.twitter_url}", target: "_blank")
-                - if(@event.instagram_url)
+                - if(@event.instagram_url.present?)
                   %span.organizer-instagram
                     = link_to(content_tag(:i, ' Instagram', class: "fa fa-instagram"), "#{@event.instagram_url}", target: "_blank")
         .adsense-left.hidden-sm.hidden-xs
