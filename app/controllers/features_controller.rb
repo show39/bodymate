@@ -9,6 +9,11 @@ class FeaturesController < ApplicationController
     @events = Event.where(feature_code: 2).or(Event.where(feature2_code: 2)).where(del_flg: false).order('event_start DESC').page(params[:page]).per(12)
   end
 
+  def beginner
+    @user = current_user
+    @events = Event.where(feature_code: 13).or(Event.where(feature2_code: 13)).where(del_flg: false).order('event_start DESC').page(params[:page]).per(12)
+  end
+
   def body_make
     @user = current_user
     @events = Event.where(feature_code: 3).or(Event.where(feature2_code: 3)).where(del_flg: false).order('event_start DESC').page(params[:page]).per(12)

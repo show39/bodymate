@@ -126,6 +126,7 @@ Rails.application.routes.draw do
   # イベント特徴一覧
   get '/free_trial'      => 'features#free_trial'
   get '/trial_event'     => 'features#trial_event'
+  get '/beginner'        => 'features#beginner'
   get '/body_make'       => 'features#body_make'
   get '/diet'            => 'features#diet'
   get '/anti_aging'      => 'features#anti_aging'
