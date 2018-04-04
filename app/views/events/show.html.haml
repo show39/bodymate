@@ -72,7 +72,7 @@
               %th 開催場所
               %td
                 #{@event.place}
-                - if(@event.place_url)
+                - if @event.place_url.present?
                   = link_to('リンク', "#{@event.place_url}", target: "_blank")
             %tr
               %th 住所
