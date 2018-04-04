@@ -52,6 +52,12 @@ gem 'gretel'
 # 住所から緯度経度を取得
 gem 'geocoder'
 
+# サイトマップ
+gem 'sitemap_generator'
+
+# crontab
+gem 'whenever', require: false
+
 # gem 'redis'
 
 # gem 'capistrano-rails', group: :development

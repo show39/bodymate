@@ -23,8 +23,17 @@ set :linked_files, %w{ config/secrets.yml }
 set :default_env, rails_master_key: ENV['RAILS_MASTER_KEY'] || File.read('./config/secrets.yml.key')
 
 after 'deploy:publishing', 'deploy:restart'
+after 'deploy:restart', 'deploy:sitemap'
 namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
+  end
+  desc 'Generate sitemap'
+  task :sitemap do
+    on roles(:app) do
+      within release_path do
+        execute :bundle, :exec, :rake, 'sitemap:create RAILS_ENV=production'
+      end
+    end
   end
 end
