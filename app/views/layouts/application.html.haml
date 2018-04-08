@@ -45,6 +45,9 @@
     .compSearch-modal#multi-search
       %h2 イベント条件検索
       = search_form_for(@q, url:search_path) do |f|
+        .date-form-group
+          %p イベント開始日
+          = raw sprintf( f.date_select( :event_start_during_day, use_month_numbers: true, include_blank: true, start_year: Time.now.year, end_year: Time.now.year + 3, class: "form-control", date_separator: '%s'), '年', '月') + '日'
         .form-group
           = f.label :prefecture_eq, '都道府県'
           = f.select :prefecture_eq, @prefectures, {include_blank: '選択してください'}, class: "form-control"

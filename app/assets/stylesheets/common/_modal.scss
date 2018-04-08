@@ -6,7 +6,7 @@
   z-index: 1200;
   width: 50%;
   margin: 0;
-  padding: 20px 40px 60px;
+  padding: 20px 40px;
   border: 2px solid $dark_gray;
   border-radius: 5px;
   background: #fff;
@@ -14,6 +14,24 @@
   h2 {
     font-size: 20px;
     margin-bottom: 20px;
+  }
+  .date-form-group {
+    margin-bottom: 15px;
+    p {
+      margin-bottom: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      color: $font_black;
+    }
+    select {
+      height: 30px;
+      margin-left: 8px;
+      border: 1px solid #c1c1c1;
+      background-color: #ffffff;
+    }
+    select:first-of-type {
+      margin-left: 0;
+    }
   }
   .search_btn {
     font-size: 16px;
