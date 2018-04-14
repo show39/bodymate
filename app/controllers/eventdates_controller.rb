@@ -2,45 +2,45 @@ class EventdatesController < ApplicationController
 
   def today
     @user = current_user
-    @events = Event.where(event_start: Time.now.all_day, del_flg: false).order('event_start DESC').page(params[:page]).per(12)
+    @events = Event.where(event_start: Time.now.all_day, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
   end
 
   def tomorrow
     @user = current_user
     tomorrow = Date.tomorrow
     day_after_tomorrow = tomorrow + 1
-    @events = Event.where('event_start >= ? and event_start < ?', tomorrow, day_after_tomorrow).where(del_flg: false).order('event_start DESC').page(params[:page]).per(12)
+    @events = Event.where('event_start >= ? and event_start < ? and recruit_start <= ?', tomorrow, day_after_tomorrow, Time.now).where(del_flg: false).order('event_start DESC').page(params[:page]).per(12)
   end
 
   def thisweek
     @user = current_user
-    @events = Event.where(event_start: Time.now.all_week, del_flg: false).order('event_start DESC').page(params[:page]).per(12)
+    @events = Event.where(event_start: Time.now.all_week, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
   end
 
   def nextweek
     @user = current_user
     nextweek = Date.today.next_week
     nextweekend = nextweek + 7
-    @events = Event.where('event_start >= ? and event_start < ?', nextweek, nextweekend).where(del_flg: false).order('event_start DESC').page(params[:page]).per(12)
+    @events = Event.where('event_start >= ? and event_start < ? and recruit_start <= ?', nextweek, nextweekend, Time.now).where(del_flg: false).order('event_start DESC').page(params[:page]).per(12)
   end
 
   def thismonth
     @user = current_user
-    @events = Event.where(event_start: Time.now.all_month, del_flg: false).order('event_start DESC').page(params[:page]).per(12)
+    @events = Event.where(event_start: Time.now.all_month, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
   end
 
   def nextmonth
     @user = current_user
     nextmonth = Date.today.end_of_month
     nextmonthend = Date.today.beginning_of_month.months_since(2)
-    @events = Event.where('event_start > ? and event_start < ?', nextmonth, nextmonthend).where(del_flg: false).order('event_start DESC').page(params[:page]).per(12)
+    @events = Event.where('event_start > ? and event_start < ? and recruit_start <= ?', nextmonth, nextmonthend, Time.now).where(del_flg: false).order('event_start DESC').page(params[:page]).per(12)
   end
 
   def monday
     @user = current_user
     today = Date.today
     year_later = today.years_since(1)
-    year_events = Event.where('event_start >= ? and event_start < ?', today, year_later).where(del_flg: false)
+    year_events = Event.where('event_start >= ? and event_start < ? and recruit_start <= ?', today, year_later, Time.now).where(del_flg: false)
     events = []
     year_events.each do |event|
       if event.event_start.wday == 1
@@ -54,7 +54,7 @@ class EventdatesController < ApplicationController
     @user = current_user
     today = Date.today
     year_later = today.years_since(1)
-    year_events = Event.where('event_start >= ? and event_start < ?', today, year_later).where(del_flg: false)
+    year_events = Event.where('event_start >= ? and event_start < ? and recruit_start <= ?', today, year_later, Time.now).where(del_flg: false)
     events = []
     year_events.each do |event|
       if event.event_start.wday == 2
@@ -68,7 +68,7 @@ class EventdatesController < ApplicationController
     @user = current_user
     today = Date.today
     year_later = today.years_since(1)
-    year_events = Event.where('event_start >= ? and event_start < ?', today, year_later).where(del_flg: false)
+    year_events = Event.where('event_start >= ? and event_start < ? and recruit_start <= ?', today, year_later, Time.now).where(del_flg: false)
     events = []
     year_events.each do |event|
       if event.event_start.wday == 3
@@ -82,7 +82,7 @@ class EventdatesController < ApplicationController
     @user = current_user
     today = Date.today
     year_later = today.years_since(1)
-    year_events = Event.where('event_start >= ? and event_start < ?', today, year_later).where(del_flg: false)
+    year_events = Event.where('event_start >= ? and event_start < ? and recruit_start <= ?', today, year_later, Time.now).where(del_flg: false)
     events = []
     year_events.each do |event|
       if event.event_start.wday == 4
@@ -96,7 +96,7 @@ class EventdatesController < ApplicationController
     @user = current_user
     today = Date.today
     year_later = today.years_since(1)
-    year_events = Event.where('event_start >= ? and event_start < ?', today, year_later).where(del_flg: false)
+    year_events = Event.where('event_start >= ? and event_start < ? and recruit_start <= ?', today, year_later, Time.now).where(del_flg: false)
     events = []
     year_events.each do |event|
       if event.event_start.wday == 5
@@ -110,7 +110,7 @@ class EventdatesController < ApplicationController
     @user = current_user
     today = Date.today
     year_later = today.years_since(1)
-    year_events = Event.where('event_start >= ? and event_start < ?', today, year_later).where(del_flg: false)
+    year_events = Event.where('event_start >= ? and event_start < ? and recruit_start <= ?', today, year_later, Time.now).where(del_flg: false)
     events = []
     year_events.each do |event|
       if event.event_start.wday == 6
@@ -124,7 +124,7 @@ class EventdatesController < ApplicationController
     @user = current_user
     today = Date.today
     year_later = today.years_since(1)
-    year_events = Event.where('event_start >= ? and event_start < ?', today, year_later).where(del_flg: false)
+    year_events = Event.where('event_start >= ? and event_start < ? and recruit_start <= ?', today, year_later, Time.now).where(del_flg: false)
     events = []
     year_events.each do |event|
       if event.event_start.wday == 0

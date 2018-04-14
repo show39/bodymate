@@ -6,54 +6,54 @@
         %h3 都道府県
         %ul.row
           .col-xs-6
-            %li= link_to "北海道（#{Event.where(prefecture_code: 1, del_flg: false).count()}）", hokkaido_path
-            %li= link_to "青森県（#{Event.where(prefecture_code: 2, del_flg: false).count()}）", aomori_path
-            %li= link_to "秋田県（#{Event.where(prefecture_code: 3, del_flg: false).count()}）", akita_path
-            %li= link_to "岩手県（#{Event.where(prefecture_code: 4, del_flg: false).count()}）", iwate_path
-            %li= link_to "宮城県（#{Event.where(prefecture_code: 5, del_flg: false).count()}）", miyagi_path
-            %li= link_to "山形県（#{Event.where(prefecture_code: 6, del_flg: false).count()}）", yamagata_path
-            %li= link_to "福島県（#{Event.where(prefecture_code: 7, del_flg: false).count()}）", fukushima_path
-            %li= link_to "茨城県（#{Event.where(prefecture_code: 8, del_flg: false).count()}）", ibaraki_path
-            %li= link_to "栃木県（#{Event.where(prefecture_code: 9, del_flg: false).count()}）", tochigi_path
-            %li= link_to "群馬県（#{Event.where(prefecture_code: 10, del_flg: false).count()}）", gunma_path
-            %li= link_to "埼玉県（#{Event.where(prefecture_code: 11, del_flg: false).count()}）", saitama_path
-            %li= link_to "千葉県（#{Event.where(prefecture_code: 12, del_flg: false).count()}）", chiba_path
-            %li= link_to "東京都（#{Event.where(prefecture_code: 13, del_flg: false).count()}）", tokyo_path
-            %li= link_to "神奈川県（#{Event.where(prefecture_code: 14, del_flg: false).count()}）", kanagawa_path
-            %li= link_to "新潟県（#{Event.where(prefecture_code: 15, del_flg: false).count()}）", niigata_path
-            %li= link_to "富山県（#{Event.where(prefecture_code: 16, del_flg: false).count()}）", toyama_path
-            %li= link_to "石川県（#{Event.where(prefecture_code: 17, del_flg: false).count()}）", ishikawa_path
-            %li= link_to "福井県（#{Event.where(prefecture_code: 18, del_flg: false).count()}）", fukui_path
-            %li= link_to "山梨県（#{Event.where(prefecture_code: 19, del_flg: false).count()}）", yamanashi_path
-            %li= link_to "長野県（#{Event.where(prefecture_code: 20, del_flg: false).count()}）", nagano_path
-            %li= link_to "岐阜県（#{Event.where(prefecture_code: 21, del_flg: false).count()}）", gifu_path
-            %li= link_to "静岡県（#{Event.where(prefecture_code: 22, del_flg: false).count()}）", shizuoka_path
-            %li= link_to "愛知県（#{Event.where(prefecture_code: 23, del_flg: false).count()}）", aichi_path
-            %li= link_to "三重県（#{Event.where(prefecture_code: 24, del_flg: false).count()}）", mie_path
+            %li= link_to "北海道（#{Event.where(prefecture_code: 1, del_flg: false).where('recruit_start <= ?', Time.now).count}）", hokkaido_path
+            %li= link_to "青森県（#{Event.where(prefecture_code: 2, del_flg: false).where('recruit_start <= ?', Time.now).count}）", aomori_path
+            %li= link_to "秋田県（#{Event.where(prefecture_code: 3, del_flg: false).where('recruit_start <= ?', Time.now).count}）", akita_path
+            %li= link_to "岩手県（#{Event.where(prefecture_code: 4, del_flg: false).where('recruit_start <= ?', Time.now).count}）", iwate_path
+            %li= link_to "宮城県（#{Event.where(prefecture_code: 5, del_flg: false).where('recruit_start <= ?', Time.now).count}）", miyagi_path
+            %li= link_to "山形県（#{Event.where(prefecture_code: 6, del_flg: false).where('recruit_start <= ?', Time.now).count}）", yamagata_path
+            %li= link_to "福島県（#{Event.where(prefecture_code: 7, del_flg: false).where('recruit_start <= ?', Time.now).count}）", fukushima_path
+            %li= link_to "茨城県（#{Event.where(prefecture_code: 8, del_flg: false).where('recruit_start <= ?', Time.now).count}）", ibaraki_path
+            %li= link_to "栃木県（#{Event.where(prefecture_code: 9, del_flg: false).where('recruit_start <= ?', Time.now).count}）", tochigi_path
+            %li= link_to "群馬県（#{Event.where(prefecture_code: 10, del_flg: false).where('recruit_start <= ?', Time.now).count}）", gunma_path
+            %li= link_to "埼玉県（#{Event.where(prefecture_code: 11, del_flg: false).where('recruit_start <= ?', Time.now).count}）", saitama_path
+            %li= link_to "千葉県（#{Event.where(prefecture_code: 12, del_flg: false).where('recruit_start <= ?', Time.now).count}）", chiba_path
+            %li= link_to "東京都（#{Event.where(prefecture_code: 13, del_flg: false).where('recruit_start <= ?', Time.now).count}）", tokyo_path
+            %li= link_to "神奈川県（#{Event.where(prefecture_code: 14, del_flg: false).where('recruit_start <= ?', Time.now).count}）", kanagawa_path
+            %li= link_to "新潟県（#{Event.where(prefecture_code: 15, del_flg: false).where('recruit_start <= ?', Time.now).count}）", niigata_path
+            %li= link_to "富山県（#{Event.where(prefecture_code: 16, del_flg: false).where('recruit_start <= ?', Time.now).count}）", toyama_path
+            %li= link_to "石川県（#{Event.where(prefecture_code: 17, del_flg: false).where('recruit_start <= ?', Time.now).count}）", ishikawa_path
+            %li= link_to "福井県（#{Event.where(prefecture_code: 18, del_flg: false).where('recruit_start <= ?', Time.now).count}）", fukui_path
+            %li= link_to "山梨県（#{Event.where(prefecture_code: 19, del_flg: false).where('recruit_start <= ?', Time.now).count}）", yamanashi_path
+            %li= link_to "長野県（#{Event.where(prefecture_code: 20, del_flg: false).where('recruit_start <= ?', Time.now).count}）", nagano_path
+            %li= link_to "岐阜県（#{Event.where(prefecture_code: 21, del_flg: false).where('recruit_start <= ?', Time.now).count}）", gifu_path
+            %li= link_to "静岡県（#{Event.where(prefecture_code: 22, del_flg: false).where('recruit_start <= ?', Time.now).count}）", shizuoka_path
+            %li= link_to "愛知県（#{Event.where(prefecture_code: 23, del_flg: false).where('recruit_start <= ?', Time.now).count}）", aichi_path
+            %li= link_to "三重県（#{Event.where(prefecture_code: 24, del_flg: false).where('recruit_start <= ?', Time.now).count}）", mie_path
           .col-xs-6
-            %li= link_to "滋賀県（#{Event.where(prefecture_code: 25, del_flg: false).count()}）", shiga_path
-            %li= link_to "京都府（#{Event.where(prefecture_code: 26, del_flg: false).count()}）", kyoto_path
-            %li= link_to "大阪府（#{Event.where(prefecture_code: 27, del_flg: false).count()}）", osaka_path
-            %li= link_to "兵庫県（#{Event.where(prefecture_code: 28, del_flg: false).count()}）", hyogo_path
-            %li= link_to "奈良県（#{Event.where(prefecture_code: 29, del_flg: false).count()}）", nara_path
-            %li= link_to "和歌山県（#{Event.where(prefecture_code: 30, del_flg: false).count()}）", wakayama_path
-            %li= link_to "鳥取県（#{Event.where(prefecture_code: 31, del_flg: false).count()}）", tottori_path
-            %li= link_to "島根県（#{Event.where(prefecture_code: 32, del_flg: false).count()}）", shimane_path
-            %li= link_to "岡山県（#{Event.where(prefecture_code: 33, del_flg: false).count()}）", okayama_path
-            %li= link_to "広島県（#{Event.where(prefecture_code: 34, del_flg: false).count()}）", hiroshima_path
-            %li= link_to "山口県（#{Event.where(prefecture_code: 35, del_flg: false).count()}）", yamaguchi_path
-            %li= link_to "徳島県（#{Event.where(prefecture_code: 36, del_flg: false).count()}）", tokushima_path
-            %li= link_to "香川県（#{Event.where(prefecture_code: 37, del_flg: false).count()}）", kagawa_path
-            %li= link_to "愛媛県（#{Event.where(prefecture_code: 38, del_flg: false).count()}）", ehime_path
-            %li= link_to "高知県（#{Event.where(prefecture_code: 39, del_flg: false).count()}）", kochi_path
-            %li= link_to "福岡県（#{Event.where(prefecture_code: 40, del_flg: false).count()}）", fukuoka_path
-            %li= link_to "佐賀県（#{Event.where(prefecture_code: 41, del_flg: false).count()}）", saga_path
-            %li= link_to "長崎県（#{Event.where(prefecture_code: 42, del_flg: false).count()}）", nagasaki_path
-            %li= link_to "熊本県（#{Event.where(prefecture_code: 43, del_flg: false).count()}）", kumamoto_path
-            %li= link_to "大分県（#{Event.where(prefecture_code: 44, del_flg: false).count()}）", oita_path
-            %li= link_to "宮崎県（#{Event.where(prefecture_code: 45, del_flg: false).count()}）", miyazaki_path
-            %li= link_to "鹿児島県（#{Event.where(prefecture_code: 46, del_flg: false).count()}）", kagoshima_path
-            %li= link_to "沖縄県（#{Event.where(prefecture_code: 47, del_flg: false).count()}）", okinawa_path
+            %li= link_to "滋賀県（#{Event.where(prefecture_code: 25, del_flg: false).where('recruit_start <= ?', Time.now).count}）", shiga_path
+            %li= link_to "京都府（#{Event.where(prefecture_code: 26, del_flg: false).where('recruit_start <= ?', Time.now).count}）", kyoto_path
+            %li= link_to "大阪府（#{Event.where(prefecture_code: 27, del_flg: false).where('recruit_start <= ?', Time.now).count}）", osaka_path
+            %li= link_to "兵庫県（#{Event.where(prefecture_code: 28, del_flg: false).where('recruit_start <= ?', Time.now).count}）", hyogo_path
+            %li= link_to "奈良県（#{Event.where(prefecture_code: 29, del_flg: false).where('recruit_start <= ?', Time.now).count}）", nara_path
+            %li= link_to "和歌山県（#{Event.where(prefecture_code: 30, del_flg: false).where('recruit_start <= ?', Time.now).count}）", wakayama_path
+            %li= link_to "鳥取県（#{Event.where(prefecture_code: 31, del_flg: false).where('recruit_start <= ?', Time.now).count}）", tottori_path
+            %li= link_to "島根県（#{Event.where(prefecture_code: 32, del_flg: false).where('recruit_start <= ?', Time.now).count}）", shimane_path
+            %li= link_to "岡山県（#{Event.where(prefecture_code: 33, del_flg: false).where('recruit_start <= ?', Time.now).count}）", okayama_path
+            %li= link_to "広島県（#{Event.where(prefecture_code: 34, del_flg: false).where('recruit_start <= ?', Time.now).count}）", hiroshima_path
+            %li= link_to "山口県（#{Event.where(prefecture_code: 35, del_flg: false).where('recruit_start <= ?', Time.now).count}）", yamaguchi_path
+            %li= link_to "徳島県（#{Event.where(prefecture_code: 36, del_flg: false).where('recruit_start <= ?', Time.now).count}）", tokushima_path
+            %li= link_to "香川県（#{Event.where(prefecture_code: 37, del_flg: false).where('recruit_start <= ?', Time.now).count}）", kagawa_path
+            %li= link_to "愛媛県（#{Event.where(prefecture_code: 38, del_flg: false).where('recruit_start <= ?', Time.now).count}）", ehime_path
+            %li= link_to "高知県（#{Event.where(prefecture_code: 39, del_flg: false).where('recruit_start <= ?', Time.now).count}）", kochi_path
+            %li= link_to "福岡県（#{Event.where(prefecture_code: 40, del_flg: false).where('recruit_start <= ?', Time.now).count}）", fukuoka_path
+            %li= link_to "佐賀県（#{Event.where(prefecture_code: 41, del_flg: false).where('recruit_start <= ?', Time.now).count}）", saga_path
+            %li= link_to "長崎県（#{Event.where(prefecture_code: 42, del_flg: false).where('recruit_start <= ?', Time.now).count}）", nagasaki_path
+            %li= link_to "熊本県（#{Event.where(prefecture_code: 43, del_flg: false).where('recruit_start <= ?', Time.now).count}）", kumamoto_path
+            %li= link_to "大分県（#{Event.where(prefecture_code: 44, del_flg: false).where('recruit_start <= ?', Time.now).count}）", oita_path
+            %li= link_to "宮崎県（#{Event.where(prefecture_code: 45, del_flg: false).where('recruit_start <= ?', Time.now).count}）", miyazaki_path
+            %li= link_to "鹿児島県（#{Event.where(prefecture_code: 46, del_flg: false).where('recruit_start <= ?', Time.now).count}）", kagoshima_path
+            %li= link_to "沖縄県（#{Event.where(prefecture_code: 47, del_flg: false).where('recruit_start <= ?', Time.now).count}）", okinawa_path
       .genre.col-md-3.col-xs-12
         %h3 スポーツ種目
         %ul.row
@@ -100,12 +100,12 @@
         %h3 開催日
         %ul.row
           .col-xs-6
-            %li= link_to "今日のイベント（#{Event.where(event_start: Time.now.all_day).where(del_flg: false).count()}）", today_path
-            %li= link_to "明日のイベント（#{Event.where('event_start >= ? and event_start < ?', Date.tomorrow, Date.tomorrow + 1).where(del_flg: false).count()}）", tomorrow_path
-            %li= link_to "今週のイベント（#{Event.where(event_start: Time.now.all_week).where(del_flg: false).count()}）", thisweek_path
-            %li= link_to "来週のイベント（#{Event.where('event_start >= ? and event_start < ?', Date.today.next_week, Date.today.next_week + 7).where(del_flg: false).count()}）", nextweek_path
-            %li= link_to "今月のイベント（#{Event.where(event_start: Time.now.all_month).where(del_flg: false).count()}）", thismonth_path
-            %li= link_to "来月のイベント（#{Event.where('event_start > ? and event_start < ?', Date.today.end_of_month, Date.today.beginning_of_month.months_since(2)).where(del_flg: false).count()}）", nextmonth_path
+            %li= link_to "今日のイベント（#{Event.where(event_start: Time.now.all_day,del_flg: false).where('recruit_start <= ?', Time.now).count}）", today_path
+            %li= link_to "明日のイベント（#{Event.where('event_start >= ? and event_start < ? and recruit_start <= ?', Date.tomorrow, Date.tomorrow + 1, Time.now).where(del_flg: false).count}）", tomorrow_path
+            %li= link_to "今週のイベント（#{Event.where(event_start: Time.now.all_week, del_flg: false).where('recruit_start <= ?', Time.now).count}）", thisweek_path
+            %li= link_to "来週のイベント（#{Event.where('event_start >= ? and event_start < ? and recruit_start <= ?', Date.today.next_week, Date.today.next_week + 7, Time.now).where(del_flg: false).count}）", nextweek_path
+            %li= link_to "今月のイベント（#{Event.where(event_start: Time.now.all_month, del_flg: false).where('recruit_start <= ?', Time.now).count}）", thismonth_path
+            %li= link_to "来月のイベント（#{Event.where('event_start > ? and event_start < ? and recruit_start <= ?', Date.today.end_of_month, Date.today.beginning_of_month.months_since(2), Time.now).where(del_flg: false).count}）", nextmonth_path
           .col-xs-6
             %li= link_to "月曜日のイベント", monday_path
             %li= link_to "火曜日のイベント", tuesday_path
