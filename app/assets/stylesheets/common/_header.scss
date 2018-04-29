@@ -24,7 +24,6 @@
     }
   }
   .search-modalbtn {
-    color: $font_black;
     width: 50px;
     cursor: pointer;
     position: absolute;
@@ -32,12 +31,14 @@
     padding-bottom: 5px;
     text-align: center;
     .fa-search {
+      color: #777777;
       font-size: 22px;
       margin-top: 9px;
-      margin-bottom: 3px;
     }
     .search_text {
+      color: $font_black;
       font-size: 8px;
+      margin-top: 5px;
     }
   }
 }
