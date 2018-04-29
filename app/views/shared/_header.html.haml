@@ -8,13 +8,16 @@
         %span.icon-bar
         %span.hamburger-menu MENU
       = link_to image_tag("logo.svg", alt: "Bodymateロゴ"), root_path, class: 'navbar-brand logo'
+      .search-modalbtn.visible-xs{data:{target: 'multi-search'}}
+        %i.fa.fa-search
+        %p.search_text 条件検索
     .navbar-collapse.collapse#navbar-main
       %ul.nav.navbar-nav.navbar-right
         %li
           = link_to guide_path do
             %p ガイド
             %i.fa.fa-info-circle
-        %li
+        %li.hidden-xs
           .search-modalbtn{data:{target: 'multi-search'}}
             %p 条件検索
             %i.fa.fa-search
