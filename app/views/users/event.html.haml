@@ -30,8 +30,10 @@
                 %td.col-md-2.text-center=event.event_start.strftime("%m月%d日 %H:%M")
                 %td.col-md-2.text-center *** / #{event.tickets.sum(:quantity)}
                 %td.col-md-2.text-center=event.recruit_end.strftime("%m月%d日 %H:%M")
-                - if user_signed_in? && @user.id == current_user.id
+                - if user_signed_in? && @user.id == current_user.id && event.event_start >= Time.now
                   %td.col-md-2.text-center= link_to '編集', edit_event_path(event)
+                - elsif user_signed_in? && @user.id == current_user.id && event.event_start < Time.now
+                  %td.col-md-2.text-center= link_to '複製', "/events/#{event.id}/replication"
                 - else
                   %td.col-md-2
         - if user_signed_in? && @user.id == current_user.id
