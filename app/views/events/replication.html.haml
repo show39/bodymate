@@ -35,21 +35,21 @@
                 = f.label :イベント開始日時
                 %span.required 必須
                 %br
-                = f.datetime_select :event_start, use_month_number: true, minute_step: 10, default: Time.now
+                = f.datetime_select :event_start, use_month_number: true, minute_step: 5, default: Time.now
               .event-datatime-bottom
                 = f.label :イベント終了日時
                 %br
-                = f.datetime_select :event_end, use_month_number: true, minute_step: 10
+                = f.datetime_select :event_end, use_month_number: true, minute_step: 5
           .form-group
             .field
               .event-datatime-top
                 = f.label :募集開始日時
                 %br
-                = f.datetime_select :recruit_start, use_month_number: true, minute_step: 10
+                = f.datetime_select :recruit_start, use_month_number: true, minute_step: 5
               .event-datatime-bottom
                 = f.label :募集終了日時
                 %br
-                = f.datetime_select :recruit_end, use_month_number: true, minute_step: 10
+                = f.datetime_select :recruit_end, use_month_number: true, minute_step: 5
           .form-group
             .field
               = f.label :イベント画像
