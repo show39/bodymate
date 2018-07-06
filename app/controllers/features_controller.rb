@@ -63,4 +63,24 @@ class FeaturesController < ApplicationController
     @user = current_user
     @events = Event.where(feature_code: 12, del_flg: false).or(Event.where(feature2_code: 12, del_flg: false)).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
   end
+
+  def seminar
+    @user = current_user
+    @events = Event.where(feature_code: 14, del_flg: false).or(Event.where(feature2_code: 14, del_flg: false)).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
+  end
+
+  def nutrition
+    @user = current_user
+    @events = Event.where(feature_code: 15, del_flg: false).or(Event.where(feature2_code: 15, del_flg: false)).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
+  end
+
+  def mental
+    @user = current_user
+    @events = Event.where(feature_code: 16, del_flg: false).or(Event.where(feature2_code: 16, del_flg: false)).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
+  end
+
+  def relax
+    @user = current_user
+    @events = Event.where(feature_code: 17, del_flg: false).or(Event.where(feature2_code: 17, del_flg: false)).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
+  end
 end

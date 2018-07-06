@@ -103,10 +103,10 @@ Rails.application.routes.draw do
   get  '/treatment'           => 'sports_types#treatment'
   get  '/relaxation'          => 'sports_types#relaxation'
   get  '/other_treatments'    => 'sports_types#other_treatments'
-  get  '/seminar'             => 'sports_types#seminar'
-  get  '/nutrition'           => 'sports_types#nutrition'
-  get  '/mental'              => 'sports_types#mental'
   get  '/squash'              => 'sports_types#squash'
+  get  '/triathlon'           => 'sports_types#triathlon'
+  get  '/bicycle'             => 'sports_types#bicycle'
+  get  '/batontwirling'       => 'sports_types#batontwirling'
 
   # 開催日別イベント一覧
   get  '/today'      => 'eventdates#today'
@@ -137,5 +137,9 @@ Rails.application.routes.draw do
   get '/parent_child'    => 'features#parent_child'
   get '/matching'        => 'features#matching'
   get '/friends'         => 'features#friends'
+  get '/seminar'         => 'features#seminar'
+  get '/nutrition'       => 'features#nutrition'
+  get '/mental'          => 'features#mental'
+  get '/relax'           => 'features#relax'
 
 end

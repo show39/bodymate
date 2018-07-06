@@ -144,11 +144,6 @@ class SportsTypesController < ApplicationController
     @events = Event.where(sports_type_code: 28, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
   end
 
-  def seminar
-    @user = current_user
-    @events = Event.where(sports_type_code: 29, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
-  end
-
   def bodycare
     @user = current_user
     @events = Event.where(sports_type_code: 30, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
@@ -169,18 +164,23 @@ class SportsTypesController < ApplicationController
     @events = Event.where(sports_type_code: 33, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
   end
 
-  def nutrition
-    @user = current_user
-    @events = Event.where(sports_type_code: 35, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
-  end
-
-  def mental
-    @user = current_user
-    @events = Event.where(sports_type_code: 36, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
-  end
-
   def squash
     @user = current_user
     @events = Event.where(sports_type_code: 37, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
+  end
+
+  def triathlon
+    @user = current_user
+    @events = Event.where(sports_type_code: 38, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
+  end
+
+  def bicycle
+    @user = current_user
+    @events = Event.where(sports_type_code: 39, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
+  end
+
+  def batontwirling
+    @user = current_user
+    @events = Event.where(sports_type_code: 40, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
   end
 end
