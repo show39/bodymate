@@ -212,6 +212,6 @@ class EventsController < ApplicationController
     end
 
     def search_params
-      params.require(:q).permit(:event_start_during_day, :prefecture_eq, :sports_type_eq, :feature_or_feature2_eq)
+      params.require(:q).permit(:name_or_description_cont, :event_start_gteq, :event_start_lteq_end_of_day, :prefecture_eq, :sports_type_eq, :feature_or_feature2_eq)
     end
 end

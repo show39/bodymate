@@ -2,16 +2,21 @@
   .topslider
   .gradation
   .topcontent
-    %h1 オトナが簡単に運動できる世の中をつくる
-    .row.topcontent-button
-      .col-md-6.col-xs-6
-        .button.search-modalbtn{data:{target: "multi-search"}} 検索する
-      .col-md-6.col-xs-6
-      - if user_signed_in?
-        = link_to "募集する", new_event_path, class: "button post-button"
-      - else
-        = link_to "募集する", new_user_session_path, class: "button post-button"
-    %p Bodymateはスポーツ & ヘルスケア専用のイベント予約サービスです。<br>誰でも無料で募集ができます。
+    -# %h1 オトナが簡単に運動できる世の中をつくる
+    %h2 Bodymateはスポーツイベント専用の掲示板です。<br>誰でも無料で投稿できます。
+    %p イベントを探す
+    = search_form_for(@q, url:search_path) do |f|
+      -# .topSerach-row
+      -#   = raw sprintf( f.date_select( :event_start_gteq, use_month_numbers: true, include_blank: true, start_year: Time.now.year, end_year: Time.now.year + 3, date_separator: '%s'), '年', '月') + '日'
+      -#   %span 〜
+      -#   %span.separator
+      -#   = raw sprintf( f.date_select( :event_start_lteq_end_of_day, use_month_numbers: true, include_blank: true, start_year: Time.now.year, end_year: Time.now.year + 3, date_separator: '%s'), '年', '月') + '日'
+      = f.search_field :name_or_description_cont, class: "topSerach-freeword", placeholder: 'フリーワード'
+      .topSerach-row
+        = f.select :prefecture_eq, @prefectures, {include_blank: '都道府県'}, class: "topSerach-select"
+        = f.select :sports_type_eq, @sports_types, {include_blank: 'スポーツ'}, class: "topSerach-select"
+        = f.select :feature_or_feature2_eq, @features, {include_blank: '特徴'}, class: "topSerach-select"
+        = f.submit '検索', class: "topSerach-submit"
 .adsense-home.visible-xs
   %p SPONSORED LINK
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

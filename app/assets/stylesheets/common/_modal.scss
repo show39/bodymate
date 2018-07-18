@@ -38,6 +38,15 @@
     padding: 7px 35px;
     margin-top: 10px;
   }
+  .search_event_start_wave {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .search_event_start_wave {
+    display: inline;
+    margin-bottom: 0;
+  }
 }
 
 // イベント削除のモーダル

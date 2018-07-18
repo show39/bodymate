@@ -1,6 +1,6 @@
 Ransack.configure do |config|
-  config.add_predicate :during_day,
-                       :arel_predicate => 'between',
-                       :formatter => proc {|v| v..v.end_of_day},
-                       :compounds => false
+  config.add_predicate  :lteq_end_of_day,
+                        :arel_predicate => 'lteq',
+                        :formatter => proc {|v| v.end_of_day},
+                        :compounds => false
 end
