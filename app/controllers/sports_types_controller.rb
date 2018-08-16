@@ -9,11 +9,6 @@ class SportsTypesController < ApplicationController
     @events = Event.where(sports_type_code: 2, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
   end
 
-  def walking
-    @user = current_user
-    @events = Event.where(sports_type_code: 34, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
-  end
-
   def yoga
     @user = current_user
     @events = Event.where(sports_type_code: 3, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
@@ -162,6 +157,11 @@ class SportsTypesController < ApplicationController
   def other_treatments
     @user = current_user
     @events = Event.where(sports_type_code: 33, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
+  end
+
+  def walking
+    @user = current_user
+    @events = Event.where(sports_type_code: 34, del_flg: false).where('recruit_start <= ?', Time.now).order('event_start DESC').page(params[:page]).per(12)
   end
 
   def squash
