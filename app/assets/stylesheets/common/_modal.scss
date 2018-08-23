@@ -41,6 +41,15 @@
   .search_event_start_wave {
     margin-bottom: 10px;
   }
+  .modal-close {
+    float: left;
+    font-size: 16px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 7px 15px;
+  }
 }
 @media screen and (min-width: 1000px) {
   .search_event_start_wave {
