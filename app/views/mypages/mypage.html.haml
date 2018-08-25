@@ -1,0 +1,144 @@
+- provide(:title, "マイページ")
+.mypage-wrapper
+  .row
+    .col-md-8
+      .profile-area.clearfix
+        .row
+          .col-xs-4
+            %p.profile-label お名前
+            %p.profile-label 肩書き
+            %p.profile-label プロフィール
+          .col-xs-8
+            %p.profile-data #{current_user.name}さん
+            %p.profile-data #{current_user.title}
+            .profile-profile #{simple_format(current_user.profile)}
+        .account-editArea
+          .account-editBtn#account-editBtn
+            %i.fa.fa-cog
+            %span アカウント編集
+          .account-editList
+            %p
+              = link_to 'アカウント編集', edit_user_registration_path
+            %p
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete
+      .adsense-left
+        %p SPONSORED LINK
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        / 予約レスポンシブ
+        %ins{class: "adsbygoogle",
+             style: "display:block",
+             data:{ad:{client: "ca-pub-9627911157097400", slot: "2862552430", format: "auto"}}}
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      // タブエリア
+      .tab-wrap
+        %input#tab1{type: "radio", name: "tab_btn", checked: "checked"}
+        %input#tab2{type: "radio", name: "tab_btn"}
+        %input#tab3{type: "radio", name: "tab_btn"}
+        .tab-area
+          %label.tab1-label{for: "tab1"}チケット
+          %label.tab2-label{for: "tab2"}主催イベント
+          %label.tab3-label{for: "tab3"}終了したイベント
+        .panel-area
+          // チケットエリア
+          .tab-panel#panel1
+            %table
+              %tr
+                .row
+                  %th.col-md-4 イベント名
+                  %th.col-md-2 開催日時
+                  %th.col-md-2 チケット名
+                  %th.col-md-2 ステータス
+                  %th.col-md-2
+              - @entry_tickets.each do |et|
+                %tr
+                  .row
+                    %td.col-md-4= link_to "#{et.ticket.event.name}", event_path(et.ticket.event)
+                    %td.col-md-2.text-center=et.ticket.event.event_start.strftime("%m月%d日 %H:%M")
+                    %td.col-md-2.text-center=et.ticket.name
+                    - if et.ticket.event.event_start >= Time.now && et.del_flg == false
+                      %td.col-md-2.text-center 参加予定
+                    - elsif et.del_flg == true
+                      %td.col-md-2.text-center キャンセル済み
+                    - else
+                      %td.col-md-2.text-center イベント終了
+                    %td.col-md-2.text-center
+                      - if et.del_flg == false && et.ticket.event.event_start >= Time.now
+                        .ticket-cancel{data:{target: "ticket-cancel#{et.id}"}}
+                          = link_to 'キャンセル', 'javascript:void(0);'
+                      // チケットキャンセルモーダル
+                      .ticketcancel-modal{id: "ticket-cancel#{et.id}"}
+                        %p 予約チケットをキャンセルしてもよろしいですか？
+                        %p あなたとイベント主催者にキャンセル確認メールを送信します。
+                        .row.row-center
+                          .col-xs-6
+                            = form_for et do |f|
+                              = f.hidden_field :del_flg, value: true
+                              = f.submit 'チケットをキャンセルする'
+                          .col-xs-6
+                            .modal-cancel
+                              = link_to 'キャンセル', "javascript:void(0)", class: 'modal-close'
+            .more-button-area
+              = link_to 'もっと見る',  "users/#{current_user.id}/ticket", class: 'more-button'
+          // 主催イベントエリア
+          .tab-panel#panel2
+            %table
+              %tr
+                .row
+                  %th.col-md-4 イベント名
+                  %th.col-md-2 開催日時
+                  %th.col-md-2 募集状況
+                  %th.col-md-2 募集終了日時
+                  %th.col-md-2
+              - @wanted_events.each do |we|
+                %tr
+                  .row
+                    %td.col-md-4= link_to "#{we.name}", event_path(we)
+                    %td.col-md-2.text-center=we.event_start.strftime("%m月%d日 %H:%M")
+                    %td.col-md-2.text-center *** / #{we.tickets.sum(:quantity)}
+                    %td.col-md-2.text-center=we.recruit_end.strftime("%m月%d日 %H:%M")
+                    - if user_signed_in? && current_user.id == current_user.id
+                      %td.col-md-2.text-center= link_to '編集', edit_event_path(we)
+                    - else
+                      %td.col-md-2
+            .more-button-area
+              = link_to 'もっと見る',  "users/#{current_user.id}/event", class: 'more-button'
+          // 終了したイベントエリア
+          .tab-panel#panel3
+            %table
+              %tr
+                .row
+                  %th.col-md-4 イベント名
+                  %th.col-md-2 開催日時
+                  %th.col-md-2 募集結果
+                  %th.col-md-2 募集終了日時
+                  %th.col-md-2
+              - @finished_events.each do |fe|
+                %tr
+                  .row
+                    %td.col-md-4= link_to "#{fe.name}", event_path(fe)
+                    %td.col-md-2.text-center=fe.event_start.strftime("%m月%d日 %H:%M")
+                    %td.col-md-2.text-center *** / #{fe.tickets.sum(:quantity)}
+                    %td.col-md-2.text-center=fe.recruit_end.strftime("%m月%d日 %H:%M")
+                    %td.col-md-2.text-center= link_to '複製', "/events/#{fe.id}/replication"
+            .more-button-area
+              = link_to 'もっと見る',  "users/#{current_user.id}/event", class: 'more-button'
+      .account-area
+        %h2 アカウント
+        %p
+          = link_to 'アカウント編集', edit_user_registration_path
+        %p
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete
+    .col-md-4
+      .adsense-right
+        %p SPONSORED LINK
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        -# 予約300×600
+        %ins{class: "adsbygoogle",
+             style: "display:inline-block;width:300px;height:600px",
+             data:{ad:{client: "ca-pub-9627911157097400", slot: "2581999765"}}}
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+.mypage-overlay.clearfix

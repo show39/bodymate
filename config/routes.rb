@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   resources :bookings, only: [:new, :create, :update]
 
   root 'static_pages#home'
-  get 'users/:id/event'  => 'users#event'
+  get 'users/:id/event'   => 'users#event'
   get 'users/:id/ticket'  => 'users#ticket'
+  get 'mypage'    => 'mypages#mypage'
   get 'events/:id/replication'  => 'events#replication'
   get 'search', to: 'events#search'
 

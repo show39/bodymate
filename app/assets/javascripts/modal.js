@@ -146,4 +146,15 @@ $(document).on('turbolinks:load', function() {
     }
   });
 
+  // マイページのアカウント編集
+  $('#account-editBtn').on('click', function() {
+    $('.adsense-left').css('margin-top', '125px');
+    $('.account-editList, .mypage-overlay').show();
+  });
+
+  $('.mypage-overlay').on('click', function() {
+    $('.adsense-left').css('margin-top', '40px');
+    $('.account-editList, .mypage-overlay').hide();
+  });
+
 });
