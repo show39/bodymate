@@ -77,21 +77,26 @@
     }
     .tab-area {
       display: block;
+      box-sizing: border-box;
       width: 100%;
       height: 42px;
-      line-height: 42px;
       border: 1px solid #999;
-      border-radius: 5px;
+      border-radius: 4px;
       margin-bottom: 20px;
       label {
+        display: inline-block;
         text-align: center;
         width: calc(100% / 3);
         border-right: 1px solid #999;
-        margin-left: -4px;
+        line-height: 40px;
+        margin-left: -3px;
+      }
+      label:first-child {
+        margin-left: 0;
       }
       label:last-child {
         border-right: none;
-        width: calc(100% / 3 + 4px);
+        width: calc(100% / 3 - 2px);
       }
     }
     .panel-area {
@@ -124,7 +129,8 @@
     #tab1:checked ~ .tab-area .tab1-label {
       color: #fff;
       background-color: $dark-primary;
-      border-radius: 5px 0 0 5px;
+      border-radius: 3px 0 0 3px;
+      height: 40px;
     }
     #tab1:checked ~ .panel-area .tab-panel#panel1 {
       display: block;
@@ -132,6 +138,7 @@
     #tab2:checked ~ .tab-area .tab2-label {
       color: #fff;
       background-color: $dark-primary;
+      height: 40px;
     }
     #tab2:checked ~ .panel-area .tab-panel#panel2 {
       display: block;
@@ -139,7 +146,8 @@
     #tab3:checked ~ .tab-area .tab3-label {
       color: #fff;
       background-color: $dark-primary;
-      border-radius: 0 5px 5px 0;
+      border-radius: 0 3px 3px 0;
+      height: 40px;
     }
     #tab3:checked ~ .panel-area .tab-panel#panel3 {
       display: block;
@@ -169,11 +177,6 @@
       color: $brand_primary;
       background-color: #fff;
       order: 3px solid $brand_primary;
-    }
-  }
-  .account-area {
-    .account-link {
-
     }
   }
 }
