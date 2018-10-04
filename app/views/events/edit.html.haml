@@ -4,12 +4,13 @@
     .row
       .col-sm-10.col-sm-offset-1
         %h2 イベントの編集
-        = form_for @event do |f|
+        = form_for @event, builder: ApplicationFormBuilder do |f|
           .form-group
             .field
               = f.label :イベント名
               %span.required 必須
-              = f.text_field :name, placeholder: "例：皇居マラソン", class: "form-control"
+              = f.countable_field(:name, 30)
+              = f.text_field :name, placeholder: "例：皇居マラソン", class: "form-control countable"
           .form-group
             .field
               = f.label :スポーツ種別
@@ -28,7 +29,8 @@
           .form-group
             .field
               = f.label :概要
-              = f.text_area :description, placeholder: "例：5km、10km、ハーフマラソンでの自動タイム計測できます", class: "form-control form-textarea", rows: "3"
+              = f.countable_field(:description, 80)
+              = f.text_area :description, placeholder: "例：5km、10km、ハーフマラソンでの自動タイム計測できます", class: "form-control form-textarea countable", rows: "3"
           .form-group
             .field
               .event-datatime-top
@@ -58,7 +60,8 @@
             .field
               = f.label :イベント案内文
               %span.required 必須
-              = f.text_area :article, placeholder: "例：すごいマラソンイベントです!!", class: "form-control form-textarea", rows: "6"
+              = f.countable_field(:article, 5000)
+              = f.text_area :article, placeholder: "例：すごいマラソンイベントです!!", class: "form-control form-textarea countable", rows: "6"
           .form-group
             .field
               = f.label :会場名
