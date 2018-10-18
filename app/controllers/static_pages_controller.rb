@@ -25,6 +25,10 @@ class StaticPagesController < ApplicationController
     @user = current_user
   end
 
+  def company
+    @user = current_user
+  end
+
   def contact
     @user = current_user
   end

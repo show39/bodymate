@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get  '/terms'      => 'static_pages#terms'
   get  '/faq'        => 'static_pages#faq'
   get  '/privacy'    => 'static_pages#privacy'
+  get  '/company'    => 'static_pages#company'
   get  '/contact'    => 'static_pages#contact'
   get  '/advertise'  => 'static_pages#advertise'
 

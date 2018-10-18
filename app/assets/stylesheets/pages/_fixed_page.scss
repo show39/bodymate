@@ -1,90 +1,84 @@
-.guide-wrapper {
-  margin: 100px 15px 40px;
+.fixedpage__wrapper {
   color: $font_black;
   line-height: 1.6;
-  h1 {
-    font-size: 22px;
+  margin: 100px auto 40px;
+  max-width: 810px;
+  .fixedpage__titleArea {
     text-align: center;
+    margin-bottom: 30px;
+    h1 {
+      font-size: 22px;
+      display: inline-block;
+      border-bottom: 2px solid #03002c;
+      padding-bottom: 20px;
+    }
   }
   h2 {
-    font-size: 20px;
+    font-size: 18px;
     border-left: 3px solid $dark_primary;
     background-color: #e2e0ff;
     padding: 10px 20px;
     margin-bottom: 20px;
   }
   h3 {
-    font-size: 18px;
-    padding: 10px 20px;
-  }
-  p {
-    padding: 0 30px;
-  }
-  a {
     font-size: 16px;
-    padding: 20px 30px;
-  }
-  a:hover {
-    text-decoration: none;
   }
 }
 
-.terms, .privacy {
-  color: $font_black;
-  line-height: 1.6;
-  margin-top: 100px;
-  margin-bottom: 30px;
-  h1 {
-    font-size: 20px;
-  }
-  h2 {
-    font-size: 18px;
-  }
-  h3 {
-    font-size: 16px;
+// 運営会社
+.company__table {
+  width: 100%;
+  .company__table-row {
+    height: 40px;
+    border-bottom: 1px solid #03002c;
+    .company__table-item {
+      font-weight: bold;
+      padding: 20px 0 20px 40px;
+    }
+    .company__table-data {
+      font-size: 16px;
+      padding: 20px 0;
+    }
   }
 }
 
 @media screen and (max-width:767px) {
-  .terms, .privacy {
-    margin-top: 60px;
-    margin-bottom: 20px;
-  }
-  h1 {
-    font-size: 18px;
-  }
-  h2 {
-    font-size: 16px;
-  }
-  h3 {
-    font-size: 14px;
-  }
-  p {
-    font-size: 12px
-  }
-  .guide-wrapper {
-    margin: 70px 10px 30px;
-    h1 {
-      font-size: 20px;
+  .fixedpage__wrapper {
+    margin: 70px 20px 30px;
+    .fixedpage__titleArea {
+      h1 {
+        font-size: 20px;
+        padding-bottom: 15px;
+      }
     }
+
     h2 {
-      font-size: 18px;
-      border-left: 3px solid $dark_primary;
-      background-color: #e2e0ff;
-      padding: 10px 20px;
-      margin-bottom: 20px;
+      font-size: 16px;
     }
     h3 {
-      font-size: 16px;
-      padding: 5px 10px;
+      font-size: 14px;
     }
     p {
-      font-size: 12px;
-      padding: 0 15px;
+      font-size: 12px
     }
-    a {
-      font-size: 14px;
-      padding: 15px;
+  }
+
+  // SP 運営会社
+  .company__table {
+    .company__table-row {
+      .company__table-item {
+        font-size: 14px;
+        text-align: center;
+        width: 25%;
+        padding: 20px 0;
+      }
+      .company__table-data {
+        width: 75%;
+        p {
+          font-size: 13px;
+          line-height: 1.8;
+        }
+      }
     }
   }
 }
