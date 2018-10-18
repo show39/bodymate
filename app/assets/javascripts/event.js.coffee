@@ -9,7 +9,7 @@ $ ->
       time = new Date().getTime()
       regexp = new RegExp($(this).data('id'), 'g')
       $(this).before($(this).data('boxes').replace(regexp, time))
-      event.preventDefault
+      event.preventDefault()
 
   $(document).on 'turbolinks:load', ->
     $('.countable').on 'click keyup blur change paste input onload', ->
